@@ -1,6 +1,7 @@
 <div title="Menu Unidad">
 
-    <h1>Menu Unidad</h1>
+  /* MENU UNIDAD */ 
+<h1>Menu Unidad</h1>
     
     <h3>POA</h3>
     <button wire:click="registro">Registrar POA</button>
