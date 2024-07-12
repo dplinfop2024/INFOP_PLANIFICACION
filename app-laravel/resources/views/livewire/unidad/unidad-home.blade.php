@@ -3,7 +3,7 @@
     <h1>Menu Unidad</h1>
     
     <h3>POA</h3>
-    <button>Registrar POA</button>
+    <button wire:click="registro">Registrar POA</button>
     
     <button>Editar POA</button>
 
@@ -34,4 +34,6 @@
     <button>Ver Avances PACC</button>
 
     <button>Editar Avances PACC</button>
+
+    {{$title}}
 </div>
