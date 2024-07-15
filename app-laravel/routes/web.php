@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 use App\Livewire\Home;
+use App\Livewire\Programacion\Poa\VerListaPoa;
+use App\Livewire\Programacion\ProgramacionHome;
 use App\Livewire\Unidad\Pacc\RegistrarPacc;
 use App\Livewire\Unidad\Pacc\VerPacc;
 use App\Livewire\Unidad\Poa\RegistrarPoa;
@@ -31,5 +33,11 @@ Route::get('/unidad/verpresupuesto', VerPresupuesto::class)->name('unidad.presup
 //---Rutas Unidad-PACC---//
 Route::get('/unidad/registropacc', RegistrarPacc::class)->name('registro.pacc');
 Route::get('/unidad/verpacc', VerPacc::class)->name('unidad.pacc');
+
+//----------RUTAS PROGRAMACION----------//
+//Pagina principa Unidad
+Route::get('/programacion', ProgramacionHome::class)->name('programacion.home');
+//---Rutas Programacion-POA---//
+route::get('/programacion/verlistapoa', VerListaPoa::class)->name('programacion.listapoa');
 
 
