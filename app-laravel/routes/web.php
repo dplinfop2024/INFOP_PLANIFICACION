@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 use App\Livewire\Home;
+use App\Livewire\Login;
 use App\Livewire\Programacion\Poa\VerListaPoa;
 use App\Livewire\Programacion\ProgramacionHome;
 use App\Livewire\Unidad\Pacc\RegistrarPacc;
@@ -17,6 +18,8 @@ use App\Livewire\Unidad\UnidadHome;
 
 //Ruta pagina principal
 Route::get('/', Home::class)->name('welcome');
+//Login
+Route::get('/login', Login::class)->name('login');
 
 //Route::get('/counter', Counter::class);
 

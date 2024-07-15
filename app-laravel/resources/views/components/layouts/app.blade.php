@@ -9,7 +9,7 @@
         @vite('resources/sass/app.scss','resources/js/app.js')
     </head>
     <body>
-        <livewire:nav-bar :hidden="$hidden ?? ''"/>
+        <livewire:nav-bar/>
         {{ $slot }}
         
     </body>

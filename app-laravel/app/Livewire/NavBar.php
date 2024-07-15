@@ -7,10 +7,19 @@ use Livewire\Component;
 class NavBar extends Component
 {
 
-    public $hidden;
+    public $tipoUsuario = '';
+    public $hidden = '';
 
-    public function mount($hidden){
-        $this->hidden = $hidden;
+    public function mount(){
+        $this->tipoUsuario = session('tipoUsuario');
+        if($this->tipoUsuario == ''){
+            $this->hidden = 'hidden';
+        }
+    }
+
+    public function logout(){
+        session(['tipoUsuario' => '']);
+        return redirect()->route('welcome');
     }
 
     public function render()

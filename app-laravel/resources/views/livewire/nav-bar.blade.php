@@ -38,7 +38,7 @@
           </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Cerrar sesión</a>
+            <a class="nav-link" wire:click="logout()">Cerrar sesión</a>
         </li>
       </ul>
     </div>
