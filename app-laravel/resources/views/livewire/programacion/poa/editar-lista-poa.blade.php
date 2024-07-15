@@ -1,3 +1,3 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+<h1>Editar Lista POA Programacion</h1>
 </div>

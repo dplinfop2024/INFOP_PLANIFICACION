@@ -12,6 +12,11 @@ use App\Livewire\Unidad\Poa\VerPoa;
 use App\Livewire\Unidad\Presupuesto\RegistrarPresupuesto;
 use App\Livewire\Unidad\Presupuesto\VerPresupuesto;
 use App\Livewire\Unidad\UnidadHome;
+use App\Livewire\Programacion\Poa\EditarListaPoa;
+use App\Livewire\Programacion\Presupuesto\EditarPresupuesto;
+use App\Livewire\Programacion\Presupuesto\VerListaPresupuesto;
+
+
 
 
 
@@ -22,7 +27,7 @@ Route::get('/', Home::class)->name('welcome');
 
 
 //----------RUTAS UNIDAD----------//
-//Pagina principa Unidad
+//Pagina principal Unidad
 Route::get('/unidad', UnidadHome::class)->name('unidad.home');
 //---Rutas Unidad-POA---//
 Route::get('/unidad/registropoa', RegistrarPoa::class)->name('registro.poa');
@@ -35,9 +40,11 @@ Route::get('/unidad/registropacc', RegistrarPacc::class)->name('registro.pacc');
 Route::get('/unidad/verpacc', VerPacc::class)->name('unidad.pacc');
 
 //----------RUTAS PROGRAMACION----------//
-//Pagina principa Unidad
+//Pagina principal Programación
 Route::get('/programacion', ProgramacionHome::class)->name('programacion.home');
 //---Rutas Programacion-POA---//
 route::get('/programacion/verlistapoa', VerListaPoa::class)->name('programacion.listapoa');
-
-
+route::get('/programacion/editarlistapoa', EditarListaPoa::class)->name('programacion.edicionpoa');
+//---Rutas Programacion-Presupuesto---//
+route::get('/programacion/verlistapresupuesto', VerListaPresupuesto::class)->name('programacion.listapresupuesto');
+route::get('/programacion/editarpresupuesto', EditarPresupuesto::class)->name('programacion.edicionpresupuesto');
