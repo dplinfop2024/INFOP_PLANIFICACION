@@ -2,7 +2,7 @@
     <h1>Menu Unidad</h1>
     
     <h3>POA</h3>
-    <button href="/unidad/registropoa" wire:navigate>Registrar POA</button>
+    <button href="registroPOA" wire:navigate>Registrar POA</button>
     
     <button>Editar POA</button>
 
