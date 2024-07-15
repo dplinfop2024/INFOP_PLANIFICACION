@@ -1,10 +1,8 @@
-<div title="Menu Unidad">
-
-  /* MENU UNIDAD */ 
-<h1>Menu Unidad</h1>
+<div>
+    <h1>Menu Unidad</h1>
     
     <h3>POA</h3>
-    <button wire:click="registro">Registrar POA</button>
+    <button href="/unidad/registropoa" wire:navigate>Registrar POA</button>
     
     <button>Editar POA</button>
 
@@ -36,5 +34,5 @@
 
     <button>Editar Avances PACC</button>
 
-    {{$title}}
+    {{$prueba}}
 </div>
