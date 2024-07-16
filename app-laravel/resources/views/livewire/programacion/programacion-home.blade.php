@@ -1,6 +1,6 @@
 <div class="container">
     <div class="d-grid gap-2 col-6 mx-auto">
-    <h5>Menú Programación</h5>
+    
     <h3 class="text-center">POA</h3>
     
     <button class="btn btn-primary" type="button" href="{{route('programacion.listapoa')}}" wire:navigate>Ver Lista POA</button>
