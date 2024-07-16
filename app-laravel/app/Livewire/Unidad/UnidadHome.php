@@ -13,6 +13,15 @@ class UnidadHome extends Component
 
     public $prueba = "Menu Unidad";
 
+    public function mount(){
+        //verifica si hay una sesion con un usuario activo
+        $tipoUsuario = session('tipoUsuario');
+        //si existe un usuario, lo redirije a su seccion correspondiente
+        if($tipoUsuario != 'Unidad'){
+            return redirect()->route('login');
+        }
+    }
+
     public function registro(){
 
         $this->prueba = "cambio";

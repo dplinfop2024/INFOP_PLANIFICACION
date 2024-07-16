@@ -1,42 +1,60 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary" {{$hidden}}>
   <div class="container-fluid">
+    @if($tipoUsuario==='Unidad')
     <a class="navbar-brand" href="{{route('unidad.home')}}" wire:navigate>Menu Unidad</a>
+    @elseif($tipoUsuario==='Programacion')
+    <a class="navbar-brand" href="{{route('programacion.home')}}" wire:navigate>Menu Programacion</a>
+    @endif
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        @if($tipoUsuario==='Unidad')
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               POA
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{route('registro.poa')}}" wire:navigate>Registrar POA</a></li>
-              <li><a class="dropdown-item" href="{{route('unidad.poa')}}" wire:navigate>Ver POA en ejecución</a></li>
-              <li><a class="dropdown-item" href="{{route('unidad.poa')}}" wire:navigate>Ver POA en programación</a></li>
+              @foreach($menuUnidadPOA as $menuPOA)
+              <li><a class="dropdown-item" href="{{route($menuPOA['link'])}}" wire:navigate>{{$menuPOA['opcion']}}</a></li>
+              @endforeach
             </ul>
         </li>
+        @elseif($tipoUsuario==='Programacion')
+        <a class="nav-link" href="{{route('programacion.listapoa')}}" wire:navigate role="button" aria-expanded="false">
+          Ver lista POA
+        </a>
+        @endif
+        @if($tipoUsuario==='Unidad')
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Presupuesto
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{{route('registro.presupuesto')}}" wire:navigate wire:navigate>Registrar Presupuesto</a></li>
-              <li><a class="dropdown-item" href="{{route('unidad.presupuesto')}}" wire:navigate>Ver Presupuesto en ejecución</a></li>
-              <li><a class="dropdown-item" href="{{route('unidad.presupuesto')}}" wire:navigate>Ver Presupuesto en programación</a></li>
+              @foreach($menuUnidadPresupuesto as $menuPres)
+              <li><a class="dropdown-item" href="{{route($menuPres['link'])}}" wire:navigate wire:navigate>{{$menuPres['opcion']}}</a></li>
+              @endforeach
             </ul>
         </li>
+        @elseif($tipoUsuario==='Programacion')
+        <a class="nav-link" href="{{route('programacion.listapresupuesto')}}" wire:navigate role="button" aria-expanded="false">
+          Ver lista Presupuesto
+        </a>
+        @endif
+        @if($tipoUsuario==='Unidad')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             PACC
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{route('registro.pacc')}}" wire:navigate>Registrar PACC</a></li>
-            <li><a class="dropdown-item" href="{{route('unidad.pacc')}}" wire:navigate>Ver PACC ejecución</a></li>
-            <li><a class="dropdown-item" href="{{route('unidad.pacc')}}" wire:navigate>Ver PACC programación</a></li>
+            @foreach($menuUnidadPACC as $menuPACC)
+            <li><a class="dropdown-item" href="{{route($menuPACC['link'])}}" wire:navigate>{{$menuPACC['opcion']}}</a></li>
+            @endforeach
           </ul>
         </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link" wire:click="logout()">Cerrar sesión</a>
         </li>
