@@ -11,10 +11,16 @@ use Livewire\Component;
 class Home extends Component
 {
 
-    public $hidden = 'hidden';
-
+    //funcion que se llama al cargar la pagina
     public function mount(){
-        
+        //verifica si hay una sesion con un usuario activo
+        $tipoUsuario = session('tipoUsuario');
+        //si existe un usuario, lo redirije a su seccion correspondiente
+        if($tipoUsuario == 'Unidad'){
+            return redirect()->route('unidad.home');
+        }else if($tipoUsuario == 'Programacion'){
+            return redirect()->route('programacion.home');
+        }
     }
 
     public function render()
