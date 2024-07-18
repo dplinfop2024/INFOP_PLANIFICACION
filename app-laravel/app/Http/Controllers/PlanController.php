@@ -6,8 +6,16 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
-    public function planificacion_controller()
-     {
-        return "rr";
-    }
+   public function planificacion(){
+    return view('planificacion');
+
+              
+   }
+
+
+   public function plan(){
+    return "testeo";
+
+              
+   }
 }
