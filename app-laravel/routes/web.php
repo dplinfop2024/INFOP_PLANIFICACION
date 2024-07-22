@@ -73,7 +73,7 @@ Route::get('/planificiacion',PlanificacionHome::class)->name('planificacion.home
 //---Rutas Planificacion-POA---//
 route::get('/planificacion/verpoa',PoaVerPoa::class)->name('planificacion.verpoa');
 route::get('/planificacion/editarpoa',PoaEditarPoa::class)->name('planificacion.editarpoa');
-route::get('/planificaicon/veravancespoa',VerAvancesPoa::class)->name('planificacion.veravancespacc');
+route::get('/planificaicon/veravancespoa',VerAvancesPoa::class)->name('planificacion.veravancespoa');
 
 //---Rutas Planificacion-Pacc---//
 route::get('/planificacion/verpacc',PaccVerPacc::class)->name('planificacion.verpacc');

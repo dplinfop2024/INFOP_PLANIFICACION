@@ -5,5 +5,9 @@
         <button class="btn btn-primary" type="button" wire:click="login('Unidad')">Unidad</button>
         <br>
         <button class="btn btn-primary" type="button" wire:click="login('Programacion')">Programacion</button>
+        <br>
+        <button class="btn btn-primary" type="button" wire:click="login('Planificacion')">Planificacion</button>
+        <br>
+        <button class="btn btn-primary" type="button" wire:click="login('Proveduria')">Proveduria</button>
     </div>
 </div>
