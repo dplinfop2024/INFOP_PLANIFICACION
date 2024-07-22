@@ -1,9 +1,17 @@
 <?php
 
+use App\Livewire\Planificacion\AvancesPacc\VerAvancesPacc;
+use App\Livewire\Planificacion\AvancesPoa\VerAvancesPoa;
+use App\Livewire\Planificacion\PlanificacionHome;
+
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 use App\Livewire\Home;
 use App\Livewire\Login;
+use App\Livewire\Planificacion\Pacc\VerPacc as PaccVerPacc;
+use App\Livewire\Planificacion\Poa\EditarPoa as PoaEditarPoa;
+use App\Livewire\Planificacion\Poa\VerPoa as PoaVerPoa;
+use App\Livewire\Planificacion\Presupuesto\VerPresupuesto as PresupuestoVerPresupuesto;
 use App\Livewire\Programacion\Poa\VerListaPoa;
 use App\Livewire\Programacion\ProgramacionHome;
 use App\Livewire\Unidad\Pacc\RegistrarPacc;
@@ -18,6 +26,8 @@ use App\Livewire\Programacion\Poa\VisualizarPoa;
 use App\Livewire\Programacion\Presupuesto\EditarPresupuesto;
 use App\Livewire\Programacion\Presupuesto\VerListaPresupuesto;
 use App\Livewire\Programacion\Presupuesto\VisualizarPresupuesto;
+use App\Livewire\Proveduria\Pacc\VerPacc as ProveduriaVerPacc;
+use App\Livewire\Proveduria\ProveduriaHome;
 
 //Ruta pagina principal
 Route::get('/', Home::class)->name('welcome');
@@ -54,3 +64,28 @@ route::get('/programacion/verlistapresupuesto', VerListaPresupuesto::class)->nam
 route::get('/programacion/editarpresupuesto', EditarPresupuesto::class)->name('programacion.edicionpresupuesto');
 route::get('/programacion/visualizarpresupuesto', VisualizarPresupuesto::class)->name('programacion.visualizarpresupuesto');
 
+//----------RUTAS PLANIFICACION----------//
+
+//Pagina principal Programación
+Route::get('/planificiacion',PlanificacionHome::class)->name('planificacion.home');
+
+
+//---Rutas Planificacion-POA---//
+route::get('/planificacion/verpoa',PoaVerPoa::class)->name('planificacion.verpoa');
+route::get('/planificacion/editarpoa',PoaEditarPoa::class)->name('planificacion.editarpoa');
+route::get('/planificaicon/veravancespoa',VerAvancesPoa::class)->name('planificacion.veravancespacc');
+
+//---Rutas Planificacion-Pacc---//
+route::get('/planificacion/verpacc',PaccVerPacc::class)->name('planificacion.verpacc');
+route::get('/planificacion/veravancespacc',VerAvancesPacc::class)->name('planificacion.veravancespacc');
+
+//---Rutas Planificacion-Presupuesto---//
+route::get('/planificacion/verpresupuesto',PresupuestoVerPresupuesto::class)->name('planificacion.verpresupuesto');
+
+//----------RUTAS Proveduria----------//
+
+//Pagina principal Proveduria
+Route::get('/proveduria',ProveduriaHome::class)->name('proveduria.home');
+
+//---Rutas Proveduria-Pacc---//
+route::get('/proveduria/verpacc',ProveduriaVerPacc::class)->name('proveduria.verpacc');
