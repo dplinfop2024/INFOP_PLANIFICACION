@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Livewire\Planificacion\AvancesPoa;
-
+use Livewire\Attributes\Title;
 use Livewire\Component;
+
+#[Title('Avances POA')]
 
 class VerAvancesPoa extends Component
 {
