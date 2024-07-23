@@ -11,6 +11,17 @@
     <body>
         <livewire:nav-bar/>
         {{ $slot }}
-        
+        <script>
+            document.addEventListener('livewire:init', () => {
+              Livewire.on('log', (event) => {
+                try{
+                  console[event[0].level](event[0].obj);
+                }
+                catch{
+                  console.log(event[0]);
+                }
+              });
+            });
+          </script>
     </body>
 </html>

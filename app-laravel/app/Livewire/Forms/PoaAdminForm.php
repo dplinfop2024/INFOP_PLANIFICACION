@@ -9,11 +9,12 @@ use Livewire\Form;
 class PoaAdminForm extends Form
 {
     #[Rule('required')]
-    public $actividad;
-    public $nombreUnidad;
-    public $responsable;
-    public $cargoResponsable;
-    public $anio;
+    public $actividad = '5100';
+    public $nombreUnidad = 'Departamento de Programacion';
+    public $responsable = 'Catalina Isabel Lopez Smith';
+    public $cargoResponsable = 'Jefa Departamento Programacion';
+    public $anio = '2025';
     public $componente;
-    public $metas = [];
+    public $numComponente;
+    public $metas = [['codigo'=> '1.1', 'descripcion'=>'']];
 }
