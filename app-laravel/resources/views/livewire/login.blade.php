@@ -9,5 +9,7 @@
         <button class="btn btn-primary" type="button" wire:click="login('Planificacion')">Planificacion</button>
         <br>
         <button class="btn btn-primary" type="button" wire:click="login('Proveduria')">Proveduria</button>
+        <br>
+        <button class="btn btn-primary" type="button" wire:click="login('Evaluacion')">Evaluacion</button>
     </div>
 </div>

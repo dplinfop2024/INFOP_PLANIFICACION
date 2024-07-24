@@ -6,6 +6,24 @@ use App\Livewire\Planificacion\PlanificacionHome;
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
+use App\Livewire\Evaluacion\AvancesPacc\EditarAvancePacc;
+use App\Livewire\Evaluacion\AvancesPacc\ListaAvancePacc;
+use App\Livewire\Evaluacion\AvancesPoa\EditarAvancePoa;
+use App\Livewire\Evaluacion\AvancesPoa\ListaAvancePoa;
+use App\Livewire\Evaluacion\AvancesPoa\ReporteAvancePoa;
+use App\Livewire\Evaluacion\AvancesPoa\VerAvancePoa;
+use App\Livewire\Evaluacion\EvaluacionHome;
+use App\Livewire\Evaluacion\Pacc\EditarPacc;
+use App\Livewire\Evaluacion\Pacc\ListaPacc;
+use App\Livewire\Evaluacion\Pacc\VerPacc as EvaluacionPaccVerPacc;
+use App\Livewire\Evaluacion\Poa\ListaPoa;
+use App\Livewire\Evaluacion\Poa\ReportePoa;
+use App\Livewire\Evaluacion\Poa\VerPoa as EvaluacionPoaVerPoa;
+use App\Livewire\Evaluacion\Presupuesto\EditarPresupuestoEjecucion;
+use App\Livewire\Evaluacion\Presupuesto\ListaPresupuestoEjecucion;
+use App\Livewire\Evaluacion\Presupuesto\ReporteAnualPresupuestoEjecucion;
+use App\Livewire\Evaluacion\Presupuesto\ReporteTrimestralPresupuestoEjecucion;
+use App\Livewire\Evaluacion\Presupuesto\VerPresupuestoEjecucion;
 use App\Livewire\Home;
 use App\Livewire\Login;
 use App\Livewire\Planificacion\Pacc\VerPacc as PaccVerPacc;
@@ -50,6 +68,8 @@ Route::get('/unidad/verpresupuesto', VerPresupuesto::class)->name('unidad.presup
 Route::get('/unidad/registropacc', RegistrarPacc::class)->name('registro.pacc');
 Route::get('/unidad/verpacc', VerPacc::class)->name('unidad.pacc');
 
+
+
 //----------RUTAS PROGRAMACION----------//
 //Pagina principal Programación
 Route::get('/programacion', ProgramacionHome::class)->name('programacion.home');
@@ -63,6 +83,9 @@ route::get('/programacion/visualizarpoa', VisualizarPoa::class)->name('programac
 route::get('/programacion/verlistapresupuesto', VerListaPresupuesto::class)->name('programacion.listapresupuesto');
 route::get('/programacion/editarpresupuesto', EditarPresupuesto::class)->name('programacion.edicionpresupuesto');
 route::get('/programacion/visualizarpresupuesto', VisualizarPresupuesto::class)->name('programacion.visualizarpresupuesto');
+
+
+
 
 //----------RUTAS PLANIFICACION----------//
 
@@ -82,6 +105,8 @@ route::get('/planificacion/veravancespacc',VerAvancesPacc::class)->name('planifi
 //---Rutas Planificacion-Presupuesto---//
 route::get('/planificacion/verpresupuesto',PresupuestoVerPresupuesto::class)->name('planificacion.verpresupuesto');
 
+
+
 //----------RUTAS Proveduria----------//
 
 //Pagina principal Proveduria
@@ -89,3 +114,41 @@ Route::get('/proveduria',ProveduriaHome::class)->name('proveduria.home');
 
 //---Rutas Proveduria-Pacc---//
 route::get('/proveduria/verpacc',ProveduriaVerPacc::class)->name('proveduria.verpacc');
+
+
+
+
+
+//----------RUTAS EVALUACION----------//
+
+//---RUTA PRINCIPAL DE EVALUACION---// 
+route::get('/evaluacion',EvaluacionHome::class)->name('evaluacion.home');
+
+//---Rutas Evaluacion Avances POA---//
+route::get('/evaluacion/editaravancepoa',EditarAvancePoa::class)->name('evaluacion.edicionavancepoa');
+route::get('/evaluacion/veravancepoa',VerAvancePoa::class)->name('evaluacion.visualizaravancepoa');
+route::get('/evaluacion/listaavancepoa',ListaAvancePoa::class)->name('evaluacion.listaavancepoa');
+route::get('/evaluacion/reporteavance',ReporteAvancePoa::class)->name('evaluacion.reporteavance');
+
+//---Rutas Evaluacion Avances PACC---//
+route::get('/evaluacion/listaavancepacc',ListaAvancePacc::class)->name('evaluacion.listaavancepacc');
+route::get('/evaluacion/editaravancepacc',EditarAvancePacc::class)->name('evaluacion.editaravancepacc');
+route::get('/evaluacion/veravancepacc',VerAvancePoa::class)->name('evaluacion.veravancepacc');
+
+//---Rutas Evaluacion PACC---//
+route::get('/evaluacion/editarpacc',EditarPacc::class)->name('evaluacion.edicionpacc');
+route::get('/evaluacion/verpacc',EvaluacionPaccVerPacc::class)->name('evaluacion.visualizarpacc');
+route::get('/evaluacion/listapacc',ListaPacc::class)->name('evaluacion.listapacc');
+
+
+//---Rutas Evaluacion POA---//
+route::get('/evaluacion/verpoa',EvaluacionPoaVerPoa::class)->name('evaluacion.visualizarpoa');
+route::get('/evaluacion/reportepoa',ReportePoa::class)->name('evaluacion.repostepoa');
+route::get('/evaluacion/listapoa',ListaPoa::class)->name('evaluacion.listapoa');
+
+//---Rutas Evaluacion Presupuesto---//
+route::get('/evaluacion/listapresupuestoejecucion',ListaPresupuestoEjecucion::class)->name('evaluacion.listapresupuestoejecucion');
+route::get('/evaluacion/editarpresupuestoejecucion',EditarPresupuestoEjecucion::class)->name('evaluacion.edicionpresupuestoejecucion');
+route::get('/evaluacion/verpresupuestoejecucion',VerPresupuestoEjecucion::class)->name('evaluacion.visualizarpresupuestoejecucion');
+route::get('/evaluacion/resporteanualpresupuestoejecucion',ReporteAnualPresupuestoEjecucion::class)->name('evaluacion.resporteanualpresupuestoejecucion');
+route::get('/evaluacion/resportetrimestralpresupuestoejecucion',ReporteTrimestralPresupuestoEjecucion::class)->name('evaluacion.resportetrimestralpresupuestoejecucion');
