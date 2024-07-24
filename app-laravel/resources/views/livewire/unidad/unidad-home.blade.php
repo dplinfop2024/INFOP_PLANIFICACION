@@ -7,7 +7,7 @@
 
         <button class="btn btn-primary" type="button" href="{{route('registro.poa.operativo')}}" wire:navigate>Registrar POA Operativo</button>
     
-        <button class="btn btn-primary" type="button" href="{{route('unidad.poa')}}" wire:navigate>Editar POA</button>
+        <button class="btn btn-primary" type="button" href="{{route('unidad.editarpoa')}}" wire:navigate>Editar POA</button>
 
         <button class="btn btn-primary" type="button" href="" wire:navigate>Ver Avances POA</button>
 
