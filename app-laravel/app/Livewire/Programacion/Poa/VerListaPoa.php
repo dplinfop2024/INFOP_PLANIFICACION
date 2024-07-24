@@ -11,3 +11,4 @@ class VerListaPoa extends Component
         return view('livewire.programacion.poa.ver-lista-poa');
     }
 }
+
