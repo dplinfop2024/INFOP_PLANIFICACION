@@ -11,6 +11,9 @@ class NavBar extends Component
     //variable que define si la barra se oculta o no
     public $hidden = '';
 
+
+    //--------------------RUTAS UNIDAD NAVBAR--------------------//
+
     public $menuUnidadPOA = [
         ['opcion'=> 'Registro POA', 'link'=>'registro.poa'],
         ['opcion'=> 'Editar POA', 'link'=>'unidad.poa'],
@@ -34,38 +37,29 @@ class NavBar extends Component
         ['opcion'=> 'Ver Avances de PACC', 'link'=>'unidad.pacc'],
         ['opcion'=> 'Editar Avances de PACC', 'link'=>'unidad.pacc']
     ];
-// Planificacion - Rutas -nav-bar
 
-public $menuPlanificacionPOA = [
+    //--------------------RUTAS PLANIFICACION NAVBAR--------------------//
 
-    ['opcion'=> 'Ver POA', 'link'=>'planificacion.verpoa'],
-    ['opcion'=> 'Editar POA', 'link'=>'planificacion.editarpoa'],
-    ['opcion'=> 'Ver Avances POA', 'link'=>'planificacion.veravancespoa']
+    public $menuPlanificacionPOA = [
+        ['opcion'=> 'Ver POA', 'link'=>'planificacion.verpoa'],
+        ['opcion'=> 'Editar POA', 'link'=>'planificacion.editarpoa'],
+        ['opcion'=> 'Ver Avances POA', 'link'=>'planificacion.veravancespoa']
+    ];
 
-];
+    public $menuPlanificacionPresupuesto = [
+        ['opcion'=> 'Ver Presupuesto', 'link'=>'planificacion.verpresupuesto'] 
+    ];
 
-public $menuPlanificacionPresupuesto = [
+    public $menuPlanificacionPACC = [
+        ['opcion'=> 'Ver PACC', 'link'=>'planificacion.verpacc'],
+        ['opcion'=> 'Ver Avances de PACC', 'link'=>'planificacion.veravancespacc']
+    ];
 
-    ['opcion'=> 'Ver Presupuesto', 'link'=>'planificacion.verpresupuesto']
-    
-];
+    //--------------------RUTAS PROVEEDURIA NAVBAR--------------------//
 
-public $menuPlanificacionPACC = [
-
-
-    ['opcion'=> 'Ver PACC', 'link'=>'planificacion.verpacc'],
-    ['opcion'=> 'Ver Avances de PACC', 'link'=>'planificacion.veravancespacc']
-  
-];
-
-// Proveduria - Rutas -nav-bar
-
-public $menuProveduriaPACC = [
-
-
-    ['opcion'=> 'Ver PACC', 'link'=>'planificacion.verpacc'],
-    
-];
+    public $menuProveduriaPACC = [
+        ['opcion'=> 'Ver PACC', 'link'=>'planificacion.verpacc'],
+    ];
 
 
 

@@ -14,6 +14,9 @@ class RegistrarPoa extends Component
 
     public PoaAdminForm $poaForm;
 
+    public $componente = "descripcion componente";
+    public $lineaEstrategica = "descripcion linea estrategica";
+
     public $listaMetas = array (
         array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
         'm1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 

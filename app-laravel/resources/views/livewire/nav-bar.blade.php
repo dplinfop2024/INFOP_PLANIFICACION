@@ -17,6 +17,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        <!--Menu navbar para Unidad-->
         @if($tipoUsuario==='Unidad')
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,42 +29,16 @@
               @endforeach
             </ul>
         </li>
-        
-        @elseif($tipoUsuario==='Planificacion')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            POA
-            </a>
-            <ul class="dropdown-menu">
-              @foreach($menuPlanificacionPOA as $menu_POA)
-              <li><a class="dropdown-item" href="{{route($menu_POA['link'])}}" wire:navigate>{{$menu_POA['opcion']}}</a></li>
-              @endforeach
-            </ul>
-        </li> 
-
-        @elseif($tipoUsuario==='Programacion')
-        <a class="nav-link" href="{{route('programacion.listapoa')}}" wire:navigate role="button" aria-expanded="false">
-          Ver lista POA
-        </a>
-     
-        @endif
-        @if($tipoUsuario==='Unidad')
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Presupuesto
-            </a>
-            <ul class="dropdown-menu">
-              @foreach($menuUnidadPresupuesto as $menuPres)
-              <li><a class="dropdown-item" href="{{route($menuPres['link'])}}" wire:navigate wire:navigate>{{$menuPres['opcion']}}</a></li>
-              @endforeach
-            </ul>
+            Presupuesto
+          </a>
+          <ul class="dropdown-menu">
+            @foreach($menuUnidadPresupuesto as $menuPres)
+            <li><a class="dropdown-item" href="{{route($menuPres['link'])}}" wire:navigate wire:navigate>{{$menuPres['opcion']}}</a></li>
+            @endforeach
+          </ul>
         </li>
-        @elseif($tipoUsuario==='Programacion')
-        <a class="nav-link" href="{{route('programacion.listapresupuesto')}}" wire:navigate role="button" aria-expanded="false">
-          Ver lista Presupuesto
-        </a>
-        @endif
-        @if($tipoUsuario==='Unidad')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             PACC
@@ -74,7 +49,18 @@
             @endforeach
           </ul>
         </li>
+        <!--Menu navbar para Planificación-->
         @elseif($tipoUsuario==='Planificacion')
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            POA
+            </a>
+            <ul class="dropdown-menu">
+              @foreach($menuPlanificacionPOA as $menu_POA)
+              <li><a class="dropdown-item" href="{{route($menu_POA['link'])}}" wire:navigate>{{$menu_POA['opcion']}}</a></li>
+              @endforeach
+            </ul>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             PACC
@@ -85,6 +71,15 @@
               @endforeach
             </ul>
         </li>
+        <!--Menu navbar para Programación-->
+        @elseif($tipoUsuario==='Programacion')
+        <a class="nav-link" href="{{route('programacion.listapoa')}}" wire:navigate role="button" aria-expanded="false">
+          Ver lista POA
+        </a>
+        <a class="nav-link" href="{{route('programacion.listapresupuesto')}}" wire:navigate role="button" aria-expanded="false">
+          Ver lista Presupuesto
+        </a>
+        <!--Menu navbar para Proveeduria-->
         @elseif($tipoUsuario==='Proveduria')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -96,8 +91,8 @@
               @endforeach
             </ul>
         </li>
-        @endif
-        @if($tipoUsuario==='Evaluacion')
+        <!--Menu navbar para evaluación-->
+        @elseif($tipoUsuario==='Evaluacion')
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             POA
@@ -119,7 +114,6 @@
         <a class="nav-link" href="{{route('evaluacion.listapresupuestoejecucion')}}" wire:navigate role="button" aria-expanded="false">
           Ver lista Presupuesto
         </a>
-      
         @endif
         <li class="nav-item">
             <a class="nav-link" wire:click="logout()">Cerrar sesión</a>
