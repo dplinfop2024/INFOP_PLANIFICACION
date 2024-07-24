@@ -3,7 +3,9 @@
     
         <h3 class="text-center">POA</h3>
 
-        <button class="btn btn-primary" type="button" href="{{route('registro.poa')}}" wire:navigate>Registrar POA</button>
+        <button class="btn btn-primary" type="button" href="{{route('registro.poa')}}" wire:navigate>Registrar POA Administrativo</button>
+
+        <button class="btn btn-primary" type="button" href="{{route('registro.poa.operativo')}}" wire:navigate>Registrar POA Operativo</button>
     
         <button class="btn btn-primary" type="button" href="{{route('unidad.poa')}}" wire:navigate>Editar POA</button>
 
