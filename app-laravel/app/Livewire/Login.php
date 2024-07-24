@@ -23,9 +23,10 @@ class Login extends Component
             return redirect()->route('programacion.home');
         }else if ($tipoUsuario =='Planificacion') {
             return redirect()->route('planificacion.home');
-        
         }else if ($tipoUsuario =='Proveduria') {
             return redirect()->route('proveduria.home');
+        }else if ($tipoUsuario =='Evaluacion') {
+            return redirect()->route('evaluacion.home');
         } 
     }
 
@@ -37,13 +38,13 @@ class Login extends Component
             return redirect()->route('unidad.home');
         }else if($tipoUsuario == 'Programacion'){
             return redirect()->route('programacion.home');
-        }
-        else if ($tipoUsuario =='Planificacion') {
+        }else if ($tipoUsuario =='Planificacion') {
             return redirect()->route('planificacion.home');
-        
         }else if ($tipoUsuario =='Proveduria') {
             return redirect()->route('proveduria.home');
-        }
+        }else if ($tipoUsuario =='Evaluacion') {
+            return redirect()->route('evaluacion.home');
+        } 
         
     }
     public function render()

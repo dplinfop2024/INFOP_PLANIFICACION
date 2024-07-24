@@ -4,10 +4,10 @@ namespace App\Livewire\Evaluacion\AvancesPacc;
 
 use Livewire\Component;
 
-class EditarrAvancePacc extends Component
+class ListaAvancePacc extends Component
 {
     public function render()
     {
-        return view('livewire.evaluacion.avances-pacc.editarr-avance-pacc');
+        return view('livewire.evaluacion.avances-pacc.lista-avance-pacc');
     }
 }
