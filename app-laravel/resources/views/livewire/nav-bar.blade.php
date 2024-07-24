@@ -1,21 +1,24 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary" {{$hidden}}>
   <div class="container-fluid">
-    @if($tipoUsuario==='Unidad')
-    <a class="navbar-brand" href="{{route('unidad.home')}}" wire:navigate>Menu Unidad</a>
-    @elseif($tipoUsuario==='Programacion')
-    <a class="navbar-brand" href="{{route('programacion.home')}}" wire:navigate>Menu Programacion</a>
-    @elseif($tipoUsuario==='Planificacion')
-    <a class="navbar-brand" href="{{route('planificacion.home')}}" wire:navigate>Menu Planificacion</a>
-    @elseif($tipoUsuario==='Proveduria')
-    <a class="navbar-brand" href="{{route('proveduria.home')}}" wire:navigate>Menu Proveduria</a>
-    @elseif($tipoUsuario==='Evaluacion')
-    <a class="navbar-brand" href="{{route('evaluacion.home')}}" wire:navigate>Menu Evaluacion</a>
-    @endif
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <a class="logo mx-3">
+        <img src="/images/Logo INFOP small.png" alt="Bootstrap" width="200" height="84">
+      </a>
+      @if($tipoUsuario==='Unidad')
+      <a class="navbar-brand" href="{{route('unidad.home')}}" wire:navigate>Menu Unidad</a>
+      @elseif($tipoUsuario==='Programacion')
+      <a class="navbar-brand" href="{{route('programacion.home')}}" wire:navigate>Menu Programacion</a>
+      @elseif($tipoUsuario==='Planificacion')
+      <a class="navbar-brand" href="{{route('planificacion.home')}}" wire:navigate>Menu Planificacion</a>
+      @elseif($tipoUsuario==='Proveduria')
+      <a class="navbar-brand" href="{{route('proveduria.home')}}" wire:navigate>Menu Proveduria</a>
+      @elseif($tipoUsuario==='Evaluacion')
+      <a class="navbar-brand" href="{{route('evaluacion.home')}}" wire:navigate>Menu Evaluacion</a>
+      @endif
       <ul class="navbar-nav">
         <!--Menu navbar para Unidad-->
         @if($tipoUsuario==='Unidad')
