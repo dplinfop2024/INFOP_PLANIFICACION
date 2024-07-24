@@ -14,7 +14,7 @@
         <button class="btn btn-primary" type="button" href="{{route('evaluacion.listaavancepacc')}}" wire:navigate>Ver Lista de PACC</button>
     
         <h3 class="text-center">Presupuesto</h3>
-        <button class="btn btn-primary" type="button" href="{{route('evaluacion.listapresupuestoejecucion')}}" wire:navigate>Ver Lista de PACC</button>
+        <button class="btn btn-primary" type="button" href="{{route('evaluacion.listapresupuestoejecucion')}}" wire:navigate>Ver Listado de Presupuesto</button>
    
     </div>
 </div>
