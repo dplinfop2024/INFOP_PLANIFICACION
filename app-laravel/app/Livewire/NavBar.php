@@ -34,6 +34,41 @@ class NavBar extends Component
         ['opcion'=> 'Ver Avances de PACC', 'link'=>'unidad.pacc'],
         ['opcion'=> 'Editar Avances de PACC', 'link'=>'unidad.pacc']
     ];
+// Planificacion - Rutas -nav-bar
+
+public $menuPlanificacionPOA = [
+
+    ['opcion'=> 'Ver POA', 'link'=>'planificacion.verpoa'],
+    ['opcion'=> 'Editar POA', 'link'=>'planificacion.editarpoa'],
+    ['opcion'=> 'Ver Avances POA', 'link'=>'planificacion.veravancespoa']
+
+];
+
+public $menuPlanificacionPresupuesto = [
+
+    ['opcion'=> 'Ver Presupuesto', 'link'=>'planificacion.verpresupuesto']
+    
+];
+
+public $menuPlanificacionPACC = [
+
+
+    ['opcion'=> 'Ver PACC', 'link'=>'planificacion.verpacc'],
+    ['opcion'=> 'Ver Avances de PACC', 'link'=>'planificacion.veravancespacc']
+  
+];
+
+// Proveduria - Rutas -nav-bar
+
+public $menuProveduriaPACC = [
+
+
+    ['opcion'=> 'Ver PACC', 'link'=>'planificacion.verpacc'],
+    
+];
+
+
+
 
     //funcion que se llama al cargar la pagina
     public function mount(){
