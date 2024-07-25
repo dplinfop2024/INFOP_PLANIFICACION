@@ -13,8 +13,10 @@
 
         <button class="btn btn-primary" type="button" href="" wire:navigate>Ver Avances POA</button>
 
-        <button class="btn btn-primary" type="button" href="" wire:navigate>Editar Avances POA</button>
+        <button class="btn btn-primary" type="button" href="{{route('unidad.poa.editaravances.operativo')}}" wire:navigate>Editar Avances POA Operativo</button>
     
+        <button class="btn btn-primary" type="button" href="{{route('unidad.poa.editaravances.administrativo')}}" wire:navigate>Editar Avances POA Administrativo</button>
+        
         <button class="btn btn-primary" type="button" href="{{route('unidad.poa')}}" wire:navigate>Ver POA en ejecucion</button>
     
         <button class="btn btn-primary" type="button" href="{{route('unidad.poa')}}" wire:navigate>Ver POA en programacion</button>

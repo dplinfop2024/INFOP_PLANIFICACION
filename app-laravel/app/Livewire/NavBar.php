@@ -22,7 +22,8 @@ class NavBar extends Component
         ['opcion'=> 'Ver POA Ejecución', 'link'=>'unidad.poa'],
         ['opcion'=> 'Ver POA Programación', 'link'=>'unidad.poa'],
         ['opcion'=> 'Ver Avances POA', 'link'=>'unidad.home'],
-        ['opcion'=> 'Editar Avances POA', 'link'=>'unidad.home']
+        ['opcion'=> 'Editar Avances POA Operativo', 'link'=>'unidad.poa.editaravances.operativo'],
+        ['opcion'=> 'Editar Avances POA Administrativo', 'link'=>'unidad.poa.editaravances.administrativo']
     ];
 
     public $menuUnidadPresupuesto = [
