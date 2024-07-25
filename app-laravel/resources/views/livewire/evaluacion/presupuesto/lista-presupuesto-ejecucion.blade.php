@@ -16,7 +16,7 @@
 
 
 </style>
-    <h1 class="centrarTexto">Listado de Prespuestos</h1>
+    <h1 class="centrarTexto">Listado de Presupuestos</h1>
     <div class="rz-card card">
         <div class="row">
           <table class="table table-striped table-hover">
@@ -35,35 +35,35 @@
                         <td>UNIDAD DE INGENIERIA Y MANTENIMIENTO</td>
                         <td>2019</td>
                         <td>10/10/2018</td>
-                        <td> <button type="button" onclick=window.location.href="https://www.ejemplo.com" class="btn btn-warning">Detalles</button> </td>
+                        <td> <button type="button"  onclick="window.location.href='{{route('evaluacion.resporteanualpresupuestoejecucion')}}'" class="btn btn-warning">Detalles</button> </td>
                     </tr>
                     <tr>
                         <td>1006</td>
                         <td>UNIDAD DE FORMACION SECRETARIAL</td>
                         <td>2020</td>
                         <td>09/09/2019</td>
-                        <td> <button type="button" class="btn btn-warning">Detalles</button> </td>
+                        <td> <button type="button" onclick="window.location.href='{{route('evaluacion.resporteanualpresupuestoejecucion')}}'" class="btn btn-warning">Detalles</button> </td>
                     </tr>
                     <tr>
                         <td>1007</td>
                         <td>DVISION DE PLANIFICACIÓN</td>
                         <td>2021</td>
                         <td>15/09/2020</td>
-                        <td> <button type="button" class="btn btn-warning">Detalles</button> </td>
+                        <td> <button type="button" onclick="window.location.href='{{route('evaluacion.resporteanualpresupuestoejecucion')}}'" class="btn btn-warning">Detalles</button> </td>
                     </tr>
                     <tr>
                         <td>1008</td>
                         <td>DEPARTAMENTO DE PROGRAMACION</td>
                         <td>2022</td>
                         <td>06/10/2021</td>
-                        <td> <button type="button" class="btn btn-warning">Detalles</button> </td>
+                        <td> <button type="button" onclick="window.location.href='{{route('evaluacion.resporteanualpresupuestoejecucion')}}'" class="btn btn-warning">Detalles</button> </td>
                     </tr>
                     <tr>
                         <td>1009</td>
                         <td>NOMBRE DE LA UNIDAD</td>
                         <td>2023</td>
                         <td>06/06/2022</td>
-                        <td> <button type="button" class="btn btn-warning">Detalles</button> </td>
+                        <td> <button type="button" onclick="window.location.href='{{route('evaluacion.resporteanualpresupuestoejecucion')}}'" class="btn btn-warning">Detalles</button> </td>
                     </tr>
                 </tbody>
             </table>
