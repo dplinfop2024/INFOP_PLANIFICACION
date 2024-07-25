@@ -94,7 +94,7 @@ route::get('/programacion/visualizarpresupuesto', VisualizarPresupuesto::class)-
 
 //----------RUTAS PLANIFICACION----------//
 
-//Pagina principal Programación
+//Pagina principal Planificacion
 Route::get('/planificiacion',PlanificacionHome::class)->name('planificacion.home');
 
 
