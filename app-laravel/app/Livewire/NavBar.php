@@ -15,8 +15,10 @@ class NavBar extends Component
     //--------------------RUTAS UNIDAD NAVBAR--------------------//
 
     public $menuUnidadPOA = [
-        ['opcion'=> 'Registro POA', 'link'=>'registro.poa'],
-        ['opcion'=> 'Editar POA', 'link'=>'unidad.editarpoa'],
+        ['opcion'=> 'Registro POA Operativo', 'link'=>'registro.poa.operativo'],
+        ['opcion'=> 'Registro POA Administrativo', 'link'=>'registro.poa.administrativo'],
+        ['opcion'=> 'Editar POA Operativo', 'link'=>'unidad.editarpoa.operativo'],
+        ['opcion'=> 'Editar POA administrativo', 'link'=>'unidad.editarpoa.administrativo'],
         ['opcion'=> 'Ver POA Ejecución', 'link'=>'unidad.poa'],
         ['opcion'=> 'Ver POA Programación', 'link'=>'unidad.poa'],
         ['opcion'=> 'Ver Avances POA', 'link'=>'unidad.home'],

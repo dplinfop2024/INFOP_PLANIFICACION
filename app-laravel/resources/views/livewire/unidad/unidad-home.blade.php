@@ -3,11 +3,13 @@
     
         <h3 class="text-center">POA</h3>
 
-        <button class="btn btn-primary" type="button" href="{{route('registro.poa')}}" wire:navigate>Registrar POA Administrativo</button>
+        <button class="btn btn-primary" type="button" href="{{route('registro.poa.administrativo')}}" wire:navigate>Registrar POA Administrativo</button>
 
         <button class="btn btn-primary" type="button" href="{{route('registro.poa.operativo')}}" wire:navigate>Registrar POA Operativo</button>
     
-        <button class="btn btn-primary" type="button" href="{{route('unidad.editarpoa')}}" wire:navigate>Editar POA</button>
+        <button class="btn btn-primary" type="button" href="{{route('unidad.editarpoa.operativo')}}" wire:navigate>Editar POA Operativo</button>
+
+        <button class="btn btn-primary" type="button" href="{{route('unidad.editarpoa.administrativo')}}" wire:navigate>Editar POA Administrativo</button>
 
         <button class="btn btn-primary" type="button" href="" wire:navigate>Ver Avances POA</button>
 

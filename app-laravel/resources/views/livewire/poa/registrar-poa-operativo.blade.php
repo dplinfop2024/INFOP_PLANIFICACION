@@ -106,20 +106,52 @@
                               </thead>
                               <tbody class="table-group-divider">
                                 <tr>
-                                  <th scope="row">Programación</th>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m1"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m2"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m3"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m4"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m5"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m6"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m7"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m8"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m9"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m10"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m11"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m12"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.anual" disabled></td>
+                                  <th scope="row">Cursos</th>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c1"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c2"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c3"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c4"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c5"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c6"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c7"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c8"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c9"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c10"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c11"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c12"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.canual" disabled></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Participantes</th>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p1"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p2"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p3"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p4"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p5"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p6"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p7"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p8"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p9"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p10"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p11"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p12"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.panual" disabled></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Horas</th>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h1"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h2"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h3"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h4"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h5"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h6"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h7"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h8"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h9"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h10"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h11"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h12"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.hanual" disabled></td>
                                 </tr>
                               </tbody>
                         </table>
@@ -132,8 +164,8 @@
             </div>
             <!--Botones-->
             <div class="d-grid gap-3 pt-4 col-2 mx-auto">
-                <button class="btn" style="background-color:#38D6EE" wire:click="agregarMeta()">Agregar meta</button>
-                <button class="btn" style="background-color:#38D6EE" wire:click="save()">Registrar</button>
+                <button class="btn bg-info-subtle" wire:click="agregarMeta()">Agregar meta</button>
+                <button class="btn bg-info" wire:click="save()">Registrar</button>
             </div>
         </div>
 
@@ -145,4 +177,3 @@
 
     
 </div>
-

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Livewire\Unidad\Poa;
+namespace App\Livewire\Poa;
 
 use App\Livewire\Forms\PoaAdminForm;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Editar POA Unidad')]
+#[Title('Editar POA Operativo')]
 
-class EditarPoaUnidad extends Component
+class EditarPoaOperativo extends Component
 {
     public PoaAdminForm $poaForm;
 
@@ -39,6 +39,6 @@ class EditarPoaUnidad extends Component
     }
     public function render()
     {
-        return view('livewire.unidad.poa.editar-poa-unidad');
+        return view('livewire.poa.editar-poa-operativo');
     }
 }

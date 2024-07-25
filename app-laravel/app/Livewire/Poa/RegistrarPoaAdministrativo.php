@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Livewire\Unidad\Poa;
+namespace App\Livewire\Poa;
 
 use App\Livewire\Forms\PoaAdminForm;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Illuminate\Support\Facades\Log;
 
 #[Title('Registrar POA')]
 
-class RegistrarPoa extends Component
+class RegistrarPoaAdministrativo extends Component
 {
 
     public PoaAdminForm $poaForm;
@@ -39,9 +38,8 @@ class RegistrarPoa extends Component
         array_splice($this->listaMetas, $id, 1);
         $this->dispatch('log', "Borrar meta: $id");
     }
-
     public function render()
     {
-        return view('livewire.unidad.poa.registrar-poa');
+        return view('livewire.poa.registrar-poa-administrativo');
     }
 }
