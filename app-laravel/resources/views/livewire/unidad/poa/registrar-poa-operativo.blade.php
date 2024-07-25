@@ -82,6 +82,12 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="row">
+                                <div class="col-sm-3 text-center">Trimestre 1</div>
+                                <div class="col-sm-3 text-center">Trimestre 2</div>
+                                <div class="col-sm-3 text-center">Trimestre 3</div>
+                                <div class="col-sm-3 text-center">Trimestre 4</div>
+                            </div>
+                            <div class="row  text-center">
                                 <div class="col-sm-1"><label for="mes" class="form-label">Ene</label></div>
                                 <div class="col-sm-1"><label for="mes" class="form-label">Feb</label></div>
                                 <div class="col-sm-1"><label for="mes" class="form-label">Mar</label></div>
