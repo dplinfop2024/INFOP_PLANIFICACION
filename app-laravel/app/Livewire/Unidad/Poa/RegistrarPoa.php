@@ -35,6 +35,10 @@ class RegistrarPoa extends Component
         $this->dispatch('log', $this->listaMetas);
     }
 
+    public function delete($id){
+        $this->dispatch('log', "Borrar meta: $id");
+    }
+
     public function render()
     {
         return view('livewire.unidad.poa.registrar-poa');

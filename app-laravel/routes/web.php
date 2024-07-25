@@ -35,6 +35,7 @@ use App\Livewire\Programacion\ProgramacionHome;
 use App\Livewire\Unidad\Pacc\RegistrarPacc;
 use App\Livewire\Unidad\Pacc\VerPacc;
 use App\Livewire\Unidad\Poa\RegistrarPoa;
+use App\Livewire\Unidad\Poa\RegistrarPoaOperativo as UnidadRegistrarPoaOperativo;
 use App\Livewire\Unidad\Poa\VerPoa;
 use App\Livewire\Unidad\Presupuesto\RegistrarPresupuesto;
 use App\Livewire\Unidad\Presupuesto\VerPresupuesto;
@@ -47,7 +48,7 @@ use App\Livewire\Programacion\Presupuesto\VisualizarPresupuesto;
 use App\Livewire\Proveduria\Pacc\VerPacc as ProveduriaVerPacc;
 use App\Livewire\Proveduria\ProveduriaHome;
 use App\Livewire\Unidad\Poa\EditarPoaUnidad;
-use App\Livewire\Unidad\Poa\RegistrarPoaOperativo;
+
 
 //Ruta pagina principal
 Route::get('/', Home::class)->name('welcome');
@@ -62,7 +63,7 @@ Route::get('/login', Login::class)->name('login');
 Route::get('/unidad', UnidadHome::class)->name('unidad.home');
 //---Rutas Unidad-POA---//
 Route::get('/unidad/registropoa/administrativo', RegistrarPoa::class)->name('registro.poa');
-Route::get('/unidad/registropoa/operativo', RegistrarPoaOperativo::class)->name('registro.poa.operativo');
+Route::get('/unidad/registropoa/operativo', UnidadRegistrarPoaOperativo::class)->name('registro.poa.operativo');
 Route::get('/unidad/verpoa', VerPoa::class)->name('unidad.poa');
 Route::get('/unidad/editarpoa', EditarPoaUnidad::class)->name('unidad.editarpoa');
 //---Rutas Unidad-Presupuesto---//

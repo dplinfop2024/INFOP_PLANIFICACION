@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 @foreach($listaMetas as $meta)
-                <div class="card col-md-12 mt-3" style="background-color:#38D6EE">
+                <div class="card text-bg-info col-md-12 mt-3">
                     <h5>Meta {{$loop->index+1}}</h5>
                     <div class="row">
                         <div class="col-md-2">
@@ -75,67 +75,58 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-sm-11">
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Enero</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m1">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Febrero</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m2">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Marzo</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m3">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">abril</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m4">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Mayo</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m5">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Junio</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m6">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Julio</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m7">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Agosto</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m8">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Septiembre</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m9">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Octubre</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m10">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Noviembre</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m11">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="mes" class="form-label">Diciembre</label>
-                                    <input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m12">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="col">
-                                <label for="anual" class="form-label">Anual</label>
-                                <input type="number" class="form-control" wire:model="listaMetas.{{$loop->index}}.anual" disabled>
-                            </div>
-                        </div>  
+                    <!--Programación de meta-->
+                    <div class="table-responsive">
+                        <table class="table-info table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th width="25%"></th>
+                                    <th colspan="3">Trimestre 1</th>
+                                    <th colspan="3">Trimestre 2</th>
+                                    <th colspan="3">trimestre 3</th>
+                                    <th colspan="3">trimestre 4</th>
+                                    <th> </th>
+                                  </tr>
+                                <tr>
+                                  <th class="th-sm"></th>
+                                  <th class="text-center">Ene</th>
+                                  <th class="text-center">Feb</th>
+                                  <th class="text-center">Mar</th>
+                                  <th class="text-center">Abr</th>
+                                  <th class="text-center">May</th>
+                                  <th class="text-center">Jun</th>
+                                  <th class="text-center">Jul</th>
+                                  <th class="text-center">Ago</th>
+                                  <th class="text-center">Sep</th>
+                                  <th class="text-center">Oct</th>
+                                  <th class="text-center">Nov</th>
+                                  <th class="text-center">Dic</th>
+                                  <th class="text-center">Anual</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-group-divider">
+                                <tr>
+                                  <th scope="row">Programación</th>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m1"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m2"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m3"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m4"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m5"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m6"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m7"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m8"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m9"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m10"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m11"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.m12"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.anual" disabled></td>
+                                </tr>
+                              </tbody>
+                        </table>
                     </div>
-                    <br>
+                    <div class="d-grid pb-3 pt-3 col-2 mx-auto">
+                        <button class="btn bg-danger-subtle" wire:click="delete({{$loop->index}})">Eliminar meta</button>
+                    </div>
                 </div>
                 @endforeach
             </div>

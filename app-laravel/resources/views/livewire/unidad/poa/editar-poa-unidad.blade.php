@@ -5,7 +5,7 @@
     <div class="card border-info">
         <!--Encabezado formulario POA-->
         <div class="text-center pt-3">
-            <h2>Registrar nuevo POA</h2>
+            <h2>Editar POA</h2>
         </div>
         <div class="card-body">
             <!--Información general de POA-->
@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 @foreach($listaMetas as $meta)
-                <div class="card col-md-12 mt-3" style="background-color:#38D6EE">
+                <div class="card text-bg-info col-md-12 mt-3">
                     <h5>Meta {{$loop->index+1}}</h5>
                     <div class="row">
                         <div class="col-md-2">
@@ -75,114 +75,97 @@
                         </div>
                     </div>
                     <br>
-                    <!--Nombre meses-->
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <br>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <div class="col-sm-1"><label for="mes" class="form-label">Ene</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Feb</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Mar</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Abr</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">May</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Jun</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Jul</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Ago</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Sep</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Oct</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Nov</label></div>
-                                <div class="col-sm-1"><label for="mes" class="form-label">Dic</label></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="col"><label for="anual" class="form-label">Anual</label></div>
-                        </div>  
+                    <!--Programación de meta-->
+                    <div class="table-responsive">
+                        <table class="table-info table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th width="25%"></th>
+                                    <th colspan="3">Trimestre 1</th>
+                                    <th colspan="3">Trimestre 2</th>
+                                    <th colspan="3">trimestre 3</th>
+                                    <th colspan="3">trimestre 4</th>
+                                    <th> </th>
+                                  </tr>
+                                <tr>
+                                  <th class="th-sm"></th>
+                                  <th class="text-center">Ene</th>
+                                  <th class="text-center">Feb</th>
+                                  <th class="text-center">Mar</th>
+                                  <th class="text-center">Abr</th>
+                                  <th class="text-center">May</th>
+                                  <th class="text-center">Jun</th>
+                                  <th class="text-center">Jul</th>
+                                  <th class="text-center">Ago</th>
+                                  <th class="text-center">Sep</th>
+                                  <th class="text-center">Oct</th>
+                                  <th class="text-center">Nov</th>
+                                  <th class="text-center">Dic</th>
+                                  <th class="text-center">Anual</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-group-divider">
+                                <tr>
+                                  <th scope="row">Cursos</th>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c1"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c2"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c3"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c4"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c5"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c6"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c7"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c8"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c9"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c10"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c11"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c12"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.canual" disabled></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Participantes</th>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p1"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p2"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p3"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p4"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p5"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p6"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p7"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p8"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p9"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p10"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p11"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p12"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.panual" disabled></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Horas</th>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h1"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h2"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h3"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h4"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h5"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h6"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h7"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h8"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h9"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h10"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h11"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h12"></td>
+                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.hanual" disabled></td>
+                                </tr>
+                              </tbody>
+                        </table>
                     </div>
-                    <!--Cursos-->
-                    <div class="row mb-1">
-                        <div class="col-sm-3">
-                            <h6>Cursos</h6>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c1"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c2"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c3"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c4"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c5"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c6"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c7"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c8"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c9"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c10"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c11"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c12"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="col"><input type="number" class="form-control" wire:model="listaMetas.{{$loop->index}}.canual" disabled></div>
-                        </div>  
+                    <div class="d-grid pb-3 pt-3 col-2 mx-auto">
+                        <button class="btn bg-danger-subtle" wire:click="delete({{$loop->index}})">Eliminar meta</button>
                     </div>
-                    <!--Participantes-->
-                    <div class="row mb-1">
-                        <div class="col-sm-3">
-                            <h6>Participantes</h6>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c1"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c2"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c3"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c4"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c5"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c6"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c7"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c8"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c9"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c10"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c11"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c12"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="col"><input type="number" class="form-control" wire:model="listaMetas.{{$loop->index}}.canual" disabled></div>
-                        </div>  
-                    </div>
-                    <!--Horas-->
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6>Horas</h6>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="row">
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c1"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c2"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c3"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c4"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c5"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c6"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c7"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c8"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c9"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c10"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c11"></div>
-                                <div class="col-sm-1"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c12"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="col"><input type="number" class="form-control" wire:model="listaMetas.{{$loop->index}}.canual" disabled></div>
-                        </div>  
-                    </div>
-                    <br>
                 </div>
                 @endforeach
             </div>
             <!--Botones-->
             <div class="d-grid gap-3 pt-4 col-2 mx-auto">
-                <button class="btn" style="background-color:#38D6EE" wire:click="agregarMeta()">Agregar meta</button>
-                <button class="btn" style="background-color:#38D6EE" wire:click="save()">Registrar</button>
+                <button class="btn bg-info-subtle" wire:click="agregarMeta()">Agregar meta</button>
+                <button class="btn bg-info" wire:click="save()">Registrar</button>
             </div>
         </div>
 
