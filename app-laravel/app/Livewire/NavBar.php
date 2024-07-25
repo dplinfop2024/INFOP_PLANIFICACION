@@ -27,7 +27,7 @@ class NavBar extends Component
 
     public $menuUnidadPresupuesto = [
         ['opcion'=> 'Registrar Presupuesto', 'link'=>'registro.presupuesto'],
-        ['opcion'=> 'Editar Presupuesto', 'link'=>'unidad.presupuesto'],
+        ['opcion'=> 'Editar Presupuesto', 'link'=>'unidad.editar.presupuesto'],
         ['opcion'=> 'Ver Presupuesto', 'link'=>'unidad.presupuesto'],
         ['opcion'=> 'Ver Presupuesto en ejecución', 'link'=>'unidad.presupuesto']
     ];

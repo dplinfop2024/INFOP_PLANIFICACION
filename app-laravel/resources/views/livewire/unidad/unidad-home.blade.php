@@ -25,7 +25,7 @@
     
         <button class="btn btn-primary" type="button" href="{{route('unidad.presupuesto')}}" wire:navigate>Ver Presupuesto</button>
 
-        <button class="btn btn-primary" type="button" href="{{route('unidad.presupuesto')}}" wire:navigate>Editar Presupuesto</button>
+        <button class="btn btn-primary" type="button" href="{{route('unidad.editar.presupuesto')}}" wire:navigate>Editar Presupuesto</button>
     
         <button class="btn btn-primary" type="button" href="{{route('unidad.presupuesto')}}" wire:navigate>Ver Presupuesto en ejecución</button>
 

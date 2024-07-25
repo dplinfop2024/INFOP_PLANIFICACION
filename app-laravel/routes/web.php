@@ -4,6 +4,7 @@ use App\Livewire\Planificacion\AvancesPacc\VerAvancesPacc;
 use App\Livewire\Planificacion\AvancesPoa\VerAvancesPoa;
 use App\Livewire\Planificacion\PlanificacionHome;
 
+use App\Livewire\Presupuesto\RegistrarPresupuesto;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 use App\Livewire\Evaluacion\AvancesPacc\EditarAvancePacc;
@@ -35,7 +36,7 @@ use App\Livewire\Poa\EditarPoaOperativo;
 use App\Livewire\Poa\RegistrarPoaAdministrativo;
 use App\Livewire\Poa\RegistrarPoaOperativo;
 use App\Livewire\Poa\VerPoaOperativo;
-use App\Livewire\Presupuesto\RegistrarPresupuesto as PresupuestoRegistrarPresupuesto;
+use App\Livewire\Presupuesto\EditarPresupuesto;
 use App\Livewire\Programacion\Poa\VerListaPoa;
 use App\Livewire\Programacion\ProgramacionHome;
 use App\Livewire\Unidad\Pacc\RegistrarPacc;
@@ -44,7 +45,6 @@ use App\Livewire\Unidad\Presupuesto\VerPresupuesto;
 use App\Livewire\Unidad\UnidadHome;
 use App\Livewire\Programacion\Poa\EditarPoa;
 use App\Livewire\Programacion\Poa\VisualizarPoa;
-use App\Livewire\Programacion\Presupuesto\EditarPresupuesto;
 use App\Livewire\Programacion\Presupuesto\VerListaPresupuesto;
 use App\Livewire\Programacion\Presupuesto\VisualizarPresupuesto;
 use App\Livewire\Proveduria\Pacc\VerPacc as ProveduriaVerPacc;
@@ -69,7 +69,8 @@ Route::get('/unidad/verpoa', VerPoaOperativo::class)->name('unidad.poa');
 Route::get('/unidad/editarpoa/operativo', EditarPoaOperativo::class)->name('unidad.editarpoa.operativo');
 Route::get('/unidad/editarpoa/administrativo', EditarPoaAdministrativo::class)->name('unidad.editarpoa.administrativo');
 //---Rutas Unidad-Presupuesto---//
-Route::get('/unidad/registropresupuesto', PresupuestoRegistrarPresupuesto::class)->name('registro.presupuesto');
+Route::get('/unidad/registropresupuesto', RegistrarPresupuesto::class)->name('registro.presupuesto');
+Route::get('unidad/editarpresupuesto', EditarPresupuesto::class)->name('unidad.editar.presupuesto');
 Route::get('/unidad/verpresupuesto', VerPresupuesto::class)->name('unidad.presupuesto');
 //---Rutas Unidad-PACC---//
 Route::get('/unidad/registropacc', RegistrarPacc::class)->name('registro.pacc');

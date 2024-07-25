@@ -25,7 +25,7 @@
                 font-weight: bold; /* Aplica negrita a la fila */
             }
         </style>
-        <h3 class="text-center">Registrar Presupuesto</h3>
+        <h3 class="text-center">Editar Presupuesto</h3>
         <div class="rz-card card">
             <div class="row">
                 <div class="col-md-12 mb-1">
