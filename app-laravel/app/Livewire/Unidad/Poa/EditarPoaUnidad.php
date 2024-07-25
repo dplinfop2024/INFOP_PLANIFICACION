@@ -34,6 +34,7 @@ class EditarPoaUnidad extends Component
     }
 
     public function delete($id){
+        array_splice($this->listaMetas, $id, 1);
         $this->dispatch('log', "Borrar meta: $id");
     }
     public function render()
