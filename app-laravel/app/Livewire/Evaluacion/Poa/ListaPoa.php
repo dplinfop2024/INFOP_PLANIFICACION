@@ -10,4 +10,5 @@ class ListaPoa extends Component
     {
         return view('livewire.evaluacion.poa.lista-poa');
     }
+
 }
