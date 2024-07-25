@@ -1,7 +1,7 @@
 <?php
 
-use App\Livewire\AvancesPoa\RegistrarAvancesPoaAdministrativo;
-use App\Livewire\AvancesPoa\RegistrarAvancesPoaOperativo;
+use App\Livewire\AvancesPoa\EditarAvancesPoaAdministrativo;
+use App\Livewire\AvancesPoa\EditarAvancesPoaOperativo;
 use App\Livewire\Planificacion\AvancesPacc\VerAvancesPacc;
 use App\Livewire\Planificacion\AvancesPoa\VerAvancesPoa;
 use App\Livewire\Planificacion\PlanificacionHome;
@@ -69,8 +69,8 @@ Route::get('/unidad/verpoa', VerPoaOperativo::class)->name('unidad.poa');
 Route::get('/unidad/editarpoa/operativo', EditarPoaOperativo::class)->name('unidad.editarpoa.operativo');
 Route::get('/unidad/editarpoa/administrativo', EditarPoaAdministrativo::class)->name('unidad.editarpoa.administrativo');
 //---Rutas Unidad-AvancesPOA---//
-Route::get('/unidad/poa/avances/registraroperativo', RegistrarAvancesPoaOperativo::class)->name('registro.poa.avanaces.operativo');
-Route::get('/unidad/poa/avances/registraradministrativo', RegistrarAvancesPoaAdministrativo::class)->name('registro.poa.avances.administrativo');
+Route::get('/unidad/poa/avances/editaroperativo', EditarAvancesPoaOperativo::class)->name('unidad.poa.editaravances.operativo');
+Route::get('/unidad/poa/avances/editaradministrativo', EditarAvancesPoaAdministrativo::class)->name('unidad.poa.editaravances.administrativo');
 //---Rutas Unidad-Presupuesto---//
 Route::get('/unidad/registropresupuesto', RegistrarPresupuesto::class)->name('registro.presupuesto');
 Route::get('unidad/editarpresupuesto', EditarPresupuesto::class)->name('unidad.editar.presupuesto');
