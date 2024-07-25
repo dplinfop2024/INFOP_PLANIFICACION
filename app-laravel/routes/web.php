@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\AvancesPoa\RegistrarAvancesPoaAdministrativo;
+use App\Livewire\AvancesPoa\RegistrarAvancesPoaOperativo;
 use App\Livewire\Planificacion\AvancesPacc\VerAvancesPacc;
 use App\Livewire\Planificacion\AvancesPoa\VerAvancesPoa;
 use App\Livewire\Planificacion\PlanificacionHome;
@@ -39,8 +41,6 @@ use App\Livewire\Poa\VerPoaOperativo;
 use App\Livewire\Presupuesto\EditarPresupuesto;
 use App\Livewire\Programacion\Poa\VerListaPoa;
 use App\Livewire\Programacion\ProgramacionHome;
-use App\Livewire\Unidad\Pacc\RegistrarPacc;
-use App\Livewire\Unidad\Pacc\VerPacc;
 use App\Livewire\Unidad\Presupuesto\VerPresupuesto;
 use App\Livewire\Unidad\UnidadHome;
 use App\Livewire\Programacion\Poa\EditarPoa;
@@ -68,13 +68,16 @@ Route::get('/unidad/registropoa/operativo', RegistrarPoaOperativo::class)->name(
 Route::get('/unidad/verpoa', VerPoaOperativo::class)->name('unidad.poa');
 Route::get('/unidad/editarpoa/operativo', EditarPoaOperativo::class)->name('unidad.editarpoa.operativo');
 Route::get('/unidad/editarpoa/administrativo', EditarPoaAdministrativo::class)->name('unidad.editarpoa.administrativo');
+//---Rutas Unidad-AvancesPOA---//
+Route::get('/unidad/poa/avances/registraroperativo', RegistrarAvancesPoaOperativo::class)->name('registro.poa.avanaces.operativo');
+Route::get('/unidad/poa/avances/registraradministrativo', RegistrarAvancesPoaAdministrativo::class)->name('registro.poa.avances.administrativo');
 //---Rutas Unidad-Presupuesto---//
 Route::get('/unidad/registropresupuesto', RegistrarPresupuesto::class)->name('registro.presupuesto');
 Route::get('unidad/editarpresupuesto', EditarPresupuesto::class)->name('unidad.editar.presupuesto');
 Route::get('/unidad/verpresupuesto', VerPresupuesto::class)->name('unidad.presupuesto');
 //---Rutas Unidad-PACC---//
-Route::get('/unidad/registropacc', RegistrarPacc::class)->name('registro.pacc');
-Route::get('/unidad/verpacc', VerPacc::class)->name('unidad.pacc');
+Route::get('/unidad/registropacc', VerPoaOperativo::class)->name('registro.pacc');
+Route::get('/unidad/verpacc', VerPoaOperativo::class)->name('unidad.pacc');
 
 
 
