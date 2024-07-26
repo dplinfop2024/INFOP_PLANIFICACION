@@ -27,15 +27,28 @@
 <div class="custom-margin">
     <!-- Título centrado -->
     <h1 class="text-center">PLAN OPERATIVO ANUAL</h1>
-
-    <!-- Información de la unidad y responsable -->
-    <div class="table-title">
-      <label><b>Nombre de la Unidad:</b> Desarrollo Empresarial </label> <label><b>Nombre Responsable:</b> Marcela Beatriz Ordoñes</label>
-      <br><label><b>Cargo:</b> Jefe de departamento</label> <label><b>Actividad:</b> 6550</label></br>
-    </div>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">
+            <div class="table-title">
+                  <label><b>Nombre de la Unidad:</b> Desarrollo Empresarial </label> 
+                  <br><label><b>Actividad:</b> 6550</label></br>
+            </div>
+          </th>
+          <th scope="col">
+            <label><b>Nombre Responsable:</b> Marcela Beatriz Ordoñes</label> 
+            <br><label><b>Cargo:</b> Jefe de departamento</label></br>
+          </th>
+          <th scope="col"> 
+            <label><b>Fecha:</b>01/02/2023 </label>
+            <br><label><b>Año:</b>2023</label> <br></th>
+          </tr>
+      </thead>
+    </table>
     <!-- Tabla con borde gris y fuente pequeña -->
     <table class="table table-bordered border border-gray small-font">
-        <!-- Encabezado de la tabla -->
+      <!-- Encabezado de la tabla -->
         <thead class="table-primary text-center">
             <tr class="border-gray">
                 <!-- Primera fila del encabezado -->
@@ -84,7 +97,7 @@
                     a la productividad y el desarrollo del país. 
                 </td>
                 <td>1.1.1</td>
-                <td>Desarrollado 58 cursos de complementación, atendiendo 870 participantes mediante 1280 horas de instrucción,
+                <td>Desarrollado 58 cursos de <b>Complementación</b>, atendiendo 870 participantes mediante 1280 horas de instrucción,
                     por medio de instructores permanentes.
                 </td>
                 <td>Curso, participantes y horas</td>
@@ -102,7 +115,7 @@
                 <td></td>
             </tr>
             <!-- Segunda fila de datos -->
-            <tr>
+            <tr class="text-end">
                 <th scope="row"></th>
                 <td></td>
                 <td></td>
@@ -125,7 +138,7 @@
                 <td>58</td>
             </tr>
             <!-- Tercera fila de datos -->
-            <tr>
+            <tr class="text-end">
                 <th scope="row"></th>
                 <td></td>
                 <td></td>
@@ -144,13 +157,14 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td>870</td>
             </tr>
             <!-- Cuarta fila de datos -->
-            <tr>
+            <tr class="text-end">
                 <th scope="row"></th>
-                <td></td>
-                <td></td>
+                <td class="text-end"></td>
+                <td ></td>
                 <td><p></p></td>
                 <td></td>
                 <td><b>Horas</b></td>
@@ -159,6 +173,7 @@
                 <td>490</td>
                 <td>750</td>
                 <td>40</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -193,7 +208,7 @@
                 <td></td>
             </tr>
             <!-- Sexta fila de datos -->
-            <tr>
+            <tr class="text-end">
                 <th scope="row"></th>
                 <td></td>
                 <td></td>
@@ -216,7 +231,7 @@
                 <td>12</td>
             </tr>
             <!-- Séptima fila de datos -->
-            <tr>
+            <tr class="text-end">
                 <th scope="row"></th>
                 <td></td>
                 <td></td>
@@ -239,7 +254,7 @@
                 <td>12</td>
             </tr>
             <!-- Octava fila de datos -->
-            <tr>
+            <tr class="text-end">
                 <th scope="row"></th>
                 <td></td>
                 <td></td>
