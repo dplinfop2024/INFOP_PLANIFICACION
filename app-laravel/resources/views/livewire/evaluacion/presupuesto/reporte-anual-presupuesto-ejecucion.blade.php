@@ -23,6 +23,7 @@
         .fila-negrita {
             font-weight: bold; /* Aplica negrita a la fila */
         }
+        
     </style>
 
     <div class="rz-card card">
@@ -46,67 +47,61 @@
              
             </div>
 
-            <table class="table table-striped table-hover">
+            <table id="tableDetallePresupuesto" class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th width="80">GRUPO /SUB/GR</th>
+                        <th width="80">GRUPO /SUB/GR.</th>
                         <th class="centrarTexto" >DESCRIPCIÓN DEL GASTO</th>
                         <th>VALOR LEMPIRAS</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="fila-negrita">
-                        <td>10000</td>
-                        <td>SERVICIOS PERSONALES</td>
-                        <td>40,000.00</td> 
+                @foreach($renglones as $renglon)
+                    <tr class="{{ in_array($renglon['grupo'], [10000, 20000]) ? 'fila-negrita' : '' }}">
+                        <td>{{ $renglon['grupo'] }}</td>
+                        <td>{{ $renglon['descripcion'] }}</td>
+                        <td>{{ $renglon['valor'] }}</td>
                     </tr>
-                    <tr>
-                        <td>14100</td>
-                        <td>Horas extraordinarias</td>
-                        <td>40,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>15900</td>
-                        <td>Otras Asistencias Social al Personal (Clasusula 61)</td>
-                        <td></td>
-                    </tr>
-                   
-                    <tr class="fila-negrita">
-                        <td>20000</td>
-                        <td>SERVICIOS NO PERSONALES</td>
-                        <td>7,175,000.00</td> 
-                    </tr>
-                    <tr>
-                        <td>21110</td>
-                        <td>Suministro de energía eléctrica</td>
-                        <td>25,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>22210</td>
-                        <td>Alquiler de Equipos de Transporte, tracción y Elevación</td>
-                        <td>100,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>23100</td>
-                        <td>Mantenimiento y Reparación de edificios y locales</td>
-                        <td>7,000,000.00</td>
-                    </tr>
-                    <tr>
-                        <td>23370</td>
-                        <td>Mantenimiento y Reparación de Equipos de Comunciación</td>
-                        <td>50,000.00</td>
-                    </tr>
-                    <tr class="fila-negrita">
-                        <td></td>
-                        <td>TOTAL</td>
-                        <td>7,215,000.00</td>
-                    </tr>
+                @endforeach
+                    
                 </tbody>
             </table>
         </div>
 
     </div>
 
-
+    <script>
+        $(document).ready(function() {
+            $('#tableDetallePresupuesto').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                        'copy', 'excel', 'print'
+                ],
+                ordering: false, // Desactiva la ordenación de los datos
+                language: {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sSearch":         "Buscar:",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "excel": "Excel",
+                        "print": "Imprimir"
+                    }
+                }
+            });
+        });
+    </script>
     
 </div>

@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Livewire\Evaluacion\Presupuesto;
-
+use Livewire\Attributes\Title;
 use Livewire\Component;
+
+#[Title('Listado Presupuesto')]
 
 class ListaPresupuestoEjecucion extends Component
 {
