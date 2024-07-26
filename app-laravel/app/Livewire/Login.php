@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -14,6 +15,28 @@ class Login extends Component
 
     //funcion que se llama al cargar la pagina
     public function mount(){
+        /*Pruebas usuarios base
+
+        $user = new User;
+
+        $user->id_unidad = 1500;
+        $user->tipo_usuario = 'Proveeduria';
+        $user->tipo_unidad = 'Administrativo';
+        $user->nombre_unidad = 'Unidad proveeduria';
+        $user->nombre = 'prueba';
+        $user->cargo = 'jefe';
+        $user->password = '12345';
+        $user->email = 'prueba@proveeduria.com';
+
+        $user->save();
+
+        Pruebas usuarios base*/
+
+        /*prueba ver usuario base
+        $user = User::where('id_unidad' , '1200')->get();
+        $this->dispatch('log', $user);
+        prueba ver usuario base*/
+
         //verifica si hay una sesion con un usuario activo
         $tipoUsuario = session('tipoUsuario');
         //si existe un usuario, lo redirije a su seccion correspondiente
