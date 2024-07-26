@@ -1,10 +1,13 @@
 <div>
-  <h1 class="text-center">Ver Poa</h1>
-  <label>Nombre de la Unidad: Desarrollo</label>
-  <label>Nombre Responsable: Marcela Beatriz Ordoneñes</label>
-  <label>Actividad: 6550</label>
-  <label>Cargo: Jefe de departamento</label>
+  <h1 class="text-center">PLAN OPERATIVO ANUAL</h1>
+
+  <label><b>Nombre de la Unidad:</b> Desarrollo Empresarial</label>
+  <br><label><b>Nombre Responsable:</b> Marcela Beatriz Ordoneñes</label></br>
+  <label><b>Cargo:</b> Jefe de departamento</label>
+  <br><label><b>Actividad:</b> 6550</label></br>
+
   <table class="table table-bordered">
+     <!-- EN CABEZADO DE LA TABLA-->
       <thead class="table-primary text-center">
           <tr>
             <th colspan="2" scope="col">COMPONENETE</th>
@@ -39,6 +42,7 @@
             <th scope="col">Anual</th>
         </tr>
       </thead>
+      <!-- FILAS DE LAS TABLA-->
       <tbody class="text-center">
         <tr>
             <th scope="row">1</th>
@@ -76,7 +80,7 @@
                 <p></p>
               </td>
               <td></td>
-              <td>Cursos</td>
+              <td><b>Cursos</b></td>
               <td></td>
               <td></td>
               <td>22</td>
@@ -100,7 +104,7 @@
                 <p></p>
               </td>
               <td></td>
-              <td>Participantes</td>
+              <td><b>Participantes</b></td>
               <td ></td>
               <td></td>
               <td>330</td>
@@ -124,7 +128,7 @@
                 <p></p>
               </td>
               <td></td>
-              <td>Horas</td>
+              <td><b>Horas</b></td>
               <td></td>
               <td></td>
               <td>490</td>
