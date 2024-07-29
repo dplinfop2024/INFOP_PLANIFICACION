@@ -20,6 +20,8 @@
         
     
         <button class="btn btn-primary" type="button" href="{{route('planificacion.verpacc')}}" wire:navigate>Ver PACC</button>
+
+        <button class="btn btn-primary" type="button" href="{{route('planificacion.verlistapacc')}}" wire:navigate>Ver historial PACC</button>
         
         <button class="btn btn-primary" type="button" href="{{route('planificacion.veravancespacc')}}" wire:navigate>Ver avances PACC</button>
         
