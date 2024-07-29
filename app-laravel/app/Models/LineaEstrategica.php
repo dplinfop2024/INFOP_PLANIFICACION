@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LineaEstrategica extends Model
 {
     use HasFactory;
+
+    protected $table = 'lineas_estrategicas';
 }

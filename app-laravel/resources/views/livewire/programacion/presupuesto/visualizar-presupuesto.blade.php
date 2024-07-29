@@ -69,6 +69,7 @@
         </div>
 
     </div>
+    <button href="{{route('programacion.presupuesto.editar')}}" wire:navigate>Editar</button>
 
     <script>
         $(document).ready(function() {

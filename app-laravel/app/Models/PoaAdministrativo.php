@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class PoaAdministrativo extends Model
 {
     use HasFactory;
+
+    protected $table = 'poa_administrativos';
 }

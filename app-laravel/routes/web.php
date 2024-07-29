@@ -96,6 +96,7 @@ route::get('/programacion/visualizarpoa', VisualizarPoa::class)->name('programac
 route::get('/programacion/verlistapresupuesto', VerListaPresupuesto::class)->name('programacion.listapresupuesto');
 route::get('/programacion/editarpresupuesto', EditarPresupuesto::class)->name('programacion.edicionpresupuesto');
 route::get('/programacion/visualizarpresupuesto', VisualizarPresupuesto::class)->name('programacion.visualizarpresupuesto');
+Route::get('/programacion/presupuesto/editar', EditarPresupuesto::class)->name('programacion.presupuesto.editar');
 
 
 
