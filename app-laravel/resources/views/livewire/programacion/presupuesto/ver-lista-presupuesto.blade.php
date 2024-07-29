@@ -1,121 +1,85 @@
-<!--<div> 
-    <h1>Lista POA Programacion</h1>
-        
-    <!- </div> -->
+<div>
+    <style>
+        .rz-card {
+                background-color: #f8f9fa; /* Color de fondo personalizado */
+                border: 1px solid #dee2e6; /* Borde personalizado */
+                border-radius: 8px; /* Bordes redondeados */
+                padding: 20px; /* Espaciado interno */
+                margin: 50px; /* Margen externo para separarlo de los bordes */
+        }
+        .centrarTexto {
+            text-align: center;
+        }
+        .table th {
+            background-color: #00e5e5; /* Cambia el color del enacabezado de la tabla */
+        }
 
-<!-- resources/views/livewire/programacion/presupuesto/ver-lista-presupuesto.blade.php -->
 
-<!-- resources/views/livewire/ver-lista-actividades.blade.php -->
+    </style>
+    <h1 class="centrarTexto">Listado de Presupuestos</h1>
+    <div class="rz-card card">
+        <div class="row">
 
-<!-- resources/views/livewire/programacion/presupuesto/ver-lista-presupuesto.blade.php -->
+            <table id="tableListaPresupuesto" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th width="80">CÓDIGO</th>
+                        <th class="centrarTexto" >NOMBRE DE LA UNIDAD</th>
+                        <th>AÑOS</th>
+                        <th>FECHA</th>
+                        <th>VER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($renglones as $renglon)
+                        <tr>
+                            <td>{{ $renglon['codigo'] }}</td>
+                            <td>{{ $renglon['nombreU'] }}</td>
+                            <td>{{ $renglon['anio'] }}</td>
+                            <td>{{ $renglon['fecha'] }}</td>
+                            <td><button type="button" onclick="window.location.href='{{route('programacion.visualizarpresupuesto')}}'" class="btn btn-warning">Detalles</button></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
 
-    
-<div class="p-4 bg-light rounded">
-    <!-- Filtro de Búsqueda -->
-    <div class="mb-3">
-        <label for="filtroBusqueda" class="form-label">Filtrar por nombre de unidad:</label>
-        <div class="input-group">
-            <input type="text" id="filtroBusqueda" class="form-control" placeholder="Ingrese nombre...">
-            <button class="btn btn-primary" type="button" id="btnBuscar">Buscar</button>
-        </div>
+        </div>	
     </div>
-
-    <!-- Detalles del POA seleccionado -->
-    {{-- Aquí puedes mostrar los detalles del POA seleccionado si es necesario --}}
-    <table class="table table-bordered table-hover">
-        <thead class="table-primary">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre Unidad</th>
-                <th scope="col">Responsable Unidad</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="tablaPOA">
-            <tr>
-                <th scope="row">1</th>
-                <td>Departamento Programación</td>
-                <td>Catalina Isabel Lopez Smith</td>
-                <td>14/02/2023</td>
-                <td><button type="button" class="btn btn-warning">Detalles</button></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Departamento Programación</td>
-                <td>Catalina Isabel Lopez Smith</td>
-                <td>01/02/2023</td>
-                <td><button type="button" class="btn btn-warning">Detalles</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Departamento Programación</td>
-                <td>Catalina Isabel Lopez Smith</td>
-                <td>20/04/2023</td>
-                <td><button type="button" class="btn btn-warning">Detalles</button></td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Departamento Programación</td>
-                <td>Catalina Isabel Lopez Smith</td>
-                <td>01/03/2023</td>
-                <td><button type="button" class="btn btn-warning">Detalles</button></td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Departamento Programación</td>
-                <td>Catalina Isabel Lopez Smith</td>
-                <td>01/04/2023</td>
-                <td><button type="button" class="btn btn-warning">Detalles</button></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Paginación -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end" id="paginacion">
-            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-        </ul>
-    </nav>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const tablaPOA = document.getElementById('tablaPOA');
-        const filtroBusqueda = document.getElementById('filtroBusqueda');
-        const btnBuscar = document.getElementById('btnBuscar');
-        const paginacion = document.getElementById('paginacion');
-
-        // Función para filtrar la tabla por nombre de unidad
-        btnBuscar.addEventListener('click', function () {
-            const filtroTexto = filtroBusqueda.value.toUpperCase();
-            const filas = tablaPOA.getElementsByTagName('tr');
-
-            // Iterar sobre las filas y mostrar/ocultar según el filtro
-            for (let i = 0; i < filas.length; i++) {
-                const columnaNombre = filas[i].getElementsByTagName('td')[1]; // Índice 1 para Nombre Unidad
-                if (columnaNombre) {
-                    const textoFila = columnaNombre.textContent.toUpperCase();
-                    if (textoFila.indexOf(filtroTexto) > -1) {
-                        filas[i].style.display = '';
-                    } else {
-                        filas[i].style.display = 'none';
+    <script>
+        $(document).ready(function() {
+            $('#tableListaPresupuesto').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                        'copy', 'excel', 'print'
+                ],
+                language: {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sSearch":         "Buscar:",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "excel": "Excel",
+                        "pdf": "PDF",
+                        "print": "Imprimir"
                     }
                 }
-            }
+            });
         });
+    </script>
 
-        // Eventos para la paginación (simulado)
-        paginacion.addEventListener('click', function (event) {
-            event.preventDefault();
-            const paginaSeleccionada = event.target.innerText;
-            console.log('Página seleccionada:', paginaSeleccionada);
-            // Aquí se implementaría la lógica de paginación real
-        });
-    });
-</script>
+</div>
+
+    

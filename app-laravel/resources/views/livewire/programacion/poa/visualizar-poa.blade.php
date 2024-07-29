@@ -42,10 +42,32 @@
     <h6 class="text-center">Matriz de Planificacion Unidades Operativas</h6>
     <h6 class="text-center">Año 2025</h6>
 
-    <label><b>Nombre de la Unidad:</b> Ingeniería y Mantenimiento</label>            
-    <label><b>Nombre del responsable:</b> </label>
-    <br><label><b>No Actividad:</b> 1005</label><br>  
-    <br><label><b>Cargo:</b></label></br>
+    
+    <table class="table table-borderless">
+        <thead>
+          <tr class= "small-font">
+            <th scope="col">
+              <div class="table-title ">
+                    <label><b>Nombre de la Unidad:</b> INGENIERIA Y MANTENIMIENTO </label> 
+                    <br><label><b>Actividad:</b> 1050</label></br>
+              </div>
+            </th>
+            <th scope="col">
+              <label><b>Nombre Responsable:</b> </label> 
+              <br><label><b>Cargo:</b> </label></br>
+            </th>
+            <th scope="col"> 
+                
+                <label><b></b>PP-FO-013 </label>
+                <br><label><b>VERSION:</b>04 </label></br>
+              <label><b>Fecha:</b>19/04/2024 </label>
+              <br><label><b></b></label> <br></th>
+            </tr>
+        </thead>
+      </table>
+    
+
+   
 
     <table class="table table-bordered border border-gray small-font">
         <!-- EN CABEZADO DE LA TABLA -->
