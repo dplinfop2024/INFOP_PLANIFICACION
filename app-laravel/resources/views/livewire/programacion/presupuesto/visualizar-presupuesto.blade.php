@@ -69,8 +69,31 @@
         </div>
 
     </div>
-    <button href="{{route('programacion.presupuesto.editar')}}" wire:navigate>Editar</button>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón Centrado</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-orange {
+            background-color: #FFA500; /* Color naranja */
+            border: 1px solid #FFA500; /* Borde del mismo color */
+            color: white; /* Color del texto */
+        }
 
+        .btn-orange:hover {
+            background-color: #ff8c00; /* Color de fondo cuando el mouse está sobre el botón */
+            border: 1px solid #ff8c00; /* Borde cuando el mouse está sobre el botón */
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <button class="btn btn-orange" href="{{ route('programacion.presupuesto.editar') }}" wire:navigate>
+            Editar
+        </button>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#tableDetallePresupuesto').DataTable({
