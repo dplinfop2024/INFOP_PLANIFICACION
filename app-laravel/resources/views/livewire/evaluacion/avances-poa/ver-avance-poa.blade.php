@@ -8,7 +8,7 @@
     <!-- Estilos personalizados -->
     <style>
         .custom-margin {
-            margin: 50px; /* Margen alrededor de la tabla */
+            margin: 100px; /* Margen alrededor de la tabla */
         }
         .text-justify {
             text-align: justify; /* Justifica el texto */
@@ -17,7 +17,7 @@
             border-color: gray !important; /* Cambia el color de los bordes a gris */
         }
         .small-font {
-            font-size: 10px; /* Cambia el tamaño de la fuente */
+            font-size: 12px; /* Cambia el tamaño de la fuente */
         }
     </style>
     <title>Plan Operativo Anual</title>
@@ -26,23 +26,23 @@
 
 <div class="custom-margin">
     <!-- Título centrado -->
-    <h1 class="text-center">AVANCE TRIMESTRAL PLAN OPERATIVO ANUAL</h1>
+    <h1 class="text-center">AVANCE TRIMESTRAL POA</h1>
     <table class="table table-borderless">
       <thead>
         <tr class= "small-font">
           <th scope="col">
             <div class="table-title ">
-                  <label><b>Nombre de la Unidad:</b> Desarrollo Empresarial </label> 
-                  <br><label><b>Actividad:</b> 6550</label></br>
+                  <label><b>Nombre de la Unidad:</b> Turismo </label> 
+                  <br><label><b>Actividad:</b> 9252</label></br>
             </div>
           </th>
           <th scope="col">
-            <label><b>Nombre Responsable:</b> Marcela Beatriz Ordoñes</label> 
+            <label><b>Nombre Responsable:</b> Daysi Jannett Aranda</label> 
             <br><label><b>Cargo:</b> Jefe de departamento</label></br>
           </th>
           <th scope="col"> 
-            <label><b>Fecha:</b>01/02/2023 </label>
-            <br><label><b>Año:</b>2023</label> <br></th>
+            <label><b>Fecha:</b>01/02/2024 </label>
+            <br><label><b>Año:</b>2024</label> <br></th>
           </tr>
       </thead>
     </table>
@@ -52,55 +52,97 @@
         <thead class="table-primary text-center">
             <tr class="border-gray">
                 <!-- Primera fila del encabezado -->
-                <th colspan="2" scope="col">COMPONENTE</th>
-                <th colspan="2" scope="col">LINEA ESTRATEGIA</th>
-                <th colspan="2" scope="col">META</th>
-                <th rowspan="2" scope="col">UNIDAD DE MEDIDA</th>
-                <th colspan="3" scope="col">1° TRIMESTRE</th>
-                <th colspan="3" scope="col">2° TRIMESTRE</th>
-                <th colspan="3" scope="col">3° TRIMESTRE</th>
-                <th colspan="3" scope="col">4° TRIMESTRE</th>
-                <th rowspan="0" scope="col">PROGRAMACION ANUAL</th>
+                
+                <th rowspan="3" scope="col">Nº META</th>
+                <th rowspan="3" scope="col">DESCRIPCION DE LAS METAS</th>
+                <th rowspan="3" scope="col">UNIDAD DE MEDIDA</th>
+                <th rowspan="2" colspan="3" scope="col">PROGRAMACION ANUAL 2024</th>
+                <th colspan="6" scope="col">EVALUACION DE LAS ACTIVIDADES</th>
+                <th rowspan="2" scope="col">% AVANCE TRIMESTRE</th>
+                <th rowspan="3" scope="col">OBSERVACIONES</th>
+            </tr>
+            <tr class="border-gray">
+                <!-- Primera fila del encabezado -->
+                <th  colspan="3" scope="col">PROG. I TRIMESTRE</th>
+                <th  colspan="3" scope="col">EJEC. I TRIMESTRE</th>
             </tr>
             <tr class="border-gray">
                 <!-- Segunda fila del encabezado -->
-                <th scope="col">Numero</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Numero</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Codigo</th>
-                <th scope="col">Resultado de Produccin</th>
-                <th scope="col">1</th>   
-                <th scope="col">2</th>
-                <th scope="col">3</th>
-                <th scope="col">4</th>
-                <th scope="col">5</th>
-                <th scope="col">6</th>
-                <th scope="col">7</th>
-                <th scope="col">8</th>
-                <th scope="col">9</th>
-                <th scope="col">10</th>
-                <th scope="col">11</th>
-                <th scope="col">12</th>
+                <th scope="col">C</th>
+                <th scope="col">P</th>
+                <th scope="col">H</th>
+                <th scope="col">C</th>
+                <th scope="col">P</th>
+                <th scope="col">H</th>
+                <th scope="col">C</th>
+                <th scope="col">P</th>
+                <th scope="col">H</th>
+                <th  rowspan="0" scope="col">ENERO-MARZO</th>
             </tr>
         </thead>
         <!-- Cuerpo de la tabla -->
-        <tbody class="text-justify">
+        <tbody class="text-center">
             <!-- Primera fila de datos -->
             <tr>
-                <th scope="row">1</th>
-                <td>ACADEMICO CURRICULAR Y MANUALES</td>
-                <td>1.1</td>
-                <td>
-                    Vincula la oferta de la formación técnica profesional de la población hondureña a las necesidades
-                    del mercado laboral y político nacional y sectorial de educación e inserción laboral para contribuir 
-                    a la productividad y el desarrollo del país. 
+                <th rowspan="3"scope="row">1.1.1</th>
+                <td class="text-justify" rowspan="3">
+                    Capacitados 612 participantes hombres y mujeres,
+                     a través de 51 Acciones Formativas
+                     de complementación y un total de 1,570 horas de instrucción, 
+                     en las diferentes técnicas de cocina y turismo.   
                 </td>
-                <td>1.1.1</td>
-                <td>Desarrollado 58 cursos de <b>Complementación</b>, atendiendo 870 participantes mediante 1280 horas de instrucción,
-                    por medio de instructores permanentes.
+                <td>Cursos</td>
+                <td>51</td>
+                <td></td>
+                <td></td>
+                <td>10</td>
+                <td></td>
+                <td></td>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="3"></td>
+            </tr>
+             <!-- Segunda  fila de datos -->
+            <tr text-center ="text-center">
+                <td>Participantes</td>
+                <td></td>
+                <td>612</td>
+                <td></td>
+                <td></td>
+                <td>120</td>
+                <td></td>
+                <td></td>
+                <td>98</td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+            <!-- Tercera  fila de datos -->
+            <tr text-center ="text-center">
+                <td>Horas</td>
+                <td></td>
+                <td></td>
+                <td>1,570</td>
+                <td></td>
+                <td></td>
+                <td>320</td>
+                <td></td>
+                <td></td>
+                <td>80</td>
+                <td></td>
+                
+            </tr>
+            <tr >
+                <th rowspan="3"scope="row">1.1.2</th>
+                <td class="text-justify" rowspan="3">
+                    Capacitados 36 participantes hombres y mujeres, 
+                    a través de 12 asistencia tecnica y un total de 344 horas de instrucción, 
+                    en las diferentes técnicas de cocina y turismo.
                 </td>
-                <td>Curso, participantes y horas</td>
+                <td text-center ="text-center">Cursos</td>
+                <td>12</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -110,23 +152,13 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td rowspan="3" ></td>
             </tr>
-            <!-- Segunda fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
+             <!-- Segunda  fila de datos -->
+            <tr text-center ="text-center">
+                <td>Participantes</td>
                 <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Cursos</b></td>
-                <td></td>
-                <td></td>
-                <td>22</td>
-                <td>34</td>
-                <td>2</td>
+                <td>36</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -135,21 +167,14 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>58</td>
+               
             </tr>
-            <!-- Tercera fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
+            <!-- Tercera  fila de datos -->
+            <tr class ="text-center">
+                <td>Horas</td>
                 <td></td>
                 <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Participantes</b></td>
-                <td></td>
-                <td></td>
-                <td>330</td>
-                <td>510</td>
-                <td>30</td>
+                <td>344</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -157,43 +182,17 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td>870</td>
+                
             </tr>
-            <!-- Cuarta fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td class="text-end"></td>
-                <td ></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Horas</b></td>
-                <td></td>
-                <td></td>
-                <td>490</td>
-                <td>750</td>
-                <td>40</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1280</td>
-            </tr>
-            <!-- Quinta fila de datos -->
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1.1.2</td>
-                <td>Realizar 12 <b>Asesorías</b> a 12 participaciones en el área de Desarrollo Empresarial, con 
-                    548 horas de instrucción mediante instructores permanentes.
+            <tr >
+                <th rowspan="3"scope="row">1.1.3</th>
+                <td class="text-justify" rowspan="3">
+                    Haber Capacitado participantes hombres y mujeres, 
+                    a través de 6 Acciones Formativas puntuales y un total de 120 horas de instrucción,
+                    en las diferentes técnicas de cocina y turismo.   
                 </td>
-                <td>Curso, participantes y horas</td>
+                <td text-center ="text-center">Cursos</td>
+                <td>6</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -203,78 +202,87 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td rowspan="3" ></td>
             </tr>
-            <!-- Sexta fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
+             <!-- Segunda  fila de datos -->
+            <tr text-center ="text-center">
+                <td>Participantes</td>
                 <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Cursos</b></td>
+                <td>72</td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               
+            </tr>
+            <!-- Tercera  fila de datos -->
+            <tr class ="text-center">
+                <td>Horas</td>
+                <td></td>
+                <td></td>
+                <td>120</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+            <tr >
+                <th rowspan="3"scope="row">1.1.4</th>
+                <td class="text-justify" rowspan="3">
+                    Haber Capacitado participantes 72 hombres y mujeres, 
+                    en las diferentes técnicas de cocina y turismo,
+                    desarrollando 120 horas en tiempo extraordinario.  
+                </td>
+                <td text-center ="text-center">Cursos</td>
+                <td>6</td>
+                <td></td>
+                <td></td>
                 <td>1</td>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2</td>
-                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="3" >No  hubo solicitud de trabajo.</td>
+            </tr>
+             <!-- Segunda  fila de datos -->
+            <tr text-center ="text-center">
+                <td>Participantes</td>
+                <td></td>
+                <td>72</td>
                 <td></td>
                 <td></td>
                 <td>12</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               
             </tr>
-            <!-- Séptima fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
+            <!-- Tercera  fila de datos -->
+            <tr class ="text-center">
+                <td>Horas</td>
                 <td></td>
                 <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Participantes</b></td>
+                <td>120</td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td>2</td>
-                <td>1</td>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2</td>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td>12</td>
-            </tr>
-            <!-- Octava fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Horas</b></td>
+                <td>20</td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>100</td>
-                <td>50</td>
-                <td>100</td>
-                <td>50</td>
-                <td>50</td>
-                <td>50</td>
-                <td>48</td>
-                <td>100</td>
                 <td></td>
-                <td></td>
-                <td>548</td>
+                
             </tr>
         </tbody>
     </table>
