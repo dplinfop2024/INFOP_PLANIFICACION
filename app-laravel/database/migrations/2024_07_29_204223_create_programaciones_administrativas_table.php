@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('componentes', function (Blueprint $table) {
+        Schema::create('programaciones_administrativas', function (Blueprint $table) {
             $table->id();
-            $table->integer('numero')->unique();
-            $table->string('nombre');
+            $table->unsignedBigInteger('id_meta');
+            $table->foreign('id_meta')->references('id')->on('metas_administrativas');
+            $table->integer('mes');
+            $table->integer('programacion');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('componentes');
+        Schema::dropIfExists('programaciones_administrativas');
     }
 };

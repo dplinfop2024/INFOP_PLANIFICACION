@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PoaAdministrativo extends Model
+class ProgramacionAdministrativa extends Model
 {
     use HasFactory;
-
-    protected $table = 'poa_administrativos';
+    
+    protected $table = 'programaciones_administrativas';
+    
 }

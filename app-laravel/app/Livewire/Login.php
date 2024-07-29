@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Poa;
 use App\Models\User;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -19,14 +20,14 @@ class Login extends Component
 
         $user = new User;
 
-        $user->id_unidad = 1500;
-        $user->tipo_usuario = 'Proveeduria';
-        $user->tipo_unidad = 'Administrativo';
-        $user->nombre_unidad = 'Unidad proveeduria';
+        $user->id_unidad = 1600;
+        $user->id_tipo_usuario = 5;
+        $user->id_tipo_unidad = 1;
+        $user->nombre_unidad = 'Departamento Planificacion';
         $user->nombre = 'prueba';
-        $user->cargo = 'jefe';
+        $user->id_cargo = 1;
         $user->password = '12345';
-        $user->email = 'prueba@proveeduria.com';
+        $user->email = 'prueba@planificacion.com';
 
         $user->save();
 
@@ -36,6 +37,22 @@ class Login extends Component
         $user = User::where('id_unidad' , '1200')->get();
         $this->dispatch('log', $user);
         prueba ver usuario base*/
+
+        /*Pruebas POA
+
+        $poa = new Poa;
+
+        $poa->id_usuario = 9;
+        $poa->anio = '2025';
+        $poa->id_componente = 3;
+        $poa->aceptado = 0;
+        $poa->aprobado = 0;
+
+        $poa->save();
+
+        Pruebas POA*/
+
+        //Ingresar metas prueba
 
         //verifica si hay una sesion con un usuario activo
         $tipoUsuario = session('tipoUsuario');

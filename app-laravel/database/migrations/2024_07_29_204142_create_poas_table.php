@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('componentes', function (Blueprint $table) {
+        Schema::create('poas', function (Blueprint $table) {
             $table->id();
-            $table->integer('numero')->unique();
-            $table->string('nombre');
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->string('anio');
+            $table->string('id_componente');
+            $table->boolean('aceptado');
+            $table->boolean('aprobado');
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('componentes');
+        Schema::dropIfExists('poas');
     }
 };

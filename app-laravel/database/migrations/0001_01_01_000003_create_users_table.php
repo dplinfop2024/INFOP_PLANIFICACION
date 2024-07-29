@@ -15,11 +15,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->integer('id_unidad')->unique();
-            $table->string('tipo_usuario');
-            $table->string('tipo_unidad');
+            $table->unsignedBigInteger('id_tipo_usuario');
+            $table->foreign('id_tipo_usuario')->references('id')->on('tipos_usuarios');
+            $table->unsignedBigInteger('id_tipo_unidad');
+            $table->foreign('id_tipo_unidad')->references('id')->on('tipos_unidades');
             $table->string('nombre_unidad');
             $table->string('nombre');
-            $table->string('cargo');
+            $table->unsignedBigInteger('id_cargo');
+            $table->foreign('id_cargo')->references('id')->on('cargos');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
