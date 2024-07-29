@@ -1,5 +1,23 @@
 
 <div>
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Estilos personalizados -->
+  <style>
+    .custom-margin {
+        margin: 30px; /* Margen alrededor de la tabla */
+    }
+    .text-justify {
+        text-align: justify; /* Justifica el texto */
+    }
+    .border-gray {
+        border-color: gray !important; /* Cambia el color de los bordes a gris */
+    }
+    .small-font {
+        font-size: 10px; /* Cambia el tamaño de la fuente */
+    }
+    </style>
+   
+
     <h1 class="text-center">PLAN DE COMPRAS Y CONTRACIONES</h1>
   
     <table class="table table-bordered">
@@ -146,7 +164,8 @@
               
         </tbody>
       </table>
-
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+   </div>
     
     
   </div>   

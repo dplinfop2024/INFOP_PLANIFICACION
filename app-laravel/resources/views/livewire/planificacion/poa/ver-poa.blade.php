@@ -4,6 +4,25 @@
 
    {{--   Registrar PACC - No es funcion de planificacion  --}}
 
+   <div>
+    <!-- Enlace a la hoja de estilos de Bootstrap 5.3 -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Estilos personalizados -->
+<style>
+.custom-margin {
+   margin: 30px; /* Margen alrededor de la tabla */
+}
+.text-justify {
+   text-align: justify; /* Justifica el texto */
+}
+.border-gray {
+   border-color: gray !important; /* Cambia el color de los bordes a gris */
+}
+.small-font {
+   font-size: 10px; /* Cambia el tamaño de la fuente */
+}
+</style>
+
  <div class="container-fluid" style="background-color:#343A40">
     
     <br>
@@ -96,16 +115,6 @@
 
             </div>
                 
-               
-
-
-
-
-
-
-
-
-
 
             </div>
 
@@ -116,5 +125,7 @@
 
 
 </div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+   </div>
 
 
