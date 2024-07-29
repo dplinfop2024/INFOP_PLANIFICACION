@@ -29,6 +29,7 @@ use App\Livewire\Evaluacion\Presupuesto\ReporteTrimestralPresupuestoEjecucion;
 use App\Livewire\Evaluacion\Presupuesto\VerPresupuestoEjecucion;
 use App\Livewire\Home;
 use App\Livewire\Login;
+use App\Livewire\Planificacion\Pacc\VerListaPacc;
 use App\Livewire\Planificacion\Pacc\VerPacc as PaccVerPacc;
 use App\Livewire\Planificacion\Poa\EditarPoa as PoaEditarPoa;
 use App\Livewire\Planificacion\Poa\VerPoa as PoaVerPoa;
@@ -48,6 +49,7 @@ use App\Livewire\Programacion\Poa\VisualizarPoa;
 use App\Livewire\Programacion\Presupuesto\VerListaPresupuesto;
 use App\Livewire\Programacion\Presupuesto\VisualizarPresupuesto;
 use App\Livewire\Proveduria\Pacc\VerPacc as ProveduriaVerPacc;
+use App\Livewire\Proveduria\Pacc\VerListaPacc as ProveduriaListaPacc;
 use App\Livewire\Proveduria\ProveduriaHome;
 
 
@@ -112,6 +114,7 @@ route::get('/planificaicon/veravancespoa',VerAvancesPoa::class)->name('planifica
 //---Rutas Planificacion-Pacc---//
 route::get('/planificacion/verpacc',PaccVerPacc::class)->name('planificacion.verpacc');
 route::get('/planificacion/veravancespacc',VerAvancesPacc::class)->name('planificacion.veravancespacc');
+route::get('/planificacion/verlista',VerListaPacc::class )->name('planificacion.verlistapacc');
 
 //---Rutas Planificacion-Presupuesto---//
 route::get('/planificacion/verpresupuesto',PresupuestoVerPresupuesto::class)->name('planificacion.verpresupuesto');
@@ -125,6 +128,7 @@ Route::get('/proveduria',ProveduriaHome::class)->name('proveduria.home');
 
 //---Rutas Proveduria-Pacc---//
 route::get('/proveduria/verpacc',ProveduriaVerPacc::class)->name('proveduria.verpacc');
+route::get('/proveduria/verlistapacc', ProveduriaListaPacc::class)->name('proveduria.verlistapacc');
 
 
 
