@@ -18,8 +18,8 @@
             <th scope="row">1</th>
               <td>TURISMO</td>
               <td>Operativo</td>
-              <td>2023</td>
-              <td>01/02/2023</td>
+              <td>2024</td>
+              <td>01/02/2024</td>
               <td>SI</td>
               <td>SI</td>
               <td><button type="button" class="btn btn-warning" href="{{route('evaluacion.visualizaravancepoa')}}" wire:navigate>Detalles</button></td>
