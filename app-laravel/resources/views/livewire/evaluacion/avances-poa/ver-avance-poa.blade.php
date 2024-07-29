@@ -286,6 +286,8 @@
             </tr>
         </tbody>
     </table>
+    <button type="button" class="btn btn-warning" href="{{route('evaluacion.edicionavancepoa')}}" wire:navigate>Editar</button>
+    
 </div>
 
 <!-- Enlace al script de Bootstrap 5.3 -->
