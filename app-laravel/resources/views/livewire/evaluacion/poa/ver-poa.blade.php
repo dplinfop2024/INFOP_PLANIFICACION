@@ -8,7 +8,7 @@
     <!-- Estilos personalizados -->
     <style>
         .custom-margin {
-            margin: 20px; /* Margen alrededor de la tabla */
+            margin: 50px; /* Margen alrededor de la tabla */
         }
         .text-justify {
             text-align: justify; /* Justifica el texto */
@@ -29,9 +29,9 @@
     <h1 class="text-center">PLAN OPERATIVO ANUAL</h1>
     <table class="table table-borderless">
       <thead>
-        <tr>
+        <tr class= "small-font">
           <th scope="col">
-            <div class="table-title">
+            <div class="table-title ">
                   <label><b>Nombre de la Unidad:</b> Desarrollo Empresarial </label> 
                   <br><label><b>Actividad:</b> 6550</label></br>
             </div>

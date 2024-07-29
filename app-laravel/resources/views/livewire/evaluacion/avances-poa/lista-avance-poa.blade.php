@@ -22,7 +22,7 @@
               <td>01/02/2023</td>
               <td>SI</td>
               <td>SI</td>
-              <td><button type="button" class="btn btn-warning">Detalles</button></td>
+              <td><button type="button" class="btn btn-warning" href="{{route('evaluacion.visualizaravancepoa')}}" wire:navigate>Detalles</button></td>
           </tr>
         
         </tbody>
