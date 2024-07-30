@@ -51,7 +51,7 @@ use App\Livewire\Programacion\Presupuesto\VisualizarPresupuesto;
 use App\Livewire\Proveduria\Pacc\VerPacc as ProveduriaVerPacc;
 use App\Livewire\Proveduria\Pacc\VerListaPacc as ProveduriaListaPacc;
 use App\Livewire\Proveduria\ProveduriaHome;
-
+use App\Livewire\Mantenimiento\Usuario\EditarPerfil;
 
 //Ruta pagina principal
 Route::get('/', Home::class)->name('welcome');
@@ -168,3 +168,6 @@ route::get('/evaluacion/editarpresupuestoejecucion',EditarPresupuestoEjecucion::
 route::get('/evaluacion/verpresupuestoejecucion',VerPresupuestoEjecucion::class)->name('evaluacion.visualizarpresupuestoejecucion');
 route::get('/evaluacion/resporteanualpresupuestoejecucion',ReporteAnualPresupuestoEjecucion::class)->name('evaluacion.resporteanualpresupuestoejecucion');
 route::get('/evaluacion/resportetrimestralpresupuestoejecucion',ReporteTrimestralPresupuestoEjecucion::class)->name('evaluacion.resportetrimestralpresupuestoejecucion');
+
+//rutas Mantenimiento del sistema
+route::get('/mantenimiento/editarperfil',EditarPerfil::class)->name('mantenimiento.editarperfil');

@@ -1,6 +1,7 @@
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary" {{$hidden}}>
-  <div class="container-fluid">
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary"  {{$hidden}}>
+  <div class="container-fluid" >
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -118,10 +119,20 @@
           Ver lista Presupuesto
         </a>
         @endif
-        <li class="nav-item">
-            <a class="nav-link" wire:click="logout()">Cerrar sesión</a>
-        </li>
       </ul>
+      <ul class="navbar-nav" style="margin-left: auto;">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="/images/user.png" alt="Imagen de Perfil">
+              <b>Usuario: Prueba
+        </a></b>
+
+          <ul class="dropdown-menu" style="margin-left: auto;">
+            <li><a class="dropdown-item" href="{{route('mantenimiento.editarperfil')}}" wire:navigate> Editar Perfil</a></li>
+            <li><a class="nav-link" wire:click="logout()">Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </div>
     </div>
   </div>
 </nav>
