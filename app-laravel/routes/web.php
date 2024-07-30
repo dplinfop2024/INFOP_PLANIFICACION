@@ -2,6 +2,7 @@
 
 use App\Livewire\AvancesPoa\EditarAvancesPoaAdministrativo;
 use App\Livewire\AvancesPoa\EditarAvancesPoaOperativo;
+use App\Livewire\Pacc\RegistrarPacc;
 use App\Livewire\Planificacion\AvancesPacc\VerAvancesPacc;
 use App\Livewire\Planificacion\AvancesPoa\VerAvancesPoa;
 use App\Livewire\Planificacion\PlanificacionHome;
@@ -29,6 +30,7 @@ use App\Livewire\Evaluacion\Presupuesto\ReporteTrimestralPresupuestoEjecucion;
 use App\Livewire\Evaluacion\Presupuesto\VerPresupuestoEjecucion;
 use App\Livewire\Home;
 use App\Livewire\Login;
+use App\Livewire\Pacc\EditarPacc as PaccEditarPacc;
 use App\Livewire\Planificacion\Pacc\VerListaPacc;
 use App\Livewire\Planificacion\Pacc\VerPacc as PaccVerPacc;
 use App\Livewire\Planificacion\Poa\EditarPoa as PoaEditarPoa;
@@ -170,4 +172,8 @@ route::get('/evaluacion/resporteanualpresupuestoejecucion',ReporteAnualPresupues
 route::get('/evaluacion/resportetrimestralpresupuestoejecucion',ReporteTrimestralPresupuestoEjecucion::class)->name('evaluacion.resportetrimestralpresupuestoejecucion');
 
 //rutas Mantenimiento del sistema
-route::get('/mantenimiento/editarperfil',EditarPerfil::class)->name('mantenimiento.editarperfil');
+
+//----------RUTAS GENERALES - PACC ----------//
+
+route::get('/pacc/registrarpacc',RegistrarPacc::class )->name('pacc.registrarpacc');
+route::get('/pacc/editarpacc',PaccEditarPacc::class)->name('pacc.editarpacc');
