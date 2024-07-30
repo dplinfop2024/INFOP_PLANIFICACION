@@ -16,7 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->string('anio');
-            $table->string('id_componente');
+            $table->unsignedBigInteger('id_componente');
+            $table->foreign('id_componente')->references('id')->on('componentes');
             $table->boolean('aceptado');
             $table->boolean('aprobado');
             $table->timestamps();

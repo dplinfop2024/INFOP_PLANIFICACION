@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('id_poa')->references('id')->on('poas');
             $table->unsignedBigInteger('id_linea');
             $table->foreign('id_linea')->references('id')->on('lineas_estrategicas');
-            $table->string('descripcion');
+            $table->string('descripcion', 500);
             $table->string('unidad_medida');
             $table->integer('numero');
             $table->integer('cursos');

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_componente');
             $table->foreign('id_componente')->references('id')->on('componentes');
             $table->integer('numero');
-            $table->string('descripcion');
+            $table->string('descripcion', 500);
             $table->timestamps();
         });
     }

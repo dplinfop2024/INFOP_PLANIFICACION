@@ -40,7 +40,7 @@
 <div>
     <h5 class="text-center">PLAN OPERATIVO PRESUPUESTO</h5>
     <h6 class="text-center">Matriz de Planificacion Unidades Operativas</h6>
-    <h6 class="text-center">Año 2025</h6>
+    <h6 class="text-center">Año {{$poa->anio}}</h6>
 
     
     <table class="table table-borderless">
@@ -48,19 +48,19 @@
           <tr class= "small-font">
             <th scope="col">
               <div class="table-title ">
-                    <label><b>Nombre de la Unidad:</b> INGENIERIA Y MANTENIMIENTO </label> 
-                    <br><label><b>Actividad:</b> 1050</label></br>
+                    <label><b>Nombre de la Unidad:</b> {{$user->nombre_unidad}} </label> 
+                    <br><label><b>Actividad:</b> {{$user->id_unidad}}</label></br>
               </div>
             </th>
             <th scope="col">
-              <label><b>Nombre Responsable:</b> </label> 
-              <br><label><b>Cargo:</b> </label></br>
+              <label><b>Nombre Responsable: {{$user->nombre}}</b> </label> 
+              <br><label><b>Cargo: {{$cargo->nombre}}</b> </label></br>
             </th>
             <th scope="col"> 
                 
                 <label><b></b>PP-FO-013 </label>
                 <br><label><b>VERSION:</b>04 </label></br>
-              <label><b>Fecha:</b>19/04/2024 </label>
+              <label><b>Fecha:</b>{{date_format($poa->updated_at, "y/m/d")}} </label>
               <br><label><b></b></label> <br></th>
             </tr>
         </thead>
@@ -108,98 +108,22 @@
         </thead>
         <!-- FILAS DE LA TABLA -->
         <tbody class="text-justify">
+            @foreach($metas as $meta)
             <tr>
-                <th scope="row">3</th>
-                <td>INFRAESTRUCTURA Y ORNATO</td>
-                <td>3.1</td>
-                <td>Mejorar la infraestructura actual de las instalaciones del INFOP a nivel nacional con el fin de contar con espacios adecuados que mejoren las condiciones pedagógicas para aprendices y colaboradores.</td>
-                <td>3.1.1</td>
+                <th scope="row">{{$componente->numero}}</th>
+                <td>{{$componente->nombre}}</td>
+                <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}</td>
+                <td>{{$meta->descripcion}}</td>
+                <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}.{{$meta->numero}}</td>
                 <td>FORMULACION Y POSTERIORMENTE CONSTRUCCION DE TALLERES DE FORMACION PROFESIONAL, LOS ENCUENTROS, FRANCISCO MORAZAN (ESTUDIO)</td>
-                <td>Construcciones y remodelaciones</td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
+                <td>{{$meta->unidad_medida}}</td>
+                @foreach($meses[$loop->index] as $mes)
+                <td>{{$mes}}</td>
+                @endforeach
+                <td>{{$meta->programacion_anual}}</td>
                 <td>L12,600,000.00</td>
             </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>3.1.2</td>
-                <td>FORMULACION Y POSTERIORMENTE CONSTRUCCION DE TALLERES DE FORMACION PROFESIONAL, COMAYAGUA, COMAYAGUA (ESTUDIO)</td>
-                <td>Construcciones y remodelaciones</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td>L1,260,000.00</td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>3.1.3</td>
-                <td>FORMULACION Y POSTERIORMENTE CONSTRUCCION DE CERCO PERIMETRAL INFOP TRUJILLO</td>
-                <td>Construcciones y remodelaciones</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td>L5,000,000.00</td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>3.1.4</td>
-                <td>FORMULACION Y POSTERIORMENTE CONSTRUCCION DE TALLERES DE INFOP TRUJILLO</td>
-                <td>Construcciones y remodelaciones</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1</td>
-                <td>L30,000,000.00</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
   
