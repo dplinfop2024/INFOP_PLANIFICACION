@@ -25,7 +25,7 @@
               <tr>
                 <th scope="col">N. UNIDAD</th>
                   <th scope="col">NOMBRE DE LA UNIDAD</th>
-                  <th scope="col">TIPO DE UNIDAD</th>
+                  <th scope="col">N. ACTIVIDAD</th>
                   <th scope="col">AÑO</th>
                   <th scope="col">VER</th>
               </tr>
@@ -33,10 +33,10 @@
             <tbody>
               <tr>
                 <th scope="row">8217</th>
-                  <td>UAPA OLANCHITO</td>
-                  <td>Operativo</td>
+                  <td>Formacion Profesional</td>
+                  <td>6501</td>
                   <td>2024</td>
-                  <td><button type="button" class="btn btn-warning" href="{{route('evaluacion.visualizarpacc')}}" wire:navigate>Detalles</button></td>
+                  <td><button type="button" class="btn btn-warning" href="{{route('planificacion.verpacc')}}" wire:navigate>Detalles</button></td>
               </tr>
             
             </tbody>
