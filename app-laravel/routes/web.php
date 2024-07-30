@@ -171,7 +171,10 @@ route::get('/evaluacion/verpresupuestoejecucion',VerPresupuestoEjecucion::class)
 route::get('/evaluacion/resporteanualpresupuestoejecucion',ReporteAnualPresupuestoEjecucion::class)->name('evaluacion.resporteanualpresupuestoejecucion');
 route::get('/evaluacion/resportetrimestralpresupuestoejecucion',ReporteTrimestralPresupuestoEjecucion::class)->name('evaluacion.resportetrimestralpresupuestoejecucion');
 
+
 //rutas Mantenimiento del sistema
+route::get('/mantenimiento/editarperfil',EditarPerfil::class)->name('mantenimiento.editarperfil');
+
 
 //----------RUTAS GENERALES - PACC ----------//
 
