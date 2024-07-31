@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('presupuesto', function (Blueprint $table) {
+        Schema::create('evidencias_poas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_unidad');
-            $table->foreign('id_unidad')->references('id')->on('users');
-            $table->string('anio');
-            $table->integer('total');
+            $table->unsignedBigInteger('id_poa');
+            $table->foreign('id_poa')->references('id')->on('poas');
+            $table->mediumText('evidencia')->charset('binary');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('presupuesto');
+        Schema::dropIfExists('evidencias_poas');
     }
 };

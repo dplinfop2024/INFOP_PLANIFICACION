@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('renglon_presupuesto', function (Blueprint $table) {
+        Schema::create('renglones_maquinarias_equipos', function (Blueprint $table) {
             $table->id();
+            $table->decimal('numero', total:5, places:2);
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('renglon_presupuesto');
+        Schema::dropIfExists('renglones_maquinarias_equipos');
     }
 };

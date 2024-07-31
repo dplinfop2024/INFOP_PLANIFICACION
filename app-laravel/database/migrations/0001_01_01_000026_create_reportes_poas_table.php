@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gasto_presupuesto', function (Blueprint $table) {
+        Schema::create('reportes_poas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_poa');
+            $table->foreign('id_poa')->references('id')->on('poas');
+            $table->string('trimestre');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gasto_presupuesto');
+        Schema::dropIfExists('reportes_poas');
     }
 };

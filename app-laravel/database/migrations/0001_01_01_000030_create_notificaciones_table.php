@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('grupo_presupuesto', function (Blueprint $table) {
+        Schema::create('notificaciones', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->integer('id_remitente');
+            $table->string('tipo_notificacion');
+            $table->string('mensaje');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('grupo_presupuesto');
+        Schema::dropIfExists('notificaciones');
     }
 };

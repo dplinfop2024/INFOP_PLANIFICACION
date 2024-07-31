@@ -113,15 +113,15 @@
                 <th scope="row">{{$componente->numero}}</th>
                 <td>{{$componente->nombre}}</td>
                 <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}</td>
-                <td>{{$meta->descripcion}}</td>
+                <td>{{$metas[$loop->index]->descripcion_linea()}}</td>
                 <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}.{{$meta->numero}}</td>
-                <td>FORMULACION Y POSTERIORMENTE CONSTRUCCION DE TALLERES DE FORMACION PROFESIONAL, LOS ENCUENTROS, FRANCISCO MORAZAN (ESTUDIO)</td>
+                <td>{{$meta->descripcion}}</td>
                 <td>{{$meta->unidad_medida}}</td>
                 @foreach($meses[$loop->index] as $mes)
                 <td>{{$mes}}</td>
                 @endforeach
                 <td>{{$meta->programacion_anual}}</td>
-                <td>L12,600,000.00</td>
+                <td>{{$meta->presupuesto_meta}}</td>
             </tr>
             @endforeach
         </tbody>

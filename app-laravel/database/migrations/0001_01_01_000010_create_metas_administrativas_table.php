@@ -18,11 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('id_linea');
             $table->foreign('id_linea')->references('id')->on('lineas_estrategicas');
             $table->string('descripcion', 500);
-            $table->string('resultado_programacion');
             $table->string('unidad_medida');
             $table->integer('numero');
             $table->integer('programacion_anual');
-            $table->integer('presupuesto_meta');
+            $table->decimal('presupuesto_meta', total:11, places:2);
             $table->timestamps();
         });
     }

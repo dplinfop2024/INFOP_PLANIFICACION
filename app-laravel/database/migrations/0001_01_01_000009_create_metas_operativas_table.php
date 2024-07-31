@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('cursos');
             $table->integer('participantes');
             $table->integer('horas');
+            $table->decimal('presupuesto_meta', total:11, places:2);
             $table->timestamps();
         });
     }
