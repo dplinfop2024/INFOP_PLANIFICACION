@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('paccs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_unidad');
-            $table->foreign('id_unidad')->references('id')->on('users');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->string('anio');
             $table->timestamps();
         });
