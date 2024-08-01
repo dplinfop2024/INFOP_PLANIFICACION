@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_pacc');
             $table->foreign('id_pacc')->references('id')->on('paccs');
-            $table->integer('numero');
             $table->decimal('renglon', total:5, places:2);
             $table->string('descripcion');
             $table->decimal('monto', total:11, places:2);
