@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('renglon', total:5, places:2);
             $table->string('descripcion');
             $table->decimal('monto', total:11, places:2);
-            $table->integer('unidad');
+            $table->string('unidad');
             $table->date('fecha_entrega');
             $table->timestamps();
         });

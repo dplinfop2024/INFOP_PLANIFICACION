@@ -6,7 +6,7 @@ use App\Models\Cargo;
 use App\Models\Componente;
 use App\Models\MetaAdministrativa;
 use App\Models\Poa;
-use App\Models\ProgramacionAdministrativa;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Livewire\Component;
 
@@ -28,6 +28,17 @@ class VisualizarPoa extends Component
     public $index = 0;
 
     public function mount(){
+
+        //Prueba Joins Eloquent
+
+        $prueba = DB::table('poas')
+                ->join('metas_administrativas', 'poas.id', '=', 'metas_administrativas.id_poa')
+                ->join('programaciones_administrativas', 'metas_administrativas.id', '=', 'programaciones_administrativas.id_meta')
+                ->where('poas.id', '=', 4)->get();
+
+        $this->dispatch('log', $prueba);
+
+        //Pruebas Joins Eloquent
 
         $this->poa = Poa::find(4);
         $this->user = User::find($this->poa->id_usuario);
