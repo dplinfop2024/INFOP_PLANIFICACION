@@ -35,51 +35,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($poas as $poa)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Turismo</td>
-                        <td>Operativo</td>
-                        <td>01/02/2023</td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row">{{$poa->get_numero_unidad()}}</th>
+                        <td>{{$poa->get_nombre_unidad()}}</td>
+                        <td>{{$poa->get_tipo_unidad()}}</td>
+                        <td>{{$poa->anio}}</td>
+                        <td>@if($poa->aceptado)Si @else No @endif</td>
+                        <td>@if($poa->aprobado)Si @else No @endif</td>
                         <td><a href="{{ route('programacion.visualizarpoa') }}" class="btn btn-warning">Detalles</a></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>División de Planificación</td>
-                        <td>Administrativo</td>
-                        <td>04/03/2023</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="{{ route('programacion.visualizarpoa') }}" class="btn btn-warning">Detalles</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Departamento de Programación</td>
-                        <td>Administrativo</td>
-                        <td>12/06/2023</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="{{ route('programacion.visualizarpoa') }}" class="btn btn-warning">Detalles</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Ingeniería y Mantenimiento</td>
-                        <td>Administrativo</td>
-                        <td>05/06/2023</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="{{ route('programacion.visualizarpoa') }}" class="btn btn-warning">Detalles</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Unidad de Formación Secretarial</td>
-                        <td>Operativo</td>
-                        <td>25/07/2023</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="{{ route('programacion.visualizarpoa') }}" class="btn btn-warning">Detalles</a></td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -11,6 +11,12 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function get_tipo_unidad(){
+        $tipo_unidad = TipoUnidad::find($this->id_tipo_unidad);
+        return $tipo_unidad->nombre;
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *

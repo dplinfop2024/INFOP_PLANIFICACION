@@ -18,9 +18,8 @@ return new class extends Migration
             $table->integer('numero');
             $table->decimal('renglon', total:5, places:2);
             $table->string('descripcion');
-            $table->string('anio');
-            $table->decimal('valor', total:11, places:2);
-            $table->integer('cantidad');
+            $table->decimal('monto', total:11, places:2);
+            $table->integer('unidad');
             $table->date('fecha_entrega');
             $table->timestamps();
         });
