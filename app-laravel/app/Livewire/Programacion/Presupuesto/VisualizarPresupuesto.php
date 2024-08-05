@@ -2,10 +2,17 @@
 
 namespace App\Livewire\Programacion\Presupuesto;
 
+use App\Models\GastoPresupuesto;
 use Livewire\Component;
 
 class VisualizarPresupuesto extends Component
 {
+    
+    
+        
+    
+    
+
 
     public $renglones = array(
         array(
@@ -39,4 +46,5 @@ class VisualizarPresupuesto extends Component
     {
         return view('livewire.programacion.presupuesto.visualizar-presupuesto', ['renglones' => $this->renglones]);
     }
-}
+
+};
