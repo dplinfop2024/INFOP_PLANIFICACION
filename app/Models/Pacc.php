@@ -10,5 +10,20 @@ class Pacc extends Model
     use HasFactory;
     
     protected $table ='paccs';
+    
+    public function get_nombre_unidad(){
+        $usuario = User::find($this->id_usuario);
+        return $usuario->nombre_unidad;
+    }
 
+    public function get_numero_unidad(){
+        $usuario = User::find($this->id_usuario);
+        return $usuario->id_unidad;
+    }
+
+    public function get_tipo_unidad(){
+        $usuario = User::find($this->id_usuario);
+        return $usuario->get_tipo_unidad();
+    }
+    
 }

@@ -37,14 +37,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td scope="row">8217</td>
-                <td>UAPA OLANCHITO</td>
-                <td>Operativo</td>
-                <td>2024</td>
-                <td><button type="button" class="btn btn-warning" href="{{route('evaluacion.visualizarpacc')}}" wire:navigate>Detalles</button></td>
-            </tr>
-          
+            @foreach($paccs as $pacc)
+              <tr>
+                  <td scope="row">{{$pacc->get_numero_unidad()}}</td>
+                  <td>{{$pacc->get_nombre_unidad()}}</td>
+                  <td>{{$pacc->get_tipo_unidad()}}</td>
+                  <td>{{$pacc->anio}}</td>
+                  <td><button type="button" class="btn btn-warning" href="{{route('evaluacion.visualizarpacc')}}" wire:navigate>Detalles</button></td>
+              </tr>
+              @endforeach
           </tbody>
         </table>
       </div>

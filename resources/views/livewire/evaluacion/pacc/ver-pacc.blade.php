@@ -35,12 +35,12 @@
         </tr>
         <tr>
          <th colspan="3" scope="col">ACTIVIDAD PRESUPUESTARIA</th>
-           <th colspan="3" scope="col">6501</th>
+           <th colspan="3" scope="col">{{$user->id_unidad}}</th>
            
         </tr>
         <tr>
          <th colspan="3" scope="col">UNIDAD EJECUTORA</th>
-           <th colspan="3" scope="col">UNIDAD DE FORMACION SECRETARIAL</th>
+           <th colspan="3" scope="col">{{$user->nombre_unidad}}</th>
           
         </tr>
         <tr>
