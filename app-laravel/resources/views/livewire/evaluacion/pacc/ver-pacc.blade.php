@@ -57,86 +57,21 @@
      <!-- FILAS DE LAS TABLA-->
      <tbody class="text-center">
        <tr>
-             
-           <th scope="row">1</th>
-           <td> </td>
-           <td>50 Papel Bond tamaño carta base 20</td>
-           <td> RESMA</td>
-           <td>3,700.00</td>
-           <td>18/03/2024
-           </td>
+            @foreach($gastopacc as $gasto) 
+           <th scope="row">{{$loop->index+1}}</th>
+           <td>{{$gasto->renglon}}</td>
+           <td>{{$gasto->descripcion}}</td>
+           <td>{{$gasto->unidad}}</td>
+           <td>{{$gasto->monto}}</td>
+           <td>{{$gasto->fecha_entrega}}</td>
+
+        </tr>
+        @endforeach
            
 
            
            
-           </tr>
-           <th scope="row">2</th>
-           <td> </td>
-           <td>45 Papel Bond tamaño oficio base 20</td>
-           <td> RESMA</td>
-           <td>3,990.00</td>
-           <td>18/03/2024</td>
-
-           <tr>
-
-
-           </tr>
-           <th scope="row">3</th>
-           <td> </td>
-           <td>1000 Folder tamaño carta</td>
-           <td> UNID</td>
-           <td>4,000.00</td>
-           <td>18/03/2024</td>
-
-           <tr>
-
-           </tr>
-           <th scope="row">4</th>
-           <td> </td>
-           <td>700 Folder tamaño oficio</td>
-           <td> UNID</td>
-           <td>4,000.00</td>
-           <td>18/03/2024</td>
-
-           <tr>
-
-           </tr>
-           <th scope="row">5</th>
-           <td> </td>
-           <td>1000 Bolsas manila 13X10(grandes)</td>
-           <td> UNDID</td>
-           <td>18,000.00</td>
-           <td>18/03/2024</td>
-
-           <tr>
-
-           </tr>
-           <th scope="row">6</th>
-           <td> </td>
-           <td>08 Libretas de taquigrafia</td>
-           <td> UNID</td>
-           <td>240.00</td>
-           <td>18/03/2024</td>
-
-           <tr>
-
-           </tr>
-           <th scope="row">7</th>
-           <td> </td>
-           <td>08 Libretas bond-rayadas</td>
-           <td> UNID</td>
-           <td>360.00</td>
-           <td>18/03/2024</td>
-
-           <tr>
-
-           </tr>
-           <th scope="row">8</th>
-           <td> </td>
-           <td>2 Cuadernos unicos tamaño oficico para correspondencia</td>
-           <td> UNID</td>
-           <td>150.00</td>
-           <td>18/03/2024</td>
+          
 
            <tr>
 
