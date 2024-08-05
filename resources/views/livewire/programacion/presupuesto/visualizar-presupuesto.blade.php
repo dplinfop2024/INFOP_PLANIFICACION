@@ -39,11 +39,11 @@
                     <div class="col-md-2">
                         <label class="centrarLabel">PP-FO-027</label>
                         <label class="centrarLabel">VERSIÓN 2</label>
-                        <label class="centrarLabel">FECHA 5/8/2022</label>
+                        <label class="centrarLabel">FECHA {{date_format($presupuesto->updated_at,"d/m/y")}}</label>
                     </div>
                 </div>  
-                <br> <label><b>Nombre de la unidad:</b> 1005 Unidad Ingeniería y Mantenimiento</label>
-                <br><label><b>Responsable de la unidad:</b></label>
+                <br> <label><b>Nombre de la unidad:</b> {{$usuario->id_unidad}} {{$usuario->nombre_unidad}}</label>
+                <br><label><b>Responsable de la unidad:</b> {{$usuario->nombre}}</label>
              
             </div>
 
@@ -51,18 +51,35 @@
                 <thead>
                     <tr>
                         <th width="80">GRUPO /SUB/GR.</th>
-                        <th class="centrarTexto" >DESCRIPCIÓN DEL GASTO</th>
+                        <th class="centrarTexto" >DESCRIPCIÓN DEL GASTO {{$presupuesto->anio}}</th>
                         <th>VALOR LEMPIRAS</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($renglones as $renglon)
-                    <tr class="{{ in_array($renglon['grupo'], [10000, 20000]) ? 'fila-negrita' : '' }}">
-                        <td>{{ $renglon['grupo'] }}</td>
-                        <td>{{ $renglon['descripcion'] }}</td>
-                        <td>{{ $renglon['valor'] }}</td>
+                
+                <!--Imprimir todos los elementos de la lista subgrupos-->
+                @foreach($subgrupos as $renglon)
+                    <tr>
+                        <td>{{$renglon->numero}}</td>
+                        <td>{{$renglon->nombre}}</td>
+                        <td>
+                             <!--Recorrer la lista de gastos-->
+                         @foreach($gastospresupuestos as $gasto) 
+                          <!--comparar si el gasto pertenece a este subgrupo-->
+                          @if($renglon->id === $gasto->id_subgrupo)
+                           <!--Si e gasto pertenece al subgrupo se imprime el valor-->
+                          {{$gasto->valor}}
+                          @endif
+                         @endforeach 
+                        </td>
                     </tr>
                 @endforeach
+                 <!--Imprimiendo Total de presupuesto-->
+                <tr class="fila-negrita">
+                    <td></td>
+                    <td>Total</td>
+                    <td>{{$presupuesto->total}}</td>
+                </tr>
                     
                 </tbody>
             </table>

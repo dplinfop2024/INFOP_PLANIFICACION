@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Presupuesto extends Model
+class GrupoPresupuesto extends Model
 {
     use HasFactory;
-    protected $table = 'presupuestos';
-
-
-    
+    protected $table ='grupos_presupuestos'; 
 }

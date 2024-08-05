@@ -9,13 +9,7 @@ class GastoPresupuesto extends Model
 {
     use HasFactory;
     
-   
-     
-    
-        public function render()
-        {
-            return view('livewire.mi-componente');
-        }
-    }
+    protected $table ='gastos_presupuestos';  
+}
      
 
