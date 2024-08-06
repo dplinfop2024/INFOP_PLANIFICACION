@@ -16,7 +16,7 @@
       @elseif($tipoUsuario==='Planificacion')
       <a class="navbar-brand" href="{{route('planificacion.home')}}" wire:navigate>Menu Planificacion</a>
       @elseif($tipoUsuario==='Proveduria')
-      <a class="navbar-brand" href="{{route('proveduria.home')}}" wire:navigate>Menu Proveduria</a>
+      <a class="navbar-brand" href="{{route('proveduria.home')}}" wire:navigate>Menu Proveeduria</a>
       @elseif($tipoUsuario==='Evaluacion')
       <a class="navbar-brand" href="{{route('evaluacion.home')}}" wire:navigate>Menu Evaluacion</a>
       @endif
@@ -87,10 +87,10 @@
         </li>
         <!--Menu navbar para Programación-->
         @elseif($tipoUsuario==='Programacion')
-        <a class="nav-link" href="{{route('programacion.listapoa')}}" wire:navigate role="button" aria-expanded="false">
+        <a class="nav-link" href="{{route('poa.lista')}}" wire:navigate role="button" aria-expanded="false">
           Ver lista POA
         </a>
-        <a class="nav-link" href="{{route('programacion.listapresupuesto')}}" wire:navigate role="button" aria-expanded="false">
+        <a class="nav-link" href="{{route('presupuesto.lista')}}" wire:navigate role="button" aria-expanded="false">
           Ver lista Presupuesto
         </a>
         <!--Menu navbar para Proveeduria-->
@@ -100,9 +100,7 @@
             PACC
             </a>
             <ul class="dropdown-menu">
-              @foreach($menuProveduriaPACC as $menu_PACC_)
-              <li><a class="dropdown-item" href="{{route($menu_PACC_['link'])}}" wire:navigate>{{$menu_PACC_['opcion']}}</a></li>
-              @endforeach
+              <li><a class="dropdown-item" href="{{route('pacc.lista')}}" wire:navigate role="button"></a></li>
             </ul>
         </li>
         <!--Menu navbar para evaluación-->
@@ -112,8 +110,7 @@
             POA
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{route('evaluacion.listapoa')}}" wire:navigate>Ver lista POA</a></li>
-            <li><a class="dropdown-item" href="{{route('evaluacion.listaavancepoa')}}" wire:navigate>Ver lista Avances POA</a></li>
+            <li><a class="dropdown-item" href="{{route('poa.lista')}}" wire:navigate>Ver lista POA</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -121,11 +118,10 @@
             PACC
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{route('evaluacion.listapacc')}}" wire:navigate>Ver lista PACC</a></li>
-            <li><a class="dropdown-item" href="{{route('evaluacion.listaavancepacc')}}" wire:navigate>Ver lista Avances PACC</a></li>
+            <li><a class="dropdown-item" href="{{route('poa.lista')}}" wire:navigate>Ver lista PACC</a></li>
           </ul>
         </li>
-        <a class="nav-link" href="{{route('evaluacion.listapresupuestoejecucion')}}" wire:navigate role="button" aria-expanded="false">
+        <a class="nav-link" href="{{route('poa.lista')}}" wire:navigate role="button" aria-expanded="false">
           Ver lista Presupuesto
         </a>
         @endif

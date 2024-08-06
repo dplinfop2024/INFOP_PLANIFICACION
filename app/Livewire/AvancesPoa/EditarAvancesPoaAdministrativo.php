@@ -2,8 +2,10 @@
 
 namespace App\Livewire\AvancesPoa;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Editar Avances POA Administrativo')]
 class EditarAvancesPoaAdministrativo extends Component
 {
     public function render()

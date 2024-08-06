@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_tipo_unidad');
             $table->foreign('id_tipo_unidad')->references('id')->on('tipos_unidades');
             $table->string('nombre_unidad');
-            $table->string('nombre');
+            $table->string('nombre_responsable');
             $table->unsignedBigInteger('id_cargo');
             $table->foreign('id_cargo')->references('id')->on('cargos');
             $table->string('email')->unique();
