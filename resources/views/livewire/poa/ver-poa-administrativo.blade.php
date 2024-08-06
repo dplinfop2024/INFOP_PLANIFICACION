@@ -155,7 +155,7 @@
 </head>
 <body>
     <div class="container text-center mt-5">
-        <button class="btn btn-orange" href="{{ route('programacion.presupuesto.editar') }}" wire:navigate>
+        <button class="btn btn-orange" href="{{ route('poa.editar.administrativo') }}" wire:navigate>
             Editar
         </button>
     </div>
