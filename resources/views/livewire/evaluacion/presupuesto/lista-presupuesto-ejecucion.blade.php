@@ -31,15 +31,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($renglones as $renglon)
+                    @foreach($presupuestos as $presupuesto)
                         <tr>
-                            <td>{{ $renglon['codigo'] }}</td>
-                            <td>{{ $renglon['nombreU'] }}</td>
-                            <td>{{ $renglon['anio'] }}</td>
-                            <td>{{ $renglon['fecha'] }}</td>
-                            <td><button type="button" onclick="window.location.href='{{route('evaluacion.resporteanualpresupuestoejecucion')}}'" class="btn btn-warning">Detalles</button></td>
+                            <td>{{$presupuesto->get_id_unidad()}}</td>
+                            <td>{{ $presupuesto->id_usuarii }}</td>
+                            <td>{{ $presupuesto->total }}</td>
+                            <td>{{ $presupuesto->created_at }}</td>
+                            <td><button type="button" onclick="window.location.href='{{ route('evaluacion.resporteanualpresupuestoejecucion') }}'" class="btn btn-warning">Detalles</button></td>
                         </tr>
                     @endforeach
+                 
                 </tbody>
             </table>
 
