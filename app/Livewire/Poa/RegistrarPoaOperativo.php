@@ -6,7 +6,7 @@ use App\Livewire\Forms\PoaAdminForm;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Registrar POA Operativo')]
+#[Title('Registrar POA')]
 
 class RegistrarPoaOperativo extends Component
 {

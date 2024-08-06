@@ -5,25 +5,15 @@
         
         <h3 class="text-center">POA</h3>
 
-        <button class="btn btn-primary" type="button" href="{{route('planificacion.verpoa')}}" wire:navigate>Ver POA</button>
-        
-        <button class="btn btn-primary" type="button" href="{{route('planificacion.editarpoa')}}" wire:navigate>Editar POA</button>
-    
-        <button class="btn btn-primary" type="button" href="{{route('planificacion.veravancespoa')}}" wire:navigate>Ver Avances POA</button>
-                
+        <button class="btn btn-primary" type="button" href="{{route('poa.lista')}}" wire:navigate>Ver Lista POA</button>        
                 
         <h3 class="text-center">Presupuesto</h3>
      
-        <button class="btn btn-primary" type="button" href="{{route('planificacion.verpresupuesto')}}" wire:navigate>Ver Presupuesto</button>
+        <button class="btn btn-primary" type="button" href="{{route('presupuesto.lista')}}" wire:navigate>Ver Lista Presupuesto</button>
               
         <h3 class="text-center">PACC</h3>
         
-    
-        <button class="btn btn-primary" type="button" href="{{route('planificacion.verpacc')}}" wire:navigate>Ver PACC</button>
-
-        <button class="btn btn-primary" type="button" href="{{route('planificacion.verlistapacc')}}" wire:navigate>Ver historial PACC</button>
-        
-        <button class="btn btn-primary" type="button" href="{{route('planificacion.veravancespacc')}}" wire:navigate>Ver avances PACC</button>
+        <button class="btn btn-primary" type="button" href="{{route('pacc.lista')}}" wire:navigate>Ver Lista PACC</button>
         
         
         </div>

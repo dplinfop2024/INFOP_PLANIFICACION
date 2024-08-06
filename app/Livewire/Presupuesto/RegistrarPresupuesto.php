@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Presupuesto;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Registrar Presupuesto')]
 class RegistrarPresupuesto extends Component
 {
 

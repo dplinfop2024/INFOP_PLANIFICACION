@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Presupuesto;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Editar Presupuesto')]
 class EditarPresupuesto extends Component
 {
     public $renglones = array(
