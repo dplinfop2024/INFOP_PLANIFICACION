@@ -34,8 +34,8 @@
                     @foreach($presupuestos as $presupuesto)
                         <tr>
                             <td>{{$presupuesto->get_id_unidad()}}</td>
-                            <td>{{ $presupuesto->id_usuarii }}</td>
-                            <td>{{ $presupuesto->total }}</td>
+                            <td>{{ $presupuesto->anio }}</td>
+                            <td>{{ $presupuesto->anio }}</td>
                             <td>{{ $presupuesto->created_at }}</td>
                             <td><button type="button" onclick="window.location.href='{{ route('presupuesto.ver') }}'" class="btn btn-warning">Detalles</button></td>
                         </tr>
