@@ -1,6 +1,6 @@
 <div>
   
-
+<!--Navbar horizontal superior-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary"  {{$hidden}}>
   <div class="container-fluid" >
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,9 +10,6 @@
       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         Menu
       </button>
-      <a class="logo mx-3">
-        <img src="/images/Logo INFOP small.png" alt="Bootstrap" width="200" height="84">
-      </a>
       @if($tipoUsuario==='Unidad')
       <a class="navbar-brand" href="{{route('unidad.home')}}" wire:navigate>Menu Unidad</a>
       @elseif($tipoUsuario==='Programacion')
@@ -145,10 +142,14 @@
       </div>
   </div>
 </nav>
+<!--Navbar horizontal superior-->
 
+<!--Menu lateral oculto-->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <a class="logo mx-3">
+      <img src="/images/Logo INFOP small.png" alt="Bootstrap" width="200" height="84">
+    </a>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
@@ -159,6 +160,7 @@
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
         Dropdown button
       </button>
+      <button>AAAA</button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">Action</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -167,6 +169,7 @@
     </div>
   </div>
 </div>
+<!--Menu lateral oculto-->
 
 </div>
 
