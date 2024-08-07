@@ -1,17 +1,23 @@
+<style>
+  .custom-offcanvas {
+    background-color: #80c4f9; /* Cambia este color al que prefieras */
+    width: 100px;
+  }
+</style>
 <div>
-  
 <!--Navbar horizontal superior-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary"  {{$hidden}}>
   <div class="container-fluid" >
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <button class="btn btn-primary"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         Menu
       </button>
       @if($tipoUsuario==='Unidad')
-      <a class="navbar-brand" href="{{route('unidad.home')}}" wire:navigate>Menu Unidad</a>
+      <a class="navbar-brand" href="{{route('unidad.home')}}" wire:navigate></a>
       @elseif($tipoUsuario==='Programacion')
       <a class="navbar-brand" href="{{route('programacion.home')}}" wire:navigate>Menu Programacion</a>
       @elseif($tipoUsuario==='Planificacion')
@@ -21,7 +27,35 @@
       @elseif($tipoUsuario==='Evaluacion')
       <a class="navbar-brand" href="{{route('evaluacion.home')}}" wire:navigate>Menu Evaluacion</a>
       @endif
-      <ul class="navbar-nav">
+      
+      <ul class="navbar-nav" style="margin-left: auto;">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="/images/user.png" alt="Imagen de Perfil">
+              <b>Usuario: Prueba
+        </a></b>
+
+          <ul class="dropdown-menu" style="margin-left: auto;">
+            <li><a class="dropdown-item" href="{{route('mantenimiento.editarperfil')}}" wire:navigate> Editar Perfil</a></li>
+            <li><a class="nav-link" wire:click="logout()">Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </div>
+  </div>
+</nav>
+<!--Navbar horizontal superior-->
+
+<!--Menu lateral oculto-->
+<div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header" >
+    <a class="logomx-3">
+      <img align="center" src="/images/Logo infop.png" alt="Bootstrap" width="120" height="100">
+    </a>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+   
+  </div>
+  <div>
+    <ul class="navbar-nav">
         <!--Menu navbar para Unidad-->
         @if($tipoUsuario==='Unidad')
         <li class="nav-item dropdown">
@@ -127,51 +161,10 @@
         </a>
         @endif
       </ul>
-      <ul class="navbar-nav" style="margin-left: auto;">
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="/images/user.png" alt="Imagen de Perfil">
-              <b>Usuario: Prueba
-        </a></b>
-
-          <ul class="dropdown-menu" style="margin-left: auto;">
-            <li><a class="dropdown-item" href="{{route('mantenimiento.editarperfil')}}" wire:navigate> Editar Perfil</a></li>
-            <li><a class="nav-link" wire:click="logout()">Cerrar sesión</a></li>
-          </ul>
-        </li>
       </div>
-  </div>
-</nav>
-<!--Navbar horizontal superior-->
-
-<!--Menu lateral oculto-->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <a class="logo mx-3">
-      <img src="/images/Logo INFOP small.png" alt="Bootstrap" width="200" height="84">
-    </a>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-    </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-      <button>AAAA</button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-  </div>
+  
 </div>
-<!--Menu lateral oculto-->
 
-</div>
 
 
 
