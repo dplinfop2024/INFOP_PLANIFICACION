@@ -10,33 +10,30 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #082338;
+            background-color: #ffffff;
         }
         .content {
             flex: 1;
         }
         .turquoise-bar {
-            background-color: #00e5e5; /* Color turquesa */
+            background-color: #60B3D1; /* Color turquesa */
             height: 70px; /* Altura de la franja */
             width: 100%;
             display: flex;
             align-items: center; /* Centra verticalmente el contenido */
             padding-left: 10px; /* Espacio a la izquierda */
         }
-        .turquoise-bar img {
-            height: 130px; /* Ajusta la altura de la imagen */
-            width: auto; /* Mantiene la proporción de la imagen */
-        }
+        
     </style>
 </head>
 <body>
     <div class="content">
         <div class="turquoise-bar">
-            <img src="/images/Logo INFOP 2022.png" alt="Imagen a la izquierda">
+            
         </div><br>
         <br>
         <center>
-        <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+        <div class="bg-light p-5 rounded-5 text-secondary shadow" style="width: 25rem">
             <div class="d-flex justify-content-center">
                 <img src="/images/logo INFOP small.png" alt="login-icon" style="height: 7rem"/>
             </div>
@@ -45,14 +42,14 @@
                 <div class="input-group-text">
                     <img src="/images/usuario.png" alt="username-icon" style="height: 1.5rem"/>
                 </div>
-                <input class="form-control bg-light" id="user" type="text" onkeyup="validarespacio(this);" placeholder="Ingrese su correo"/>
+                <input class="form-control" id="user" type="text" onkeyup="validarespacio(this);" placeholder="Ingrese su correo"/>
             </div>
             <br>
             <div class="input-group mt-1">
                 <div class="input-group-text">
                     <img src="/images/contrasena.png" alt="password-icon" style="height: 1.5rem"/>
                 </div>
-                <input class="form-control bg-light" id="user_clave" type="password" onkeyup="validarespacio(this);" placeholder="Ingrese su Contraseña"/>
+                <input class="form-control" id="user_clave" type="password" onkeyup="validarespacio(this);" placeholder="Ingrese su Contraseña"/>
                 <button type="button" class="btn btn-light" style="border: 2px solid #e7e7e7" onclick="mostrarClave();">
                     <img src="/images/oculto.png" id="foto2" style="height: 1rem">
                 </button>
