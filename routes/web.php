@@ -27,6 +27,7 @@ use App\Livewire\Mantenimiento\Usuario\EditarPerfil;
 use App\Livewire\Pacc\EditarPacc;
 use App\Livewire\Pacc\ListaPacc;
 use App\Livewire\Pacc\VerPacc;
+use App\Livewire\PerfilUsuario;
 use App\Livewire\Poa\VerPoaAdministrativo;
 use App\Livewire\Presupuesto\ListaPresupuesto;
 use App\Livewire\Presupuesto\VerPresupuesto;
@@ -39,6 +40,7 @@ Route::get('/login', Login::class)->name('login');
 
 //Route::get('/counter', Counter::class);
 
+Route::get('/perfilusuario', PerfilUsuario::class)->name('homeusuario');
 
 //----------RUTAS UNIDAD----------//
 //Pagina principal Unidad
