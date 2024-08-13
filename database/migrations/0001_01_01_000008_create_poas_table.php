@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('anio');
             $table->unsignedBigInteger('id_componente');
             $table->foreign('id_componente')->references('id')->on('componentes');
-            $table->boolean('aceptado');
-            $table->boolean('aprobado');
+            $table->string('estado');
             $table->timestamps();
         });
     }
