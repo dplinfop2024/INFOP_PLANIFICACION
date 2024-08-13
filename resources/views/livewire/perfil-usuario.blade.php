@@ -1,89 +1,74 @@
-<!-- resources/views/livewire/perfil-usuario.blade.php -->
-<div>
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <!-- Perfil Card -->
-                <div class="card">
-                    <!-- Título centrado -->
-                    <div class="card-header bg-primary text-white text-center">
-                        <h4 class="mb-0">Datos Personales</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                <!-- Imagen de Perfil Cuadrada -->
-                                <div class="profile-picture">
-                                    <i class="bi bi-person-circle fs-1"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <!-- Tabla con datos del usuario -->
-                                <table class="table table-borderless">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">Nombre de Usuario:</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Nombre:</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Cargo:</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Nombre Unidad:</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Correo:</th>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="main-body">
+      <div class="row gutters-sm">
+        <!-- Columna para los datos personales -->
+        <div class="col-md-9">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h4 class="mb-4 text-center">Datos Personales</h4>
+              <div class="row">
+                <div class="col-sm-4">
+                  <h6 class="mb-0">Nombre Usuario:</h6>
                 </div>
+                <div class="col-sm-8 text-secondary">
+                  Kenneth 
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <h6 class="mb-0">Nombre:</h6>
+                </div>
+                <div class="col-sm-8 text-secondary">
+                  Kenneth Valdez
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <h6 class="mb-0">Nombre Unidad:</h6>
+                </div>
+                <div class="col-sm-8 text-secondary">
+                  programacion
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <h6 class="mb-0">Cargo:</h6>
+                </div>
+                <div class="col-sm-8 text-secondary">
+                  jefe
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <h6 class="mb-0">Correo:</h6>
+                </div>
+                <div class="col-sm-8 text-secondary">
+                  ejemplo@yahoo.com
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a class="btn btn-info btn-sm" target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+  
+        <!-- Columna para la imagen -->
+        <div class="col-md-3 mb-3">
+          <div class="card">
+            <div class="card-body d-flex justify-content-end position-relative">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle profile-img">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- Agregar estilos personalizados -->
-    <style>
-        .card {
-            border-radius: 15px;
-            border: 1px solid #ddd;
-        }
-
-        .card-header {
-            border-bottom: 1px solid #ddd;
-        }
-
-        .profile-picture {
-            width: 120px;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            background-color: #f0f0f0;
-            border: 3px solid #007bff;
-            overflow: hidden;
-        }
-
-        .profile-picture i {
-            color: #007bff;
-        }
-
-        .table th {
-            font-weight: bold;
-        }
-
-        .table td {
-            font-size: 0.9rem;
-        }
-    </style>
-</div>
+  </div>
+  
