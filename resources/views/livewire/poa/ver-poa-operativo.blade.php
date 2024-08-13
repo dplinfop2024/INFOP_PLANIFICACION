@@ -24,6 +24,12 @@
 </head>
 <body>
 
+
+
+
+
+{{--                                 --}}
+
 <div class="custom-margin">
     <!-- Título centrado -->
     <h1 class="text-center">PLAN OPERATIVO ANUAL</h1>
@@ -87,6 +93,33 @@
         <!-- Cuerpo de la tabla -->
         <tbody class="text-justify">
             <!-- Primera fila de datos -->
+
+
+            {{--  @php
+
+            $numero_Previo =null;
+                
+
+            @endphp
+
+            @foreach($metas as $meta)
+            <tr>
+                @if($componente->numero !==$numero_Previo) 
+                <th scope="row">{{$componente->numero}}</th>
+                <td>{{$componente->nombre}}</td>
+                <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}</td>
+                <td>{{$metas[$loop->index]->descripcion_linea()}}</td>
+
+                @else
+
+                <th scope="row"> <th>
+                <td></td>
+                <td></td>
+    
+                @endif                     --}}
+
+
+
             <tr>
                 <th scope="row">1</th>
                 <td>ACADEMICO CURRICULAR Y MANUALES</td>

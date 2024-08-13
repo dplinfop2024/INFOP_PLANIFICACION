@@ -108,21 +108,50 @@
         </thead>
         <!-- FILAS DE LA TABLA -->
         <tbody class="text-justify">
+
+            @php
+
+            $numero_Previo =null;
+                
+
+            @endphp
+
             @foreach($metas as $meta)
+           
             <tr>
+                @if($componente->numero !==$numero_Previo) 
                 <th scope="row">{{$componente->numero}}</th>
                 <td>{{$componente->nombre}}</td>
                 <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}</td>
                 <td>{{$metas[$loop->index]->descripcion_linea()}}</td>
+
+                @else
+
+                <th scope="row"> <th>
+                <td></td>
+                <td></td>
+    
+                @endif
+                
                 <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}.{{$meta->numero}}</td>
                 <td>{{$meta->descripcion}}</td>
                 <td>{{$meta->unidad_medida}}</td>
+
+                 {{-- Meses--}}
                 @foreach($meses[$loop->index] as $mes)
                 <td>{{$mes}}</td>
                 @endforeach
+
+
                 <td>{{$meta->programacion_anual}}</td>
                 <td>{{$meta->presupuesto_meta}}</td>
             </tr>
+
+            @php
+                
+                $numero_Previo=$componente->numero;
+            @endphp
+             {{ $meta->numero }} - {{ $meta->name }}
             @endforeach
         </tbody>
     </table>
