@@ -11,4 +11,19 @@ class MetaOperativa extends Model
 
     protected $table = 'metas_operativas';
 
+    public function descripcion_linea_Op(){
+        $linea = LineaEstrategica::find($this->id_linea);
+        return $linea->descripcion;
+    }
+
+    public function numero_linea_Op(){
+        $linea = LineaEstrategica::find($this->id_linea);
+        return $linea->numero;
+    }
+
+    public function programacion_Op(){
+        $programacion = ProgramacionOperativa::where('id_meta', $this->id)->get();
+        return $programacion;
+    }
+
 }
