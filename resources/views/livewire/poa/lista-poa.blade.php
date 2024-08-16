@@ -28,9 +28,9 @@
                         <th scope="col">No de Actividad</th>
                         <th scope="col">Nombre Unidad</th>
                         <th scope="col">Tipo Unidad</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Aceptado</th>
-                        <th scope="col">Aprobado</th>
+                        <th scope="col">Año</th>
+                        <th scope="col">Estado</th>
+                       <!-- <th scope="col">Aprobado</th>-->
                         <th scope="col">Ver</th>
                     </tr>
                 </thead>
@@ -41,8 +41,8 @@
                         <td>{{$poa->get_nombre_unidad()}}</td>
                         <td>{{$poa->get_tipo_unidad()}}</td>
                         <td>{{$poa->anio}}</td>
-                        <td>@if($poa->aceptado)Si @else No @endif</td>
-                        <td>@if($poa->aprobado)Si @else No @endif</td>
+                        <td>{{$poa->estado}}</td>
+                        
                         <td><a href="{{ route('poa.ver.administrativo') }}" class="btn btn-warning">Detalles</a></td>
                     </tr>
                     @endforeach
