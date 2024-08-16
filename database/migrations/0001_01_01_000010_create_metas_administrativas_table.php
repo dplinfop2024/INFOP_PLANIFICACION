@@ -19,10 +19,10 @@ return new class extends Migration
             $table->foreign('id_linea')->references('id')->on('lineas_estrategicas');
             $table->string('descripcion', 500);
             $table->string('unidad_medida');
-            $table->integer('numero');
             $table->integer('programacion_anual');
             $table->decimal('presupuesto_meta', total:11, places:2);
             $table->timestamps();
+            $table->string('codigo_meta', 20);
         });
     }
 
