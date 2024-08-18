@@ -9,5 +9,6 @@ class Componente extends Model
 {
     use HasFactory;
 
-    protected $table = 'componentes';
+    protected $table ='componentes';
 }
+ 
