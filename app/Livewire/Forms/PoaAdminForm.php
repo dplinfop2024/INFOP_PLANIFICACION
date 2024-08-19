@@ -13,7 +13,7 @@ class PoaAdminForm extends Form
     public $nombreUnidad = 'Departamento de Programacion';
     public $responsable = 'Catalina Isabel Lopez Smith';
     public $cargoResponsable = 'Jefa Departamento Programacion';
-    public $anio = '2025';
+    public $anio = '';
     public $componente;
     public $numComponente;
     public $metas = [['codigo'=> '1.1', 'descripcion'=>'']];

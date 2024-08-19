@@ -11,5 +11,10 @@ class Componente extends Model
 
     protected $table ='componentes';
 
+    public function lineasEstrategicas()
+    {
+        return $this->hasMany(LineaEstrategica::class, 'id_componente', 'id');
+    }
+
 }
  

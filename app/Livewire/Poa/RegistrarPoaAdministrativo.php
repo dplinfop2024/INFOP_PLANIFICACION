@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\MetaAdministrativa;
 use Livewire\Component;
 use App\Models\Componente;
+use App\Models\LineaEstrategica;
 use Carbon\Carbon;
 
 #[Title('Registrar POA')]
@@ -18,10 +19,10 @@ class RegistrarPoaAdministrativo extends Component
     
     public PoaAdminForm $poaForm;
     public $componentes;
-
+    public $lineasEstrategicas = [];
 
     //public $componente = "descripcion componente";
-    public $lineaEstrategica = "descripcion linea estrategica";
+    //public $lineaEstrategica = "descripcion linea estrategica";
     public $idUsuario = 10;
     public $currentYear; //anio actual
     public $componenteSeleccionado;
@@ -32,41 +33,56 @@ class RegistrarPoaAdministrativo extends Component
 
     public function mount() {
         $this->componentes = Componente::all();
+        //$this->lineas_estrategicas = LineaEstrategica::all();
         $this->currentYear = Carbon::now()->year; //para obtener el año actual
-      //  $this->dispatch('log',$this->componentes);
+        // Obtiene el año actual
+        $currentYear = Carbon::now()->year;
+        //instancia de Carbon para el año actual y sumar un año
+        $nextYear = Carbon::create($currentYear, 1, 1)->addYear()->year;
+        // Asignar el nuevo año 
+        $this->currentYear = $nextYear;
     }
+   
 
+    public function actualizarLineasEstrategicas() { //funcion para listar las lineas estrategicas segun el componente seleccionado
+        if ($this->componenteSeleccionado) {
+            $this->lineasEstrategicas = LineaEstrategica::where('id_componente', $this->componenteSeleccionado)->get();
+        } else {
+            $this->lineasEstrategicas = [];
+        }
+    }
+ 
     public $listaMetas = array (
-        array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'pruebaaa1', 
+        array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
         'm1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 
         'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0', 'anual'=>'0')
     );
 
     public function agregarMeta(){
-        array_push($this->listaMetas, array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'PRUEBA 2', 
+        array_push($this->listaMetas, array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
                                         'm1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 
                                         'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0', 'anual'=>'0'));
         // Actualiza el índice activo
-    $this->activeTabIndex = count($this->listaMetas) - 1;
+        $this->activeTabIndex = count($this->listaMetas) - 1;
         
     }
 
     public function save(){
-        
+        $this->dispatch('log', $this->lineaEstrategiaSeleccionado);
         if (!$this->componenteSeleccionado) {// Verifica si se ha seleccionado un componente antes REGISTAR
             session()->flash('warning', 'Debe seleccionar un componente antes de registrar.');
             return; 
         }
     
         // Crea un nuevo registro en la tabla `poas` 
-        $poa = Poa::create([
+       $poa = Poa::create([
             'id_usuario' => $this->idUsuario,
             'anio' => $this->currentYear, 
             'id_componente' => $this->componenteSeleccionado, // ID del componente seleccionado
             'estado' => $this->estado, 
         ]);
     
-        // Obtiene el ID del nuevo POA creado para RELACINARLO con las metas administrativas
+        // Obtiene el ID del nuevo POA creado para RELACIONARLO con las metas administrativas
         $newPoaId = $poa->id;
     
         // Recorre cada meta en la lista de metas
@@ -78,7 +94,7 @@ class RegistrarPoaAdministrativo extends Component
                 return; 
             }
     
-            // Crea un nuevo registro en la tabla `metas_administrativas` con los datos de la meta
+            // Crea un nuevo registro en la tabla `metas_administrativas` con los datos de cada meta
             MetaAdministrativa::create([
                 'id_poa' => $newPoaId, 
                 'id_linea' => $meta['numLinea'], 
@@ -104,4 +120,5 @@ class RegistrarPoaAdministrativo extends Component
     {
         return view('livewire.poa.registrar-poa-administrativo');
     }
+
 }

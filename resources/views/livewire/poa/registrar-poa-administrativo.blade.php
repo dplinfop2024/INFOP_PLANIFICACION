@@ -85,12 +85,13 @@
                     </div>
                     <div class="col-md-4">
                         <b>Componente:</b>
-                        <select class="form-select" wire:model="componenteSeleccionado">
-                                <option value="">Seleccione un componente</option>
+                        <select class="form-select" wire:model="componenteSeleccionado"  wire:change="actualizarLineasEstrategicas">
+                            <option value="">Seleccione un componente</option>
                             @foreach($componentes as $componente)
                                 <option value="{{ $componente->id }}">{{ $componente->id }}. {{ $componente->nombre }}</option>
                             @endforeach
                         </select>
+
                     </div>
 
                 </div>
@@ -124,13 +125,15 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-5">
                                             <b>Número línea</b>
-                                            <select class="form-select" wire:model.change="listaMetas.{{$index}}.numLinea">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                            <select class="form-select" wire:model="listaMetas.{{$index}}.numLinea" wire:model="lineaEstrategiaSeleccionado">
+                                                <option value="">seleccione el número de línea</option>
+                                                @foreach($lineasEstrategicas as $linea)
+                                                    <option value="{{ $linea->id }}">{{ $linea->numero }}</option>
+                                                @endforeach
                                             </select>
-                                            <b>Descripción Linea Estrategica</b>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    
+                                            <b>Descripción Línea Estratégica:</b>
+                                            <textarea class="form-control" rows="3" readonly></textarea>
                                         
                                         </div>
                                     
@@ -149,16 +152,17 @@
                                         <table class="table-info table-sm">
                                             <thead>
                                                 <tr class="text-center">
-                                                    
+                                                    <th colspan="1"></th>
                                                     <th style="border-left: 2px solid black;" colspan="3">Trimestre 1</th>
                                                     <th style="border-left: 2px solid black;" colspan="3">Trimestre 2</th>
                                                     <th style="border-left: 2px solid black;" colspan="3">Trimestre 3</th>
                                                     <th style="border-left: 2px solid black;" colspan="3">Trimestre 4</th>
                                                     <th style="border-left: 2px solid black;" colspan="3">Programación</th>
                                                     <th> </th>
+
                                                 </tr>
                                                 <tr>
-                                                
+                                                    <th class="text-center">Unidad Medida</th>
                                                     <th style="border-left: 2px solid black;" class="text-center">Ene</th>
                                                     <th class="text-center">Feb</th>
                                                     <th class="text-center">Mar</th>
@@ -175,22 +179,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="table-group-divider">
-                                                <tr>
-                                                
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
-                                                    <td ><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" disabled></td>
-                                                </tr>
+                                            <tr>
+                                                        <td><textarea name="" id="" class="form-control" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea></td>
+                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
+                                                        <td ><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
+                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
+                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
+                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
+                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
+                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
+                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
+                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
+                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
+                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
+                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
+                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" ></td>
+                                                    </tr>
                                             </tbody>
                                         </table>
                                     </div>
