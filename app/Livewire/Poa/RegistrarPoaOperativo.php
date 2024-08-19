@@ -7,6 +7,7 @@ use App\Models\Componente;
 use App\Models\LineaEstrategica;
 use App\Models\Poa;
 use App\Models\User;
+use Carbon\Carbon;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -19,22 +20,44 @@ class RegistrarPoaOperativo extends Component
     public $usuario;
     public $poa;
     public $componentes;
+    public $id_componente="";
     public $lineas_estrategicas;
-    public $descripcion;
+    public $id_linea="";
+    public $descripcion_linea;
+    public $codigo_meta;
+    public $descripcion_meta;
+    public $unidad_medida;
+    
+    public $cursos = [];
+    public $participantes = [];
+    public $horas = [];
+
+    public $programacion_curso;
+    public $programacion_participantes;
+    public $programacion_horas;
+   
+    
+
     public $activeTabIndex = 0;
+    public function updated()
+    {
+        $this->programacion_curso = array_sum($this->cursos);
+        $this->programacion_participantes = array_sum($this->participantes);
+        $this->programacion_horas = array_sum($this->horas);
+    }
 
     public function mount(){
         $usuario = User::find(9);
         $this -> poa = new Poa;
         $this -> poa -> id_usuario = 9;
-        $this -> poa -> anio ="2025";
+        $this -> poa -> anio=Carbon::now()->year;// Obtener el año actual dinámicamente
         $this -> componentes = Componente::all();
         $this -> lineas_estrategicas = LineaEstrategica::all();
-
-        $this->dispatch('log', $usuario);
-        $this->dispatch('log', $this-> poa);
-        $this->dispatch('log', $this-> componentes);
-        $this->dispatch('log', $this-> lineas_estrategicas);
+        
+       // $this->dispatch('log', $usuario);
+       // $this->dispatch('log', $this-> poa);
+        //$this->dispatch('log', $this-> componentes);
+       // $this->dispatch('log', $this-> lineas_estrategicas);
 
 
     }
@@ -55,7 +78,28 @@ class RegistrarPoaOperativo extends Component
     }
 
     public function save(){
-        $this->dispatch('log', $this->listaMetas);
+        //$this->dispatch('log', $this->listaMetas);
+        dd([
+           
+            'usuario' =>  $this->poa->id_usuario = 9,
+            'poa' => $this->poa,
+            'poa'=> $this -> poa -> anio=Carbon::now()->year,
+            'id_componente' => $this->id_componente,
+            'id_linea' => $this->id_linea,
+            'descripcion_linea'=>$this->descripcion_linea,
+            'codigo_meta'=>$this->codigo_meta,
+            'descripcion_meta' => $this->descripcion_meta,
+            'unidad_medida' => $this->unidad_medida,
+
+        'cursos' => $this->cursos,
+        'participantes' => $this->participantes,
+        'horas' => $this->horas,
+        'programacion_curso' => $this->programacion_curso,
+        'programacion_participantes' => $this->programacion_participantes,
+        'programacion_horas' => $this->programacion_horas,
+            
+        ]);
+        
     }
 
     public function delete($id){

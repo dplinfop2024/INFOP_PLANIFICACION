@@ -77,7 +77,7 @@
                             <select class="form-select" wire:model="componentes">
                                  <option value="" disabled>Seleccione un componente</option>
                                 @foreach($componentes as $componente)
-                                    <option value="{{ $componente->id }}">{{ $componente->nombre }}</option>
+                                    <option value="{{ $componente->id }}">{{ $componente->numero->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -89,7 +89,7 @@
             <div class="text-center pt-3">
                 <h2>Metas</h2>
             </div>
-            <div class="row">
+         <div class="row">
 
             <div class="d-flex justify-content-center">
                 <div class="rz-card1 card" style="width: 85%" >
@@ -133,7 +133,6 @@
                                         </div>
                                         <br>
                                         <!-- Programación de meta -->
-                    
                                         <div class="table-responsive">
                                             <table class="table-info table-sm">
                                                 <thead>

@@ -38,57 +38,57 @@
  <br>
 
     <div class="card border-info">
-        <!--Encabezado formulario POA-->
-        <div class="text-center pt-3">
-            <h2>Registrar POA Operativo</h2>
-        </div>
-        <div class="card-body">
+             <!--Encabezado formulario POA-->
+            <div class="text-center pt-3">
+                  <h2>Registrar POA Operativo</h2>
+            </div>
+        <div class="card-body" wire:submit="save">
            
              <!--Información general de POA-->
             <div class="d-flex justify-content-center">
                 <div class="rz-card card" style="width: 85%" >
                             <div class="row">
             
-                               <div class="col-md-4">
-                                    <b>Nombre Unidad</b>
-                                      <input type="text" class="form-control" wire:model="poaForm.nombreUnidad" disabled>
+                                 <div class="col-md-4">
+                                       <b>Nombre Unidad</b>
+                                       <input type="text" class="form-control" wire:model="poaForm.nombreUnidad" disabled>
                                  </div>
-                               <div class="col-md-4">
-                                    <b>Nombre Responsable</b>
-                                      <input type="email" class="form-control input-btn-border-width" wire:model="poaForm.responsable" disabled>
-                                </div>
+                                 <div class="col-md-4">
+                                       <b>Nombre Responsable</b>
+                                       <input type="email" class="form-control input-btn-border-width" wire:model="poaForm.responsable" disabled>
+                                 </div>
                                 <div class="col-md-4">
-                                    <b>Cargo</b>
-                                     <input type="text" class="form-control" wire:model="poaForm.cargoResponsable" disabled>
+                                       <b>Cargo</b>
+                                       <input type="text" class="form-control" wire:model="poaForm.cargoResponsable" disabled>
                                  </div>
                 
                                 <div class="col-md-4">
-                                    <b>Actividad</b>
-                                     <input type="text" class="form-control input-btn-border-width" wire:model="poaForm.actividad" disabled>
+                                      <b>Actividad</b>
+                                        <input type="text" class="form-control input-btn-border-width" wire:model="poaForm.actividad" disabled>
                                  </div>
                                 <div class="col-md-4">
-                                    <b>Año</label></b>
+                                      <b>Año</label></b>
                                      <input type="text" class="form-control input-btn-border-width" wire:model="poaForm.anio" disabled>
                                  </div>
-                                <div class="col-md-3">
-                                    <b>Componente:</b>
-                                      <select class="form-select" wire:model="componentes">
-                                          <option value="" disabled>Seleccione un componente</option>
-                                            @foreach($componentes as $componente)
-                                                     <option value="{{ $componente->id }}">{{ $componente->numero }}. {{$componente->nombre}}</option>
-                                            @endforeach
+                                 <div class="col-md-3">
+                                       <b>Componente:</b>
+                                        <select class="form-select" wire:model="id_componente">
+                                                        <option value="" disabled>Seleccione un componente</option>
+                                               @foreach($componentes as $componente)
+                                                       <option value="{{ $componente->id }}">{{ $componente->numero }}. {{$componente->nombre}}</option>
+                                                @endforeach
                                         </select> 
-                                </div>
+                                 </div>
 
                             </div>
-                </div>
-            </div>
-            <!--Metas POA-->
+                     </div>
+          </div>
+                  <!--Metas POA-->
                  <div class="text-center pt-3">
                        <h2>Metas</h2>
                  </div>
-            
-                 <div class="row">
+              
+            <div class="row">
 
                     <div class="d-flex justify-content-center">
                         <div class="rz-card1 card" style="width: 85%" >
@@ -112,24 +112,25 @@
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2">
                                                         <b>Número línea</b>
-                                                        <select class="form-select" wire:model.change="listaMetas.{{$index}}.numLinea">
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
+                                                        <select class="form-select" wire:model.change="id_linea">
+                                                            <option value="" disabled>Número</option>
+                                                            @foreach($lineas_estrategicas as $LineaEstrategica)
+                                                            <option value="{{$LineaEstrategica->id}}">{{$LineaEstrategica->numero}}</option>
+                                                            @endforeach
                                                         </select>
                                                         <br>
                                                         <br>
                                                         <b>Número Meta</b>
-                                                        <input type="text" class="form-control" wire:model="listaMetas.{{$index}}.codigo">
+                                                        <input type="text" class="form-control" wire:model="codigo_meta">
                                                         
                                                     
                                                     </div>
                                                 
                                                     <div class="col-md-5">
                                                         <b>Descripción Linea Estrategica</b>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="lineaEstrategica"></textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="descripcion_linea"></textarea>
                                                         <b>Descripción Meta</b>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="listaMetas.{{$index}}.descripcion"></textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="descripcion_meta"></textarea>
                                                     </div>
                                                     
                                                     <div class="col-md-2">
@@ -139,12 +140,13 @@
                                                         <br>
                                                         <br>
                                                         <b>Unidad De Medida</b>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" wire:model="UnidadDeMedida"></textarea>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" wire:model="unidad_medida"></textarea>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <!-- Programación de meta -->
                                                 <div class="table-responsive">
+                                                    
                                                     <table class="table-info table-sm">
                                                         <thead>
                                                             <tr class="text-center">
@@ -154,7 +156,7 @@
                                                                 <th style="border-left: 2px solid black;" colspan="3">Trimestre 3</th>
                                                                 <th style="border-left: 2px solid black;" colspan="3">Trimestre 4</th>
                                                                 <th style="border-left: 2px solid black;" colspan="3">Programación</th>
-                                                                <th> </th>
+                                                                <th></th>
                                                             </tr>
                                                             <tr>
                                                                 <th></th>
@@ -176,58 +178,40 @@
                                                         <tbody class="table-group-divider">
                                                             <tr>
                                                                 <th scope="row">Cursos</th>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
-                                                                <td ><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" disabled></td>
+                                                                @for($i = 0; $i < 12; $i++)
+                                                                    <td style="border-left: {{ $i % 3 === 0 ? '2px solid black;' : '' }}">
+                                                                        <input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$i}}">
+                                                                    </td>
+                                                                @endfor
+                                                                <td style="border-left: 2px solid black;">
+                                                                    <input type="number" class="form-control" value="{{ $programacion_curso }}" disabled>
+                                                                </td>
                                                             </tr>
-                                                        </tbody>
-                                                        <tbody class="table-group-divider">
                                                             <tr>
                                                                 <th scope="row">Participantes</th>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
-                                                                <td ><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" disabled></td>
+                                                                @for($i = 0; $i < 12; $i++)
+                                                                    <td style="border-left: {{ $i % 3 === 0 ? '2px solid black;' : '' }}">
+                                                                        <input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$i}}">
+                                                                    </td>
+                                                                @endfor
+                                                                <td style="border-left: 2px solid black;">
+                                                                    <input type="number" class="form-control" value="{{ $programacion_participantes }}" disabled>
+                                                                </td>
                                                             </tr>
-                                                        </tbody>
-                                                        <tbody class="table-group-divider">
                                                             <tr>
                                                                 <th scope="row">Horas</th>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
-                                                                <td ><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
-                                                                <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
-                                                                <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" disabled></td>
+                                                                @for($i = 0; $i < 12; $i++)
+                                                                    <td style="border-left: {{ $i % 3 === 0 ? '2px solid black;' : '' }}">
+                                                                        <input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$i}}">
+                                                                    </td>
+                                                                @endfor
+                                                                <td style="border-left: 2px solid black;">
+                                                                    <input type="number" class="form-control" value="{{ $programacion_horas }}" disabled>
+                                                                </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
+
                                                 </div>
                                             
         
@@ -248,3 +232,9 @@
                         <button class="btn" style="background-color:#38D6EE" wire:click="agregarMeta()">Agregar meta</button>
                         <button class="btn" style="background-color:#38D6EE" wire:click="save()">Registrar</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+
