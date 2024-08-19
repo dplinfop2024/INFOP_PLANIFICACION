@@ -11,7 +11,7 @@
             <h4 class="mb-4 text-center">Datos Personales</h4>
             <div class="row">
               <div class="col-sm-4">
-                <h6 class="mb-0">Nombre Usuario: </h6>
+                <h6 class="mb-0">Tipo Usuario: </h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 {{$tipousuario->nombre}} 

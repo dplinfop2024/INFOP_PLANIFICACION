@@ -18,19 +18,19 @@ class PerfilUsuario extends Component
     //función mount se accederá a todos los datos de la bd al cargarse la página
     public function mount (){
         //buscando el usuario 
-        $this->usuario = User::find(8);
+        $this->usuario = User::find(9);
        
         //mostrando usuario en consola
         $this->dispatch('log', $this->usuario);
         
-        //buscando el tipo usuario
-        $this->tipousuario = TipoUsuario::find(2);
+        //buscando el tipo usuario que esta guardado en la variable usuario, usuario->id_tipo_usuario
+        $this->tipousuario = TipoUsuario::find($this->usuario->id_tipo_usuario);
         
         //mostrando el tipo usuario en consola
         $this->dispatch('log', $this->usuario->tipousuario);
        
         //buscando el cargo
-        $this->cargo = Cargo::find (1);
+        $this->cargo = Cargo::find ($this->usuario->id_cargo);
         
         //mostrando el cargo de un usuario en consola
         $this->dispatch('log', $this->cargo);
