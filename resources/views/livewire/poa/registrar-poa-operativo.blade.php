@@ -1,179 +1,240 @@
-<div class="container-fluid" style="background-color:#343A40">
+<div class="container-fluid" style="background-color:#">
     
-    <br>
+    <style>
+        .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table-info {
+        background-color: #d5dce2;
+    }
+
+    .table-sm th, .table-sm td {
+        padding: 0.3rem;
+    }
+
+    .table-group-divider {
+        border-top: 2px solid #dee2e6;
+    }
+    .rz-card {
+                background-color: #35d7f8;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s;
+    } 
+
+    .rz-card1 {
+                background-color: #a6edfc;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s;
+    }
+    </style>  
+ 
+ <br>
 
     <div class="card border-info">
-        <!--Encabezado formulario POA-->
-        <div class="text-center pt-3">
-            <h2>Registrar nuevo POA</h2>
-        </div>
-        <div class="card-body">
-            <!--Información general de POA-->
-            <div class="row">
-                <div class="col-md-3">
-                    <label for="nombreUnidad" class="form-label">Nombre Unidad</label>
-                    <input type="text" class="form-control" wire:model="poaForm.nombreUnidad" disabled>
-                </div>
-                <div class="col-md-3">
-                    <label for="responsable" class="form-label">Nombre Responsable</label>
-                    <input type="email" class="form-control input-btn-border-width" wire:model="poaForm.responsable" disabled>
-                </div>
-                <div class="col-md-3">
-                    <label for="cargo" class="form-label">Cargo</label>
-                    <input type="text" class="form-control" wire:model="poaForm.cargoResponsable" disabled>
-                </div>
-                <div class="col-md-1">
-                    <label for="anio" class="form-label">Año</label>
-                    <input type="text" class="form-control input-btn-border-width" wire:model="poaForm.anio" disabled>
-                </div>
-                <div class="col-md-2">
-                    <label for="numComp" class="form-label">Número Componente</label>
-                    <select class="form-select" wire:model.change="poaForm.numComponente">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label for="actividad" class="form-label">Actividad</label>
-                    <input type="text" class="form-control input-btn-border-width" wire:model="poaForm.actividad" disabled>
-                </div>
-                
-                <div class="col-md-9">
-                    <label for="componente" class="form-label">Componente</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="poaForm.componente"></textarea>
-                </div>
-            </div>
-            <!--Metas POA-->
+             <!--Encabezado formulario POA-->
             <div class="text-center pt-3">
-                <h2>Metas</h2>
+                  <h2>Registrar POA Operativo</h2>
             </div>
+        <div class="card-body" wire:submit="save">
+           
+             <!--Información general de POA-->
+            <div class="d-flex justify-content-center">
+                <div class="rz-card card" style="width: 85%" >
+                            <div class="row">
+            
+                                 <div class="col-md-4">
+                                       <b>Nombre Unidad</b>
+                                       <input type="text" class="form-control" wire:model="poaForm.nombreUnidad" disabled>
+                                 </div>
+                                 <div class="col-md-4">
+                                       <b>Nombre Responsable</b>
+                                       <input type="email" class="form-control input-btn-border-width" wire:model="poaForm.responsable" disabled>
+                                 </div>
+                                <div class="col-md-4">
+                                       <b>Cargo</b>
+                                       <input type="text" class="form-control" wire:model="poaForm.cargoResponsable" disabled>
+                                 </div>
+                
+                                <div class="col-md-4">
+                                      <b>Actividad</b>
+                                        <input type="text" class="form-control input-btn-border-width" wire:model="poaForm.actividad" disabled>
+                                 </div>
+                                <div class="col-md-4">
+                                      <b>Año</label></b>
+                                     <input type="text" class="form-control input-btn-border-width" wire:model="poaForm.anio" disabled>
+                                 </div>
+                                 <div class="col-md-3">
+                                       <b>Componente:</b>
+                                        <select class="form-select" wire:model="id_componente">
+                                                        <option value="" disabled>Seleccione un componente</option>
+                                               @foreach($componentes as $componente)
+                                                       <option value="{{ $componente->id }}">{{ $componente->numero }}. {{$componente->nombre}}</option>
+                                                @endforeach
+                                        </select> 
+                                 </div>
+
+                            </div>
+                     </div>
+          </div>
+                  <!--Metas POA-->
+                 <div class="text-center pt-3">
+                       <h2>Metas</h2>
+                 </div>
+              
             <div class="row">
-                @foreach($listaMetas as $meta)
-                <div class="card text-bg-info col-md-12 mt-3">
-                    <h5>Meta {{$loop->index+1}}</h5>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label for="numLinea" class="form-label">Número linea</label>
-                            <select class="form-select" wire:model.change="listaMetas.{{$loop->index}}.numLinea">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="desLinea" class="form-label">Descripcion Linea Estrategica</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="lineaEstrategica"></textarea>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="numMeta" class="form-label">Número Meta</label>
-                            <input type="text" class="form-control" wire:model="listaMetas.{{$loop->index}}.codigo">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="desMeta" class="form-label">Descripcion Meta</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="listaMetas.{{$loop->index}}.descripcion"></textarea>
+
+                    <div class="d-flex justify-content-center">
+                        <div class="rz-card1 card" style="width: 85%" >
+                            <!-- Navegación por pestañas -->
+                            <ul class="nav nav-tabs" id="metaTabs" role="tablist">
+                                @foreach($listaMetas as $index => $meta)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link @if($index == $activeTabIndex) active @endif" id="tab{{$index}}" data-bs-toggle="tab" data-bs-target="#meta{{$index}}" type="button" role="tab" aria-controls="meta{{$index}}" aria-selected="@if($index == $activeTabIndex) true @else false @endif">Meta {{$index+1}}</button>
+                                </li>
+                                @endforeach
+                            </ul>
+        
+                            <!-- Contenido de las pestañas -->
+                            <div class="tab-content" id="metaTabsContent">
+                                @foreach($listaMetas as $index => $meta)
+                                <div class="tab-pane fade @if($index == $activeTabIndex) show active @endif" id="meta{{$index}}" role="tabpanel" aria-labelledby="tab{{$index}}">
+                                <div class="d-flex justify-content-center">
+                                    <div class="" >
+                                        <br> <!-- <h5>Meta {{$index+1}}</h5> -->
+                                            <div class="row">
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2">
+                                                        <b>Número línea</b>
+                                                        <select class="form-select" wire:model.change="id_linea">
+                                                            <option value="" disabled>Número</option>
+                                                            @foreach($lineas_estrategicas as $LineaEstrategica)
+                                                            <option value="{{$LineaEstrategica->id}}">{{$LineaEstrategica->numero}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <br>
+                                                        <br>
+                                                        <b>Número Meta</b>
+                                                        <input type="text" class="form-control" wire:model="codigo_meta">
+                                                        
+                                                    
+                                                    </div>
+                                                
+                                                    <div class="col-md-5">
+                                                        <b>Descripción Linea Estrategica</b>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="descripcion_linea"></textarea>
+                                                        <b>Descripción Meta</b>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="descripcion_meta"></textarea>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <b>Unidad De Medida</b>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" wire:model="unidad_medida"></textarea>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <!-- Programación de meta -->
+                                                <div class="table-responsive">
+                                                    
+                                                    <table class="table-info table-sm">
+                                                        <thead>
+                                                            <tr class="text-center">
+                                                                <th></th>
+                                                                <th style="border-left: 2px solid black;" colspan="3">Trimestre 1</th>
+                                                                <th style="border-left: 2px solid black;" colspan="3">Trimestre 2</th>
+                                                                <th style="border-left: 2px solid black;" colspan="3">Trimestre 3</th>
+                                                                <th style="border-left: 2px solid black;" colspan="3">Trimestre 4</th>
+                                                                <th style="border-left: 2px solid black;" colspan="3">Programación</th>
+                                                                <th></th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th style="border-left: 2px solid black;" class="text-center">Ene</th>
+                                                                <th class="text-center">Feb</th>
+                                                                <th class="text-center">Mar</th>
+                                                                <th style="border-left: 2px solid black;" class="text-center">Abr</th>
+                                                                <th class="text-center">May</th>
+                                                                <th class="text-center">Jun</th>
+                                                                <th style="border-left: 2px solid black;" class="text-center">Jul</th>
+                                                                <th class="text-center">Ago</th>
+                                                                <th class="text-center">Sep</th>
+                                                                <th style="border-left: 2px solid black;" class="text-center">Oct</th>
+                                                                <th class="text-center">Nov</th>
+                                                                <th class="text-center">Dic</th>
+                                                                <th style="border-left: 2px solid black;" class="text-center">Anual</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="table-group-divider">
+                                                            <tr>
+                                                                <th scope="row">Cursos</th>
+                                                                @for($i = 0; $i < 12; $i++)
+                                                                    <td style="border-left: {{ $i % 3 === 0 ? '2px solid black;' : '' }}">
+                                                                        <input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$i}}">
+                                                                    </td>
+                                                                @endfor
+                                                                <td style="border-left: 2px solid black;">
+                                                                    <input type="number" class="form-control" value="{{ $programacion_curso }}" disabled>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">Participantes</th>
+                                                                @for($i = 0; $i < 12; $i++)
+                                                                    <td style="border-left: {{ $i % 3 === 0 ? '2px solid black;' : '' }}">
+                                                                        <input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$i}}">
+                                                                    </td>
+                                                                @endfor
+                                                                <td style="border-left: 2px solid black;">
+                                                                    <input type="number" class="form-control" value="{{ $programacion_participantes }}" disabled>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">Horas</th>
+                                                                @for($i = 0; $i < 12; $i++)
+                                                                    <td style="border-left: {{ $i % 3 === 0 ? '2px solid black;' : '' }}">
+                                                                        <input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$i}}">
+                                                                    </td>
+                                                                @endfor
+                                                                <td style="border-left: 2px solid black;">
+                                                                    <input type="number" class="form-control" value="{{ $programacion_horas }}" disabled>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            
+        
+                                                <div class="d-grid pb-3 pt-3 col-2 mx-auto">
+                                                    <button class="btn bg-danger-subtle" wire:click="delete({{$index}})">Eliminar meta</button>
+                                                </div>
+                                        
+                                        </div>
+        
+                                    </div>
+                                </div> <!-- d-flex justify-content-center -->
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <!--Programación de meta-->
-                    <div class="table-responsive">
-                        <table class="table-info table-sm">
-                            <thead>
-                                <tr class="text-center">
-                                    <th width="25%"></th>
-                                    <th colspan="3">Trimestre 1</th>
-                                    <th colspan="3">Trimestre 2</th>
-                                    <th colspan="3">trimestre 3</th>
-                                    <th colspan="3">trimestre 4</th>
-                                    <th> </th>
-                                  </tr>
-                                <tr>
-                                  <th class="th-sm"></th>
-                                  <th class="text-center">Ene</th>
-                                  <th class="text-center">Feb</th>
-                                  <th class="text-center">Mar</th>
-                                  <th class="text-center">Abr</th>
-                                  <th class="text-center">May</th>
-                                  <th class="text-center">Jun</th>
-                                  <th class="text-center">Jul</th>
-                                  <th class="text-center">Ago</th>
-                                  <th class="text-center">Sep</th>
-                                  <th class="text-center">Oct</th>
-                                  <th class="text-center">Nov</th>
-                                  <th class="text-center">Dic</th>
-                                  <th class="text-center">Anual</th>
-                                </tr>
-                              </thead>
-                              <tbody class="table-group-divider">
-                                <tr>
-                                  <th scope="row">Cursos</th>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c1"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c2"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c3"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c4"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c5"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c6"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c7"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c8"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c9"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c10"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c11"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.c12"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.canual" disabled></td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Participantes</th>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p1"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p2"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p3"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p4"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p5"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p6"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p7"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p8"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p9"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p10"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p11"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.p12"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.panual" disabled></td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Horas</th>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h1"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h2"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h3"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h4"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h5"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h6"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h7"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h8"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h9"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h10"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h11"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.h12"></td>
-                                  <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$loop->index}}.hanual" disabled></td>
-                                </tr>
-                              </tbody>
-                        </table>
-                    </div>
-                    <div class="d-grid pb-3 pt-3 col-2 mx-auto">
-                        <button class="btn bg-danger-subtle" wire:click="delete({{$loop->index}})">Eliminar meta</button>
+                    <!-- Botones -->
+                    <div class="d-grid gap-3 pt-4 col-2 mx-auto">
+                        <button class="btn" style="background-color:#38D6EE" wire:click="agregarMeta()">Agregar meta</button>
+                        <button class="btn" style="background-color:#38D6EE" wire:click="save()">Registrar</button>
                     </div>
                 </div>
-                @endforeach
-            </div>
-            <!--Botones-->
-            <div class="d-grid gap-3 pt-4 col-2 mx-auto">
-                <button class="btn bg-info-subtle" wire:click="agregarMeta()">Agregar meta</button>
-                <button class="btn bg-info" wire:click="save()">Registrar</button>
             </div>
         </div>
-
-
-
-
     </div>
-    <br>
+</div>   
 
-    
-</div>

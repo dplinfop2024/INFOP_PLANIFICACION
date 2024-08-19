@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('id_linea')->references('id')->on('lineas_estrategicas');
             $table->string('descripcion', 500);
             $table->string('unidad_medida');
-            $table->integer('numero');
+            $table->string('codigo_meta',20);
             $table->integer('cursos');
             $table->integer('participantes');
             $table->integer('horas');

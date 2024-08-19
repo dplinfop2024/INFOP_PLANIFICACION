@@ -4,8 +4,12 @@ namespace App\Livewire\Poa;
 
 use App\Livewire\Forms\PoaAdminForm;
 use Livewire\Attributes\Title;
+use App\Models\Poa;
+use App\Models\User;
+use App\Models\MetaAdministrativa;
 use Livewire\Component;
 use App\Models\Componente;
+use Carbon\Carbon;
 
 #[Title('Registrar POA')]
 
@@ -15,22 +19,31 @@ class RegistrarPoaAdministrativo extends Component
     public PoaAdminForm $poaForm;
     public $componentes;
 
+
+    //public $componente = "descripcion componente";
+    public $lineaEstrategica = "descripcion linea estrategica";
+    public $idUsuario = 10;
+    public $currentYear; //anio actual
+    public $componenteSeleccionado;
+    public $estado = 'nuevo';
+   
+
+    public $activeTabIndex = 0;
+
     public function mount() {
         $this->componentes = Componente::all();
+        $this->currentYear = Carbon::now()->year; //para obtener el año actual
       //  $this->dispatch('log',$this->componentes);
     }
 
-    public $componente = "descripcion componente";
-    public $lineaEstrategica = "descripcion linea estrategica";
-    public $activeTabIndex = 0;
     public $listaMetas = array (
-        array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
+        array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'pruebaaa1', 
         'm1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 
         'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0', 'anual'=>'0')
     );
 
     public function agregarMeta(){
-        array_push($this->listaMetas, array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
+        array_push($this->listaMetas, array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'PRUEBA 2', 
                                         'm1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 
                                         'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0', 'anual'=>'0'));
         // Actualiza el índice activo
@@ -39,8 +52,49 @@ class RegistrarPoaAdministrativo extends Component
     }
 
     public function save(){
+        
+        if (!$this->componenteSeleccionado) {// Verifica si se ha seleccionado un componente antes REGISTAR
+            session()->flash('warning', 'Debe seleccionar un componente antes de registrar.');
+            return; 
+        }
+    
+        // Crea un nuevo registro en la tabla `poas` 
+        $poa = Poa::create([
+            'id_usuario' => $this->idUsuario,
+            'anio' => $this->currentYear, 
+            'id_componente' => $this->componenteSeleccionado, // ID del componente seleccionado
+            'estado' => $this->estado, 
+        ]);
+    
+        // Obtiene el ID del nuevo POA creado para RELACINARLO con las metas administrativas
+        $newPoaId = $poa->id;
+    
+        // Recorre cada meta en la lista de metas
+        foreach ($this->listaMetas as $meta) {
+            // Verifica que se seleccione el id de numero de linea
+            if (empty($meta['numLinea']) || !is_numeric($meta['numLinea'])) {
+
+                $this->dispatch('log', 'Debe SELECIONAR UNA LINEA ESTRATEGICA');
+                return; 
+            }
+    
+            // Crea un nuevo registro en la tabla `metas_administrativas` con los datos de la meta
+            MetaAdministrativa::create([
+                'id_poa' => $newPoaId, 
+                'id_linea' => $meta['numLinea'], 
+                'descripcion' => $meta['descripcion'], 
+                'unidad_medida' => $meta['unidadMedida'], 
+                'programacion_anual' => $meta['anual'], 
+                'presupuesto_meta' => 0,
+                'codigo_meta' => $meta['codigo'],
+            ]);
+        }
+    
+        // Mensaje de éxito para indicar que el POA ha sido registrado correctamente
+        session()->flash('success', 'POA registrado exitosamente.');
         $this->dispatch('log', $this->listaMetas);
     }
+    
 
     public function delete($id){
         array_splice($this->listaMetas, $id, 1);

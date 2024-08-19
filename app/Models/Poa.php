@@ -10,6 +10,14 @@ class Poa extends Model
 
     use HasFactory;
     protected $table = 'poas';
+    //atributos que se pueden asignar en masa
+    protected $fillable = [
+        'id_usuario',
+        'anio',
+        'id_componente',
+        'estado',
+    ];
+
 
     public function get_nombre_unidad(){
         $usuario = User::find($this->id_usuario);
