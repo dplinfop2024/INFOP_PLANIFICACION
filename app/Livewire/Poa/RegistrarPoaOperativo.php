@@ -5,7 +5,9 @@ namespace App\Livewire\Poa;
 use App\Livewire\Forms\PoaAdminForm;
 use App\Models\Componente;
 use App\Models\LineaEstrategica;
+use App\Models\MetaOperativa;
 use App\Models\Poa;
+use App\Models\ProgramacionOperativa;
 use App\Models\User;
 use Carbon\Carbon;
 use Livewire\Attributes\Title;
@@ -28,9 +30,15 @@ class RegistrarPoaOperativo extends Component
     public $descripcion_meta;
     public $unidad_medida;
     
-    public $cursos = [];
-    public $participantes = [];
-    public $horas = [];
+    public $cursos = [
+        array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
+    ];
+    public $participantes = [
+        array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
+    ];
+    public $horas = [
+        array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
+    ];
 
     public $programacion_curso;
     public $programacion_participantes;
@@ -63,18 +71,14 @@ class RegistrarPoaOperativo extends Component
     }
 
     public $listaMetas = array (
-        array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
-        'h1'=>'0', 'h2'=>'0', 'h3'=>'0', 'h4'=>'0', 'h5'=>'0', 'h6'=>'0', 'h7'=>'0', 'h8'=>'0', 'h9'=>'0', 'h10'=>'0', 'h11'=>'0', 'h12'=>'0', 'hanual'=>'0',
-        'c1'=>'0', 'c2'=>'0', 'c3'=>'0', 'c4'=>'0', 'c5'=>'0', 'c6'=>'0', 'c7'=>'0', 'c8'=>'0', 'c9'=>'0', 'c10'=>'0', 'c11'=>'0', 'c12'=>'0', 'canual'=>'0',
-        'p1'=>'0', 'p2'=>'0', 'p3'=>'0', 'p4'=>'0', 'p5'=>'0', 'p6'=>'0', 'p7'=>'0', 'p8'=>'0', 'p9'=>'0', 'p10'=>'0', 'p11'=>'0', 'p12'=>'0', 'panual'=>'0')
+        array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'')
     );
 
     public function agregarMeta(){
-        array_push($this->listaMetas, array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
-        'h1'=>'0', 'h2'=>'0', 'h3'=>'0', 'h4'=>'0', 'h5'=>'0', 'h6'=>'0', 'h7'=>'0', 'h8'=>'0', 'h9'=>'0', 'h10'=>'0', 'h11'=>'0', 'h12'=>'0', 'hanual'=>'0',
-        'c1'=>'0', 'c2'=>'0', 'c3'=>'0', 'c4'=>'0', 'c5'=>'0', 'c6'=>'0', 'c7'=>'0', 'c8'=>'0', 'c9'=>'0', 'c10'=>'0', 'c11'=>'0', 'c12'=>'0', 'canual'=>'0',
-        'p1'=>'0', 'p2'=>'0', 'p3'=>'0', 'p4'=>'0', 'p5'=>'0', 'p6'=>'0', 'p7'=>'0', 'p8'=>'0', 'p9'=>'0', 'p10'=>'0', 'p11'=>'0', 'p12'=>'0', 'panual'=>'0'));  
-        
+        array_push($this->listaMetas, array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>''));
+        array_push($this->cursos, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
+        array_push($this->participantes, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
+        array_push($this->horas, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
     }
 
     public function save(){
@@ -99,6 +103,23 @@ class RegistrarPoaOperativo extends Component
         'programacion_horas' => $this->programacion_horas,
             
         ]);
+
+        //guardar poa
+
+        foreach($this->listaMetas as $meta){
+            //guardar meta
+            //$meta = new MetaOperativa;
+
+            //guardar programacion cursos
+            //$progra_cursos = new ProgramacionOperativa;
+            //$progra_cursos->id_meta = $meta->id;
+            //$progra_cursos->tipo = 1;
+            //$progra_cursos->ene = 
+
+            //guardar programacion participantes
+
+            //guardar programacion horas
+        }
         
     }
 
