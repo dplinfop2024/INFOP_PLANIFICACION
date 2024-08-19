@@ -16,6 +16,11 @@ class User extends Authenticatable
         return $tipo_unidad->nombre;
     }
 
+    public function get_cargo_General(){
+        $cargo = User::find($this->id_cargo);
+        return $cargo->get_cargo();
+    }
+
 
     /**
      * The attributes that are mass assignable.

@@ -32,24 +32,71 @@
 
 <div class="custom-margin">
     <!-- Título centrado -->
-    <h1 class="text-center">PLAN OPERATIVO ANUAL</h1>
+
+    <h1 class="text-center" style="margin-bottom: 30px; margin-top:10px" >AVANCES TRIMESTRAL POA</h1>
+
+    <table class="text-center table table-borderless" style="margin-bottom: 30px;">
+
+        <thead>
+            <tr>
+                <th>
+                
+                    <button class="btn" style="background-color:#38D6EE" > 1° Trimestral </button>
+
+                </th>
+
+                <th>
+
+                    <button class="btn" style="background-color:#38D6EE" > 2° Trimestral  </button>   
+                </th>
+                <th>
+
+                 
+                <button class="btn" style="background-color:#38D6EE" > 3° Trimestral </button>   
+                </th>
+                <th>
+
+                   
+                <button class="btn" style="background-color:#38D6EE" > 4° Trimestral  </button> 
+                </th>
+
+
+            </tr>
+
+        </thead>
+    </table>
+
+    <h1 class="text-center" >PLAN OPERATIVO ANUAL</h1>
     <table class="table table-borderless">
       <thead>
         <tr class= "small-font">
           <th scope="col">
             <div class="table-title ">
-                  <label><b>Nombre de la Unidad:</b> Desarrollo Empresarial </label> 
-                  <br><label><b>Actividad:</b> 6550</label></br>
+                  <label><b>Nombre de la Unidad:</b>{{$user->nombre_unidad}}</label> 
+                  <br><label><b>Actividad:</b> {{$user->id_unidad}}</label></br>
             </div>
           </th>
           <th scope="col">
-            <label><b>Nombre Responsable:</b> Marcela Beatriz Ordoñes</label> 
-            <br><label><b>Cargo:</b> Jefe de departamento</label></br>
+            <label><b>Nombre Responsable:</b> {{$user->nombre}}</label> 
+            <br><label><b>Cargo:</b>{{$cargo->nombre}}</label></br>
           </th>
           <th scope="col"> 
-            <label><b>Fecha:</b>01/02/2023 </label>
-            <br><label><b>Año:</b>2023</label> <br></th>
+            <label><b>Fecha:</b>{{date_format($poa->updated_at, "y/m/d")}}</label>
+            <br><label><b>Año:</b>{{$poa->anio}}</label> <br></th>
+
+            <th scope="col"> 
+               
+                <button class="btn" style="background-color:#38D6EE" > Editar </button>
+            </th>
+
+            <th scope="col"> 
+              
+                <button class="btn" style= "background-color:#f09b86"> Borrar </button>
+                    
+            </th>
           </tr>
+
+
       </thead>
     </table>
     <!-- Tabla con borde gris y fuente pequeña -->
@@ -92,223 +139,121 @@
         </thead>
         <!-- Cuerpo de la tabla -->
         <tbody class="text-justify">
-            <!-- Primera fila de datos -->
+        
+
+                @php
+
+                $numero_Previo =null;
+
+        
 
 
-            {{--  @php
+                @endphp
+                 @foreach($metas as $meta)
+           
+                 <tr>
 
-            $numero_Previo =null;
+
+                    @if($componente->numero !==$numero_Previo ) 
+
+                    <th scope="row">{{$componente->numero}}</th>
+                    <td>{{$componente->nombre}}</td>
+                    <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea_Op()}}</td>
+                    <td>{{$metas[$loop->index]->descripcion_linea_Op()}}</td>
+                   
+                    @else
+                    <th ></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    
+                    @endif
+
+
+
+
+                    
+                    <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea_Op()}}.{{$meta->numero}}</td>
+                    <td>{{$meta->descripcion}}</td>
+
+                    <td>{{$meta->unidad_medida}}</td>
+
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                   
+               
+
+
+
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Cursos</td>
+                    @foreach($meses_cursos[$loop->index] as $mes)
+                <td>{{$mes}}</td>
+                @endforeach
+
+                <td>{{$meta->cursos}}</td>
                 
+                
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Participantes</td>
 
-            @endphp
+                    @foreach($meses_participantes[$loop->index] as $mes)
+                <td>{{$mes}}</td>
+                @endforeach
+                <td>{{$meta->participantes}}</td>
+                
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Horas</td>
+                    @foreach($meses_horas[$loop->index] as $mes)
+                <td>{{$mes}}</td>
+                @endforeach
+                <td>{{$meta->horas}}</td>
+                
+                </tr>
 
-            @foreach($metas as $meta)
-            <tr>
-                @if($componente->numero !==$numero_Previo) 
-                <th scope="row">{{$componente->numero}}</th>
-                <td>{{$componente->nombre}}</td>
-                <td>{{$componente->numero}}.{{$metas[$loop->index]->numero_linea()}}</td>
-                <td>{{$metas[$loop->index]->descripcion_linea()}}</td>
+                @php
+                
+                $numero_Previo=$componente->numero;
+                 @endphp
 
-                @else
-
-                <th scope="row"> <th>
-                <td></td>
-                <td></td>
-    
-                @endif                     --}}
-
-
-
-            <tr>
-                <th scope="row">1</th>
-                <td>ACADEMICO CURRICULAR Y MANUALES</td>
-                <td>1.1</td>
-                <td>
-                    Vincula la oferta de la formación técnica profesional de la población hondureña a las necesidades
-                    del mercado laboral y político nacional y sectorial de educación e inserción laboral para contribuir 
-                    a la productividad y el desarrollo del país. 
-                </td>
-                <td>1.1.1</td>
-                <td>Desarrollado 58 cursos de <b>Complementación</b>, atendiendo 870 participantes mediante 1280 horas de instrucción,
-                    por medio de instructores permanentes.
-                </td>
-                <td>Curso, participantes y horas</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <!-- Segunda fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Cursos</b></td>
-                <td></td>
-                <td></td>
-                <td>22</td>
-                <td>34</td>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>58</td>
-            </tr>
-            <!-- Tercera fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Participantes</b></td>
-                <td></td>
-                <td></td>
-                <td>330</td>
-                <td>510</td>
-                <td>30</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>870</td>
-            </tr>
-            <!-- Cuarta fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td class="text-end"></td>
-                <td ></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Horas</b></td>
-                <td></td>
-                <td></td>
-                <td>490</td>
-                <td>750</td>
-                <td>40</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1280</td>
-            </tr>
-            <!-- Quinta fila de datos -->
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>1.1.2</td>
-                <td>Realizar 12 <b>Asesorías</b> a 12 participaciones en el área de Desarrollo Empresarial, con 
-                    548 horas de instrucción mediante instructores permanentes.
-                </td>
-                <td>Curso, participantes y horas</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <!-- Sexta fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Cursos</b></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>2</td>
-                <td>1</td>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2</td>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td>12</td>
-            </tr>
-            <!-- Séptima fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Participantes</b></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>2</td>
-                <td>1</td>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>2</td>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td>12</td>
-            </tr>
-            <!-- Octava fila de datos -->
-            <tr class="text-end">
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td><p></p></td>
-                <td></td>
-                <td><b>Horas</b></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>100</td>
-                <td>50</td>
-                <td>100</td>
-                <td>50</td>
-                <td>50</td>
-                <td>50</td>
-                <td>48</td>
-                <td>100</td>
-                <td></td>
-                <td></td>
-                <td>548</td>
-            </tr>
+                @endforeach
+          
+          
         </tbody>
     </table>
 </div>

@@ -46,7 +46,7 @@ class VerPoaAdministrativo extends Component
         $this->cargo = Cargo::find($this->user->id_cargo);
         $this->componente = Componente::find($this->poa->id_componente);
         $this->metas = new MetaAdministrativa;
-        $this->metas = MetaAdministrativa::where('id_poa', $this->poa->id)->orderBy('numero')->get();
+        $this->metas = MetaAdministrativa::where('id_poa', $this->poa->id)->orderBy('codigo_meta')->get();
 
         $this->cargar_programacion();
         
@@ -73,6 +73,11 @@ class VerPoaAdministrativo extends Component
             array_push($this->meses, $nueva_programacion);
         }
     }
+        
+
+        public $poas;
+
+   
     public function render()
     {
         return view('livewire.poa.ver-poa-administrativo');

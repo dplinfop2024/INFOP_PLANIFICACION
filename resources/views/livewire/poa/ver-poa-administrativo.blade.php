@@ -43,8 +43,8 @@
     <h6 class="text-center">Año {{$poa->anio}}</h6>
 
     
-    <table class="table table-borderless">
-        <thead>
+    <table class="table table-borderless" >
+        <thead >
           <tr class= "small-font">
             <th scope="col">
               <div class="table-title ">
@@ -52,16 +52,30 @@
                     <br><label><b>Actividad:</b> {{$user->id_unidad}}</label></br>
               </div>
             </th>
-            <th scope="col">
-              <label><b>Nombre Responsable: {{$user->nombre}}</b> </label> 
+            <th scope="col" >
+                <div class="table-title ">
+              <label ><b>Nombre Responsable: {{$user->nombre}}</b> </label> 
               <br><label><b>Cargo: {{$cargo->nombre}}</b> </label></br>
+            </div>
             </th>
             <th scope="col"> 
-                
+                <div class="table-title ">
                 <label><b></b>PP-FO-013 </label>
                 <br><label><b>VERSION:</b>04 </label></br>
               <label><b>Fecha:</b>{{date_format($poa->updated_at, "y/m/d")}} </label>
-              <br><label><b></b></label> <br></th>
+           
+                </div>
+
+            <th scope="col"> 
+               
+                <button class="btn" style="background-color:#38D6EE" > Editar </button>
+            </th>
+
+            <th scope="col"> 
+              
+                <button class="btn" style= "background-color:#f0dd34"> Cancelar </button>
+                    
+            </th>
             </tr>
         </thead>
       </table>
@@ -151,7 +165,7 @@
                 
                 $numero_Previo=$componente->numero;
             @endphp
-             {{ $meta->numero }} - {{ $meta->name }}
+        
             @endforeach
         </tbody>
     </table>
@@ -183,11 +197,7 @@
     </style>
 </head>
 <body>
-    <div class="container text-center mt-5">
-        <button class="btn btn-orange" href="{{ route('poa.editar.administrativo') }}" wire:navigate>
-            Editar
-        </button>
-    </div>
+
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
