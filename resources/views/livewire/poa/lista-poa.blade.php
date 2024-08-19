@@ -6,7 +6,7 @@
     <title>Tabla con DataTables</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css" rel="stylesheet">
     <style>
         .btn-orange {
             background-color: #FFA500; /* Color naranja */
@@ -22,7 +22,7 @@
 <body>
     <div class="container mt-4">
         <div class="table-responsive">
-            <table id="tableListaPresupuesto" class="table table-bordered table-hover">
+            <table id="tableListaPresupuesto" class="table table-bordered table-hover dt-responsive">
                 <thead class="table-primary">
                     <tr>
                         <th scope="col">No de Actividad</th>
@@ -54,19 +54,14 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.2/jszip.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
     
     <script>
         $(document).ready(function() {
             $('#tableListaPresupuesto').DataTable({
+                responsive: true,
                 dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'excel', 'print'
-                ],
+                buttons: [], // Aquí hemos eliminado todos los botones
                 language: {
                     "sProcessing":     "Procesando...",
                     "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -82,12 +77,6 @@
                         "sLast":     "Último",
                         "sNext":     "Siguiente",
                         "sPrevious": "Anterior"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "excel": "Excel",
-                        "pdf": "PDF",
-                        "print": "Imprimir"
                     }
                 }
             });
@@ -95,4 +84,3 @@
     </script>
 </body>
 </html>
-
