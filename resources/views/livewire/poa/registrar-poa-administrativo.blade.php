@@ -77,7 +77,7 @@
                             <select class="form-select" wire:model="componentes">
                                  <option value="" disabled>Seleccione un componente</option>
                                 @foreach($componentes as $componente)
-                                    <option value="{{ $componente->id }}">{{ $componente->numero->nombre }}</option>
+                                    <option value="{{ $componente->id }}">{{ $componente->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
