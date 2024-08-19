@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Cargo extends Model
 {
     use HasFactory;
+
+    public function get_cargo(){
+        $cargo = Cargo::find($this->id_cargo);
+        return $cargo->nombre;
+    }
+
+
+
+
 }
