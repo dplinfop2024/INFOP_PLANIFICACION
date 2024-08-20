@@ -86,7 +86,7 @@
 
             <th scope="col"> 
                
-                <button class="btn" style="background-color:#38D6EE" > Editar </button>
+                <button class="btn"  style="background-color:#38D6EE" href="{{ route('poa.editar.operativo') }}"> Editar </button>
             </th>
 
             <th scope="col"> 
@@ -208,9 +208,18 @@
                     <td></td>
                     <td></td>
                     <td>Cursos</td>
-                    @foreach($meses_cursos[$loop->index] as $mes)
-                <td>{{$mes}}</td>
-                @endforeach
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('ene')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('feb')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('mar')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('abr')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('may')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('jun')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('jul')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('ago')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('sep')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('oct')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('nov')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',1)->pluck('dic')->first() }}</td>
 
                 <td>{{$meta->cursos}}</td>
                 
@@ -225,9 +234,18 @@
                     <td></td>
                     <td>Participantes</td>
 
-                    @foreach($meses_participantes[$loop->index] as $mes)
-                <td>{{$mes}}</td>
-                @endforeach
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('ene')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('feb')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('mar')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('abr')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('may')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('jun')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('jul')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('ago')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('sep')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('oct')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('nov')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',2)->pluck('dic')->first() }}</td>
                 <td>{{$meta->participantes}}</td>
                 
                 </tr>
@@ -239,9 +257,18 @@
                     <td></td>
                     <td></td>
                     <td>Horas</td>
-                    @foreach($meses_horas[$loop->index] as $mes)
-                <td>{{$mes}}</td>
-                @endforeach
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('ene')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('feb')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('mar')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('abr')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('may')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('jun')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('jul')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('ago')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('sep')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('oct')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('nov')->first() }}</td>
+                    <td>{{ $meta->programacion_Op()->where('tipo',3)->pluck('dic')->first() }}</td>
                 <td>{{$meta->horas}}</td>
                 
                 </tr>

@@ -7,6 +7,7 @@ use App\Livewire\AvancesPacc\ListaAvancesPacc;
 use App\Livewire\AvancesPoa\EditarAvancesPoaAdministrativo;
 use App\Livewire\AvancesPoa\EditarAvancesPoaOperativo;
 use App\Livewire\AvancesPoa\ListaAvancesPoa;
+use App\Livewire\AvancesPoa\RegistrarAvancesPoaAdministrativo;
 use App\Livewire\AvancesPoa\VerAvancePoaOperativo;
 use App\Livewire\Pacc\RegistrarPacc;
 use App\Livewire\Planificacion\PlanificacionHome;
@@ -104,6 +105,8 @@ route::get('/poa/avances/ver/administrativo', VerAvancePoaAdministrativo::class)
 route::get('/poa/avances/ver/operativo', VerAvancePoaOperativo::class)->name('poa.avances.ver.operativo');
 route::get('/poa/avances/editar/administrativo', EditarAvancesPoaAdministrativo::class)->name('poa.avances.editar.administrativo');
 route::get('/poa/avances/editar/operativo', EditarAvancesPoaOperativo::class)->name('poa.avances.editar.operativo');
+route::get('/poa/avances/crear/administrativo',RegistrarAvancesPoaAdministrativo::class)->name('poa.avances.registrar.administrativo');
+route::get('/poa/avances/registrar/operativo',RegistrarPoaOperativo::class)->name('poa.avances.registrar.operativo');
 
 
 //---------------------RUTAS GENERALES - PRESUPUESTO ---------------------//

@@ -3,6 +3,8 @@
 namespace App\Livewire\Poa;
 
 use App\Models\Cargo;
+
+use App\Models\ProgramacionAdministrativa;
 use App\Models\Componente;
 use App\Models\MetaAdministrativa;
 use App\Models\Poa;
@@ -48,32 +50,17 @@ class VerPoaAdministrativo extends Component
         $this->metas = new MetaAdministrativa;
         $this->metas = MetaAdministrativa::where('id_poa', $this->poa->id)->orderBy('codigo_meta')->get();
 
-        $this->cargar_programacion();
-        
+
+     
+
+       
         //$this->dispatch('log', $this->poa);
         //$this->dispatch('log', $this->user);
         //$this->dispatch('log', $this->cargo);
         //$this->dispatch('log', $this->meses);
     }
 
-    public function cargar_programacion(){
-        foreach($this->metas as $meta){
-            $index = 0;
-            $programacion = $meta->programacion();
-            $nueva_programacion = array ('1'=>0, '2'=>0, '3'=>0, '4'=>0, '5'=>0, '6'=>0, '7'=>0, '8'=>0, '9'=>0, '10'=>0, '11'=>0, '12'=>0);
-            foreach($nueva_programacion as $mes){
-                $index++;
-                foreach($programacion as $progra){
-                    if($progra->mes == $index){
-                        $this->dispatch('log', $index);
-                        $nueva_programacion[$index]=$progra->programacion;
-                    }
-                }
-            }
-            array_push($this->meses, $nueva_programacion);
-        }
-    }
-        
+   
 
         public $poas;
 
