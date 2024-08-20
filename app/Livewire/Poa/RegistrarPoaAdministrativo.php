@@ -31,22 +31,28 @@ class RegistrarPoaAdministrativo extends Component
         $this->currentYear = Carbon::now()->year;
         $nextYear = Carbon::create($this->currentYear, 1, 1)->addYear()->year;
         $this->currentYear = $nextYear;
+        array_push($this->listaTotalAnual, 0);
     }
 
     public $listaMetas = [
         ['linea' => '', 'numLinea' => '', 'codigo' => '', 'descripcion' => '', 'unidadMedida' => '', 
-        'm1' => '0', 'm2' => '0', 'm3' => '0', 'm4' => '0', 'm5' => '0', 'm6' => '0', 
-        'm7' => '0', 'm8' => '0', 'm9' => '0', 'm10' => '0', 'm11' => '0', 'm12' => '0', 'anual' => '0']
+        'm1' => 0 , 'm2' => 0, 'm3' => 0, 'm4' => 0, 'm5' => 0, 'm6' => 0, 
+        'm7' => 0, 'm8' => 0, 'm9' => 0, 'm10' => 0, 'm11' => 0, 'm12' => 0, 'anual' => '0']
     ];
+
+    public $listaTotalAnual = [];
 
     public function agregarMeta(){
         $this->listaMetas[] = [
             'linea' => '', 'numLinea' => '', 'codigo' => '', 'descripcion' => '', 'unidadMedida' => '', 
-            'm1' => '0', 'm2' => '0', 'm3' => '0', 'm4' => '0', 'm5' => '0', 'm6' => '0', 
-            'm7' => '0', 'm8' => '0', 'm9' => '0', 'm10' => '0', 'm11' => '0', 'm12' => '0', 'anual' => '0'
+            'm1' => 0 , 'm2' => 0, 'm3' => 0, 'm4' => 0, 'm5' => 0, 'm6' => 0, 
+            'm7' => 0, 'm8' => 0, 'm9' => 0, 'm10' => 0, 'm11' => 0, 'm12' => 0, 'anual' => '0'
         ];
+        array_push($this->listaTotalAnual, 0);
         $this->activeTabIndex = count($this->listaMetas) - 1;
     }
+
+
 
     public function actualizarLineasEstrategicas() { 
         if ($this->componenteSeleccionado) {
@@ -54,6 +60,18 @@ class RegistrarPoaAdministrativo extends Component
         } else {
             $this->lineasEstrategicas = [];
         }
+    }
+
+    public function programacionAnual($index){
+        $total = 0;
+        $total = $this->listaMetas[$index]['m1']+$this->listaMetas[$index]['m2']
+        +$this->listaMetas[$index]['m3']+$this->listaMetas[$index]['m4']
+        +$this->listaMetas[$index]['m5']+$this->listaMetas[$index]['m6']
+        +$this->listaMetas[$index]['m7']+$this->listaMetas[$index]['m8']
+        +$this->listaMetas[$index]['m9']+$this->listaMetas[$index]['m10']
+        +$this->listaMetas[$index]['m11']+$this->listaMetas[$index]['m12'];
+        //dd($total);
+        $this->listaTotalAnual[$index]=$total;
     }
 
     public function mostrarDescripcionLinea($index)
@@ -64,6 +82,8 @@ class RegistrarPoaAdministrativo extends Component
     }
 
     public function save() {
+
+        
         if (!$this->componenteSeleccionado) {
             session()->flash('warning', 'Debe seleccionar un componente antes de registrar.');
             return;
@@ -138,6 +158,7 @@ class RegistrarPoaAdministrativo extends Component
 
     public function delete($id){
         array_splice($this->listaMetas, $id, 1);
+        array_splice($this->listaTotalAnual, $id, 1);
         $this->dispatch('log', "Borrar meta: $id");
     }
 

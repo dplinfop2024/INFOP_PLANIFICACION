@@ -165,19 +165,19 @@
                                     <tbody>
                                         <tr>
                                             <td><textarea class="form-control" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12" wire:keydown="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaTotalAnual.{{$index}}"></td>
                                         </tr>
                                     </tbody>
                                 </table>

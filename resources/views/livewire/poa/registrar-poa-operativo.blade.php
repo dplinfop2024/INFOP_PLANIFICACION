@@ -47,7 +47,7 @@
         
         
         <!--Información general de POA-->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center" wire:model="save">
             <div class="rz-card card" style="width: 85%" >
                 <div class="row">
                     @if (session('success'))
@@ -124,7 +124,7 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-2">
                                             <b>Número línea</b>
-                                            <select class="form-select" wire:model="listaMetas.{{$index}}.numLinea"wire:model="actualizarLineasEstrategicas"  wire:change="actualizarDescripcionLinea({{ $index }})"><!--wire:change: Es una directiva de Livewire que escucha el evento change en el elemento HTML al que está asociada. En este caso, está asociada al <select>. -->
+                                            <select class="form-select" wire:model="listaMetas.{{$index}}.numLinea" wire:change="actualizarDescripcionLinea({{ $index }})"><>
                                                 <option value="">seleccione número de línea</option>
                                                 @foreach($lineasEstrategicas as $linea)
                                                     <option value="{{ $linea->id }}">{{ $linea->numero }}</option>
@@ -133,7 +133,7 @@
                                             <br>
                                             <br>
                                             <b>Número Meta</b>
-                                            <input type="text" class="form-control" wire:model="listaMetas.{{$index}}.codigo_meta">
+                                            <input type="text" class="form-control" wire:model="codigo_meta" wire:model="listaMetas.{{$index}}.codigo">
                                         
                                         </div>
                                     
@@ -141,11 +141,11 @@
                                             <b>Descripción Linea Estrategica</b>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model.defer="descripcionLineaSeleccionada" disabled></textarea>
                                             <b>Descripción Meta</b>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="listaMetas.{{$index}}.descripcion"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="descripcion" wire:model="listaMetas.{{$index}}.descripcion"></textarea>
                                         </div>
                                         <div class="col-md-3">
                                             <b>Unidad De Medida</b>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"wire:model="unidad_medida"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="unidad_medida"></textarea>
                                         </div>
                                     </div>
                                     <br>
@@ -198,8 +198,8 @@
                                                     <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m10"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m11"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m12"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" disabled></td>
-                                                   
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="programacion_curso"disabled></td>
+                    
                                                 </tr>
                                                 <!--Participantes-->
                                                 <tr>
@@ -216,7 +216,7 @@
                                                     <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m10"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m11"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m12"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" disabled></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="programacion_participantes"disabled></td>
                                                     
                                                 </tr>
                                                 <!--Horas-->
@@ -234,7 +234,7 @@
                                                     <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m10"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m11"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m12"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" disabled></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="rogramacion_horas"disabled></td>
                                                 </tr>
                                             </tbody>
                                         </table>
