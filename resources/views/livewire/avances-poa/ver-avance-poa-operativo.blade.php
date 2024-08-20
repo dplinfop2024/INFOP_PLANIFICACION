@@ -32,17 +32,17 @@
         <tr class= "small-font">
           <th scope="col">
             <div class="table-title ">
-                  <label><b>Nombre de la Unidad:</b> Turismo </label> 
-                  <br><label><b>Actividad:</b> 9252</label></br>
+                  <label><b>Nombre Unidad:</b> </label> 
+                  <br><label><b>Actividad:</b>  </label></br>
             </div>
           </th>
           <th scope="col">
-            <label><b>Nombre Responsable:</b> Daysi Jannett Aranda</label> 
-            <br><label><b>Cargo:</b> Jefe de departamento</label></br>
+            <label><b>Nombre Responsable:</b> </label> 
+            <br><label><b>Cargo:</b> </label></br>
           </th>
           <th scope="col"> 
-            <label><b>Fecha:</b>01/02/2024 </label>
-            <br><label><b>Año:</b>2024</label> <br></th>
+            <label><b>Fecha:</b>  </label>
+            <br><label><b>Año:</b></label> <br></th>
           </tr>
       </thead>
     </table>
