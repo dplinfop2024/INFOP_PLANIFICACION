@@ -34,6 +34,6 @@ class MetaAdministrativa extends Model
 
     public function programacion(){
         $programacion = ProgramacionAdministrativa::where('id_meta', $this->id)->get();
-        return $programacion;
+        return $programacion ;
     }
 }

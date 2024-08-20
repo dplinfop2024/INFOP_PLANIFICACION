@@ -10,5 +10,6 @@ class ProgramacionAdministrativa extends Model
     use HasFactory;
     
     protected $table = 'programaciones_administrativas';
-    
+
+
 }

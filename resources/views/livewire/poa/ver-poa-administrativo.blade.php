@@ -68,7 +68,7 @@
 
             <th scope="col"> 
                
-                <button class="btn" style="background-color:#38D6EE" > Editar </button>
+                <button class="btn" style="background-color:#38D6EE" href="{{ route('poa.editar.administrativo') }}"> Editar </button>
             </th>
 
             <th scope="col"> 
@@ -151,10 +151,24 @@
                 <td>{{$meta->descripcion}}</td>
                 <td>{{$meta->unidad_medida}}</td>
 
+                <td>{{ $meta->programacion()->pluck('ene')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('feb')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('mar')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('abr')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('may')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('jun')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('jul')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('ago')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('sep')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('oct')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('nov')->first() }}</td>
+                <td>{{ $meta->programacion()->pluck('dic')->first() }}</td>
+
                  {{-- Meses--}}
-                @foreach($meses[$loop->index] as $mes)
-                <td>{{$mes}}</td>
-                @endforeach
+
+                
+                 
+
 
 
                 <td>{{$meta->programacion_anual}}</td>

@@ -24,12 +24,14 @@ class RegistrarPoaOperativo extends Component
     public $componentes;
     public $currentYear; //anio actual
     public $lineasEstrategicas=[];
-
+    public $lineaEstrategiaSeleccionado;
     public $componenteSeleccionado; 
     //public $descripcion_linea;
     public $codigo_meta;
     public $descripcionLineaSeleccionada;
+    public $descripcion;
     public $unidad_medida;
+    
     
     public $cursos = [
         array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
@@ -88,15 +90,6 @@ class RegistrarPoaOperativo extends Component
         $nextYear = Carbon::create($currentYear, 1, 1)->addYear()->year;
         // Asignar el nuevo año 
         $this->currentYear = $nextYear;
-       
-        //$this -> lineasEstrategicas = LineaEstrategica::all();
-        
-       // $this->dispatch('log', $usuario);
-       // $this->dispatch('log', $this-> poa);
-        //$this->dispatch('log', $this-> componentes);
-       // $this->dispatch('log', $this-> lineas_estrategicas);
-
-
     }
    
     public function updated()
@@ -125,23 +118,21 @@ class RegistrarPoaOperativo extends Component
         }
         dd([
            
-            'usuario' =>  $this->poa->id_usuario = 9,
-            'poa' => $this->poa,
-            'poa'=> $this -> poa-> currentYear = Carbon::now()->year,
-            'id_componente' => $this->id_componente,
-            'id_linea' => $this->id_linea,
-            'descripcion_linea'=>$this->descripcion_linea,
-            'codigo_meta'=>$this->codigo_meta,
-            'descripcion_meta' => $this->descripcion_meta,
-            'unidad_medida' => $this->unidad_medida,
-
-            'cursos' => $this->cursos,
-            'participantes' => $this->participantes,
-            'horas' => $this->horas,
-            'programacion_curso' => $this->programacion_curso,
-            'programacion_participantes' => $this->programacion_participantes,
-            'programacion_horas' => $this->programacion_horas, 
-        
+        'usuario' => $this->poa->id_usuario,
+        'poa' => $this->poa,
+        'currentYear' => $this->currentYear,
+        'id_componente' => $this->componenteSeleccionado,
+        'id_linea' => $this->lineasEstrategicas, // Suponiendo que tienes una lógica para esto
+        'descripcion_linea' => $this->descripcionLineaSeleccionada,
+        'codigo_meta' => $this->codigo_meta,
+        'descripcion' => $this->descripcion,
+        'unidad_medida' => $this->unidad_medida,
+        'cursos' => $this->cursos,
+        'participantes' => $this->participantes,
+        'horas' => $this->horas,
+        'programacion_curso' => $this->programacion_curso,
+        'programacion_participantes' => $this->programacion_participantes,
+        'programacion_horas' => $this->programacion_horas,
             
         ]);
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('metas_reportes_administrativos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_meta');
-            $table->foreign('id_meta')->references('id')->on('metas_operativas');
+            $table->foreign('id_meta')->references('id')->on('metas_administrativas');
             $table->integer('porcentaje_trimestral');
             $table->string('observaciones', 500);
             $table->timestamps();
