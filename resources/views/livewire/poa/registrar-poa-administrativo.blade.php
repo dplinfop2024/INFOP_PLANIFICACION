@@ -44,6 +44,12 @@
                             {{ session('warning') }}
                         </div>
                     @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
 
             
                     <div class="col-md-4">
@@ -115,7 +121,7 @@
                                 </div>
                                 <div class="col-md-7 col-sm-6">
                                     <b>Descripción Línea Estratégica:</b>
-                                    <textarea class="form-control" rows="3" readonly>{{ $meta['descripcionLinea'] ?? '' }}</textarea>
+                                    <textarea class="form-control" rows="3" disabled>{{ $meta['descripcionLinea'] ?? '' }}</textarea>
                                 </div>
                                 <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
                                     <b>Código Meta</b>
