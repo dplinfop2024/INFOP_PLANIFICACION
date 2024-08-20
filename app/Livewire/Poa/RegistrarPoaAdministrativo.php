@@ -44,13 +44,7 @@ class RegistrarPoaAdministrativo extends Component
     }
    
 
-    public function actualizarLineasEstrategicas() { //funcion para listar las lineas estrategicas segun el componente seleccionado
-        if ($this->componenteSeleccionado) {
-            $this->lineasEstrategicas = LineaEstrategica::where('id_componente', $this->componenteSeleccionado)->get();
-        } else {
-            $this->lineasEstrategicas = [];
-        }
-    }
+    
  
     public $listaMetas = array (
         array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 
@@ -67,9 +61,27 @@ class RegistrarPoaAdministrativo extends Component
         
     }
 
+    //metodo para listar las lineas estrategicas segun el componente seleccionado
+    public function actualizarLineasEstrategicas() { 
+        if ($this->componenteSeleccionado) {
+            $this->lineasEstrategicas = LineaEstrategica::where('id_componente', $this->componenteSeleccionado)->get();
+        } else {
+            $this->lineasEstrategicas = [];
+        }
+    }
+     // Método que se llama cuando cambia la selección de la línea estratégica y mostrar descripcion
+    public function mostrarDescripcionLinea($index)
+    {
+        // Busca la línea estratégica seleccionada en lineasEstrategicas
+        $lineaSeleccionada = collect($this->lineasEstrategicas)
+            ->firstWhere('id', $this->listaMetas[$index]['numLinea']);
+        // Si se encuentra la línea, actualiza la descripción en listaMetas[$index]['descripcionLinea']
+        $this->listaMetas[$index]['descripcionLinea'] = $lineaSeleccionada ? $lineaSeleccionada['descripcion'] : '';
+    }
+
     public function save(){
-        $this->dispatch('log', $this->lineaEstrategiaSeleccionado);
-        if (!$this->componenteSeleccionado) {// Verifica si se ha seleccionado un componente antes REGISTAR
+        $this->dispatch('log', $this->listaMetas);
+       /* if (!$this->componenteSeleccionado) {// Verifica si se ha seleccionado un componente antes REGISTAR
             session()->flash('warning', 'Debe seleccionar un componente antes de registrar.');
             return; 
         }
@@ -108,7 +120,7 @@ class RegistrarPoaAdministrativo extends Component
     
         // Mensaje de éxito para indicar que el POA ha sido registrado correctamente
         session()->flash('success', 'POA registrado exitosamente.');
-        $this->dispatch('log', $this->listaMetas);
+        $this->dispatch('log', $this->listaMetas);*/
     }
     
 

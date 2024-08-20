@@ -2,22 +2,6 @@
 <div class="container-fluid" style="background-color:#">
     <style>
         
-
-        .table-responsive {
-        overflow-x: auto;
-    }
-
-    .table-info {
-        background-color: #d5dce2;
-    }
-
-    .table-sm th, .table-sm td {
-        padding: 0.3rem;
-    }
-
-    .table-group-divider {
-        border-top: 2px solid #dee2e6;
-    }
     .rz-card {
                 background-color: #35d7f8;
                 border: 1px solid #dee2e6;
@@ -103,8 +87,8 @@
         </div>
         <div class="row">
 
-        <div class="d-flex justify-content-center">
-            <div class="rz-card1 card" style="width: 85%" >
+        <div class="container-fluid d-flex justify-content-center">
+            <div class="rz-card1 card" style="width: 85%;">
                 <!-- Navegación por pestañas -->
                 <ul class="nav nav-tabs" id="metaTabs" role="tablist">
                     @foreach($listaMetas as $index => $meta)
@@ -118,100 +102,92 @@
                 <div class="tab-content" id="metaTabsContent">
                     @foreach($listaMetas as $index => $meta)
                     <div class="tab-pane fade @if($index == $activeTabIndex) show active @endif" id="meta{{$index}}" role="tabpanel" aria-labelledby="tab{{$index}}">
-                    <div class="d-flex justify-content-center">
-                        <div class="" >
-                            <br> <!-- <h5>Meta {{$index+1}}</h5> -->
-                                <div class="row">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-5">
-                                            <b>Número línea</b>
-                                            <select class="form-select" wire:model="listaMetas.{{$index}}.numLinea" wire:model="lineaEstrategiaSeleccionado">
-                                                <option value="">seleccione el número de línea</option>
-                                                @foreach($lineasEstrategicas as $linea)
-                                                    <option value="{{ $linea->id }}">{{ $linea->numero }}</option>
-                                                @endforeach
-                                            </select>
-                    
-                                            <b>Descripción Línea Estratégica:</b>
-                                            <textarea class="form-control" rows="3" readonly></textarea>
-                                        
-                                        </div>
-                                    
-                                        <div class="col-md-5">
-                                            <b>Número Meta</b>
-                                            <input type="text" class="form-control" wire:model="listaMetas.{{$index}}.codigo">
-                                            <b>Descripción Meta</b>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="listaMetas.{{$index}}.descripcion"></textarea>
-                                        </div>
-                                        
-                                    </div>
-                                    <br>
-                                    <!-- Programación de meta -->
-                
-                                    <div class="table-responsive">
-                                        <table class="table-info table-sm">
-                                            <thead>
-                                                <tr class="text-center">
-                                                    <th colspan="1"></th>
-                                                    <th style="border-left: 2px solid black;" colspan="3">Trimestre 1</th>
-                                                    <th style="border-left: 2px solid black;" colspan="3">Trimestre 2</th>
-                                                    <th style="border-left: 2px solid black;" colspan="3">Trimestre 3</th>
-                                                    <th style="border-left: 2px solid black;" colspan="3">Trimestre 4</th>
-                                                    <th style="border-left: 2px solid black;" colspan="3">Programación</th>
-                                                    <th> </th>
-
-                                                </tr>
-                                                <tr>
-                                                    <th class="text-center">Unidad Medida</th>
-                                                    <th style="border-left: 2px solid black;" class="text-center">Ene</th>
-                                                    <th class="text-center">Feb</th>
-                                                    <th class="text-center">Mar</th>
-                                                    <th style="border-left: 2px solid black;" class="text-center">Abr</th>
-                                                    <th class="text-center">May</th>
-                                                    <th class="text-center">Jun</th>
-                                                    <th style="border-left: 2px solid black;" class="text-center">Jul</th>
-                                                    <th class="text-center">Ago</th>
-                                                    <th class="text-center">Sep</th>
-                                                    <th style="border-left: 2px solid black;" class="text-center">Oct</th>
-                                                    <th class="text-center">Nov</th>
-                                                    <th class="text-center">Dic</th>
-                                                    <th style="border-left: 2px solid black;" class="text-center">Anual</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="table-group-divider">
-                                            <tr>
-                                                        <td><textarea name="" id="" class="form-control" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea></td>
-                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
-                                                        <td ><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
-                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
-                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
-                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
-                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
-                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
-                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
-                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
-                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
-                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
-                                                        <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
-                                                        <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" ></td>
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                
-
-                                    <div class="d-grid pb-3 pt-3 col-2 mx-auto">
-                                        <button class="btn bg-danger-subtle" wire:click="delete({{$index}})">Eliminar meta</button>
-                                    </div>
-                            
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <b>Número línea</b>
+                                    <select class="form-select" wire:model="listaMetas.{{$index}}.numLinea" wire:change="mostrarDescripcionLinea({{$index}})">
+                                        <option value="">Seleccione el número de línea</option>
+                                        @foreach($lineasEstrategicas as $linea)
+                                        <option value="{{ $linea->id }}">{{ $linea->numero }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-7 col-sm-6">
+                                    <b>Descripción Línea Estratégica:</b>
+                                    <textarea class="form-control" rows="3" readonly>{{ $meta['descripcionLinea'] ?? '' }}</textarea>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mt-2 mt-md-0">
+                                    <b>Código Meta</b>
+                                    <input type="text" class="form-control" wire:model="listaMetas.{{$index}}.codigo">
+                                </div>
+                                <div class="col-md-7 col-sm-6 mt-2 mt-md-0">
+                                    <b>Descripción Meta</b>
+                                    <textarea class="form-control" rows="3" wire:model="listaMetas.{{$index}}.descripcion"></textarea>
+                                </div>
                             </div>
 
+                            <!-- Programación de meta -->
+                            <div class="table-responsive mt-3">
+                                <table class="table table-striped table-bordered table-hover table-sm">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th colspan="1"></th>
+                                            <th style="border-left: 2px solid black;" colspan="3">Trimestre 1</th>
+                                            <th style="border-left: 2px solid black;" colspan="3">Trimestre 2</th>
+                                            <th style="border-left: 2px solid black;" colspan="3">Trimestre 3</th>
+                                            <th style="border-left: 2px solid black;" colspan="3">Trimestre 4</th>
+                                            <th style="border-left: 2px solid black;" colspan="3">Programación</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center">Unidad Medida</th>
+                                            <th style="border-left: 2px solid black;" class="text-center">Ene</th>
+                                            <th class="text-center">Feb</th>
+                                            <th class="text-center">Mar</th>
+                                            <th style="border-left: 2px solid black;" class="text-center">Abr</th>
+                                            <th class="text-center">May</th>
+                                            <th class="text-center">Jun</th>
+                                            <th style="border-left: 2px solid black;" class="text-center">Jul</th>
+                                            <th class="text-center">Ago</th>
+                                            <th class="text-center">Sep</th>
+                                            <th style="border-left: 2px solid black;" class="text-center">Oct</th>
+                                            <th class="text-center">Nov</th>
+                                            <th class="text-center">Dic</th>
+                                            <th style="border-left: 2px solid black;" class="text-center">Anual</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><textarea class="form-control" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="d-grid pb-3 pt-3 col-2 mx-auto">
+                                <button class="btn bg-danger-subtle" wire:click="delete({{$index}})">Eliminar meta</button>
+                            </div>
                         </div>
-                    </div> <!-- d-flex justify-content-center -->
+                    </div>
                     @endforeach
                 </div>
             </div>
         </div>
+
+
         <!-- Botones -->
         <div class="d-grid gap-3 pt-4 col-2 mx-auto">
             <button class="btn" style="background-color:#38D6EE" wire:click="agregarMeta()">Agregar meta</button>
