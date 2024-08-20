@@ -10,6 +10,15 @@ class MetaOperativa extends Model
     use HasFactory;
 
     protected $table = 'metas_operativas';
+    //Atributos para asiggnar en masa.
+    protected $fillable =[
+        'id_poa',
+        'id_linea',
+        'descripcion',
+        'unidad_medida',
+        'programacion_anual',
+        'codigo_meta',
+    ];
 
     public function descripcion_linea_Op(){
         $linea = LineaEstrategica::find($this->id_linea);
