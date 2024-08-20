@@ -12,7 +12,7 @@ class PaccAdminForm extends Form
     public $nombreUnidad = 'Departamento de Planificacion';
     public $responsable = 'Luis Alberto Lopez Smith';
     public $cargoResponsable = 'Jefa Departamento Planifcacion';
-    public $anio = '2025';
+    public $anio = '';
 
     public $actividadPres = '6501';
     

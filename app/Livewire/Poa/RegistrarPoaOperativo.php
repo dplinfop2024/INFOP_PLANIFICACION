@@ -27,11 +27,10 @@ class RegistrarPoaOperativo extends Component
 
     public $componenteSeleccionado; 
     //public $descripcion_linea;
-   
+    public $codigo_meta;
     public $descripcionLineaSeleccionada;
     public $unidad_medida;
-     public $codigo_meta;
-      public $descripcion;
+    
     public $cursos = [
         array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
     ];
@@ -67,7 +66,7 @@ class RegistrarPoaOperativo extends Component
         if ($lineaSeleccionadaId) {
             // Busca la línea estratégica en la base de datos utilizando su ID.
             $linea = LineaEstrategica::find($lineaSeleccionadaId);
-        
+            
             // Si se encuentra la línea estratégica, asigna su descripción a la propiedad 'descripcionLineaSeleccionada'.
             // Si no se encuentra la línea o no tiene descripción, se asigna un string vacío.
             $this->descripcionLineaSeleccionada = $linea->descripcion ?? '';
@@ -89,7 +88,6 @@ class RegistrarPoaOperativo extends Component
         $nextYear = Carbon::create($currentYear, 1, 1)->addYear()->year;
         // Asignar el nuevo año 
         $this->currentYear = $nextYear;
-        $this->lineasEstrategicas =null;
        
         //$this -> lineasEstrategicas = LineaEstrategica::all();
         
@@ -120,7 +118,7 @@ class RegistrarPoaOperativo extends Component
 
     public function save(){
         //$this->dispatch('log', $this->listaMetas);
-        $this->dispatch('log', $this->lineaEstrategiaSeleccionada);
+        $this->dispatch('log', $this->lineaEstrategiaSeleccionado);
         if (!$this->componenteSeleccionado) {// Verifica si se ha seleccionado un componente antes REGISTAR
             session()->flash('warning', 'Debe seleccionar un componente antes de registrar.');
             return; 
@@ -130,11 +128,11 @@ class RegistrarPoaOperativo extends Component
             'usuario' =>  $this->poa->id_usuario = 9,
             'poa' => $this->poa,
             'poa'=> $this -> poa-> currentYear = Carbon::now()->year,
-            'componenteSeleccionado' => $this->componenteSeleccionado,
-            'lineasEstrategicas'=>$this->lineasEstrategicas,
-            'descripcionLineaSeleccionada'=>$this->descripcionLineaSeleccionada,
+            'id_componente' => $this->id_componente,
+            'id_linea' => $this->id_linea,
+            'descripcion_linea'=>$this->descripcion_linea,
             'codigo_meta'=>$this->codigo_meta,
-            'descripcion' => $this->descripcion,
+            'descripcion_meta' => $this->descripcion_meta,
             'unidad_medida' => $this->unidad_medida,
 
             'cursos' => $this->cursos,

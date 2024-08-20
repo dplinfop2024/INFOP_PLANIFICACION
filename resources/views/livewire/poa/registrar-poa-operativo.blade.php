@@ -124,9 +124,9 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-2">
                                             <b>Número línea</b>
-                                            <select class="form-select" wire:model="listaMetas.{{$index}}.numLinea" wire:change="actualizarDescripcionLinea({{ $index }})"><!--wire:change: Es una directiva de Livewire que escucha el evento change en el elemento HTML al que está asociada. En este caso, está asociada al <select>. -->
+                                            <select class="form-select" wire:model="listaMetas.{{$index}}.numLinea"wire:model="actualizarLineasEstrategicas"  wire:change="actualizarDescripcionLinea({{ $index }})"><!--wire:change: Es una directiva de Livewire que escucha el evento change en el elemento HTML al que está asociada. En este caso, está asociada al <select>. -->
                                                 <option value="">seleccione número de línea</option>
-                                                @foreach($lineasEstrategicas as $lineaEstrategica)
+                                                @foreach($lineasEstrategicas as $linea)
                                                     <option value="{{ $linea->id }}">{{ $linea->numero }}</option>
                                                 @endforeach
                                             </select>
