@@ -47,7 +47,7 @@
         
         
         <!--Información general de POA-->
-        <div class="d-flex justify-content-center" wire:model="save">
+        <div class="d-flex justify-content-center">
             <div class="rz-card card" style="width: 85%" >
                 <div class="row">
                     @if (session('success'))
@@ -133,7 +133,7 @@
                                             <br>
                                             <br>
                                             <b>Número Meta</b>
-                                            <input type="text" class="form-control" wire:model="codigo_meta" wire:model="listaMetas.{{$index}}.codigo">
+                                            <input type="text" class="form-control"  wire:model="listaMetas.{{$index}}.codigo">
                                         
                                         </div>
                                     
@@ -141,11 +141,11 @@
                                             <b>Descripción Linea Estrategica</b>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model.defer="descripcionLineaSeleccionada" disabled></textarea>
                                             <b>Descripción Meta</b>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="descripcion" wire:model="listaMetas.{{$index}}.descripcion"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  wire:model="listaMetas.{{$index}}.descripcion"></textarea>
                                         </div>
                                         <div class="col-md-3">
                                             <b>Unidad De Medida</b>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="unidad_medida"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea>
                                         </div>
                                     </div>
                                     <br>

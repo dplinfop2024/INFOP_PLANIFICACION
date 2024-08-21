@@ -10,6 +10,7 @@ use App\Models\Poa;
 use App\Models\ProgramacionOperativa;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -20,19 +21,15 @@ class RegistrarPoaOperativo extends Component
     public PoaAdminForm $poaForm;
     
     public $usuario;
+    public $idUsuario = 9;//add
+    public $estado = 'nuevo';//add
     public $poa;
     public $componentes;
     public $currentYear; //anio actual
     public $lineasEstrategicas=[];
-    public $lineaEstrategiaSeleccionado;
+    //public $lineaEstrategiaSeleccionado;
     public $componenteSeleccionado; 
-    //public $descripcion_linea;
-    public $codigo_meta;
     public $descripcionLineaSeleccionada;
-    public $descripcion;
-    public $unidad_medida;
-    
-    
     public $cursos = [
         array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
     ];
@@ -42,15 +39,41 @@ class RegistrarPoaOperativo extends Component
     public $horas = [
         array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
     ];
-
     public $programacion_curso;
     public $programacion_participantes;
     public $programacion_horas;
-   
-    
-
     public $activeTabIndex = 0;
 
+    public function mount(){
+       // $usuario = User::find(9);
+        //$this -> poa = new Poa;
+        //$this -> poa -> id_usuario = 9;
+        $this->componentes = Componente::all();
+        $this->currentYear = Carbon::now()->year; //para obtener el año actual
+        $currentYear = Carbon::now()->year;// Obtiene el año actual
+        $nextYear = Carbon::create($currentYear, 1, 1)->addYear()->year;//instancia de Carbon para el año actual y sumar un año
+        $this->currentYear = $nextYear;// Asignar el nuevo año 
+    }
+   
+    public function updated()
+    {
+        $this->programacion_curso = array_sum($this->cursos);
+        $this->programacion_participantes = array_sum($this->participantes);
+        $this->programacion_horas = array_sum($this->horas);
+    }
+    public $listaMetas =[
+        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'']
+    ];
+
+    public function agregarMeta(){
+        $this->listaMetas[] = ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>''];
+        
+        array_push($this->cursos, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
+        array_push($this->participantes, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
+        array_push($this->horas, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
+        
+        $this->activeTabIndex = count($this->listaMetas) - 1;
+    }
     public function actualizarLineasEstrategicas() { //funcion para listar las lineas estrategicas segun el componente seleccionado
         if ($this->componenteSeleccionado) {
             $this->lineasEstrategicas = LineaEstrategica::where('id_componente', $this->componenteSeleccionado)->get();
@@ -61,150 +84,132 @@ class RegistrarPoaOperativo extends Component
     public function actualizarDescripcionLinea($index)
     {
         // Obtiene el ID de la línea estratégica seleccionada desde el array 'listaMetas' en la posición '$index'.
-        // Si no existe un valor seleccionado, se asigna 'null'.
-        $lineaSeleccionadaId = $this->listaMetas[$index]['numLinea'] ?? null;
-    
-        // Verifica si se ha seleccionado una línea estratégica.
-        if ($lineaSeleccionadaId) {
-            // Busca la línea estratégica en la base de datos utilizando su ID.
-            $linea = LineaEstrategica::find($lineaSeleccionadaId);
-            
-            // Si se encuentra la línea estratégica, asigna su descripción a la propiedad 'descripcionLineaSeleccionada'.
-            // Si no se encuentra la línea o no tiene descripción, se asigna un string vacío.
+        $lineaSeleccionadaId = $this->listaMetas[$index]['numLinea'] ?? null;// Si no existe un valor seleccionado, se asigna 'null'.
+        if ($lineaSeleccionadaId) {  // Verifica si se ha seleccionado una línea estratégica.
+            $linea = LineaEstrategica::find($lineaSeleccionadaId);// Busca la línea estratégica en la base de datos utilizando su ID.
             $this->descripcionLineaSeleccionada = $linea->descripcion ?? '';
         } else {
-            // Si no se ha seleccionado ninguna línea estratégica, se asigna un string vacío a la propiedad 'descripcionLineaSeleccionada'.
-            $this->descripcionLineaSeleccionada = '';
+            $this->descripcionLineaSeleccionada = '';// Si no se ha seleccionado ninguna línea estratégica, se asigna un string vacío.
         }
     }
     
-    public function mount(){
-        $usuario = User::find(9);
-        $this -> poa = new Poa;
-        $this -> poa -> id_usuario = 9;
-        $this->componentes = Componente::all();
-        $this->currentYear = Carbon::now()->year; //para obtener el año actual
-        // Obtiene el año actual
-        $currentYear = Carbon::now()->year;
-        //instancia de Carbon para el año actual y sumar un año
-        $nextYear = Carbon::create($currentYear, 1, 1)->addYear()->year;
-        // Asignar el nuevo año 
-        $this->currentYear = $nextYear;
-    }
-   
-    public function updated()
-    {
-        $this->programacion_curso = array_sum($this->cursos);
-        $this->programacion_participantes = array_sum($this->participantes);
-        $this->programacion_horas = array_sum($this->horas);
-    }
-    public $listaMetas = array (
-        array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'')
-    );
-
-    public function agregarMeta(){
-        array_push($this->listaMetas, array ('linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>''));
-        array_push($this->cursos, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
-        array_push($this->participantes, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
-        array_push($this->horas, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
-    }
-
     public function save(){
-        //$this->dispatch('log', $this->listaMetas);
-        $this->dispatch('log', $this->lineaEstrategiaSeleccionado);
-        if (!$this->componenteSeleccionado) {// Verifica si se ha seleccionado un componente antes REGISTAR
+
+        if (!$this->componenteSeleccionado) {
             session()->flash('warning', 'Debe seleccionar un componente antes de registrar.');
-            return; 
+            return;
         }
-        dd([
-           
-        'usuario' => $this->poa->id_usuario,
-        'poa' => $this->poa,
-        'currentYear' => $this->currentYear,
-        'id_componente' => $this->componenteSeleccionado,
-        'id_linea' => $this->lineasEstrategicas, // Suponiendo que tienes una lógica para esto
-        'descripcion_linea' => $this->descripcionLineaSeleccionada,
-        'codigo_meta' => $this->codigo_meta,
-        'descripcion' => $this->descripcion,
-        'unidad_medida' => $this->unidad_medida,
-        'cursos' => $this->cursos,
-        'participantes' => $this->participantes,
-        'horas' => $this->horas,
-        'programacion_curso' => $this->programacion_curso,
-        'programacion_participantes' => $this->programacion_participantes,
-        'programacion_horas' => $this->programacion_horas,
+        DB::beginTransaction();
+        try { 
+            $poa = new Poa();
+            $poa->id_usuario = $this->idUsuario;
+            $poa->anio = $this->currentYear; 
+            $poa->id_componente = $this->componenteSeleccionado; 
+            $poa->estado = $this->estado;
+            $poa->save();
+            $count = 0;
+        foreach($this->listaMetas as $index => $meta){
             
-        ]);
-
-        //guardar poa
-        $count = 0;
-        foreach($this->listaMetas as $meta){
-            //guardar meta
-            //$meta = new MetaOperativa;
-
-            //guardar programacion cursos
-
-            //$progra_cursos = new ProgramacionOperativa;
-            //$progra_cursos->id_meta = $meta->id;
-            //$progra_cursos->tipo = 1;
-            //$progra_cursos->ene = $this->cursos[$count]->m1;
-            //$progra_cursos->feb = $this->cursos[$count]]->m2;
-            //$progra_cursos->mar = $this->cursos[$count]]->m3;
-            //$progra_cursos->abr = $this->cursos[$count]]->m4;
-            //$progra_cursos->may = $this->cursos[$count]]->m5;
-            //$progra_cursos->jun = $this->cursos[$count]]->m6;
-            //$progra_cursos->jul = $this->cursos[$count]]->m7;
-            //$progra_cursos->ago = $this->cursos[$count]]->m8;
-            //$progra_cursos->sep = $this->cursos[$count]]->m9;
-            //$progra_cursos->oct = $this->cursos[$count]]->m10;
-            //$progra_cursos->nov = $this->cursos[$count]]->m11;
-            //$progra_cursos->dic = $this->cursos[$count]]->m12;
-            //$progra_cursos.save();
-
-            //guardar programacion participantes
-
-            //$progra_participantes = new ProgramacionOperativa;
-            //$progra_participantes->id_meta = $meta->id;
-            //$progra_participantes->tipo = 2;
-            //$progra_participantes->ene = $this->cursos[$count]->m1;
-            //$progra_participantes->feb = $this->cursos[$count]]->m2;
-            //$progra_participantes->mar = $this->cursos[$count]]->m3;
-            //$progra_participantes->abr = $this->cursos[$count]]->m4;
-            //$progra_participantes->may = $this->cursos[$count]]->m5;
-            //$progra_participantes->jun = $this->cursos[$count]]->m6;
-            //$progra_participantes->jul = $this->cursos[$count]]->m7;
-            //$progra_participantes->ago = $this->cursos[$count]]->m8;
-            //$progra_participantes->sep = $this->cursos[$count]]->m9;
-            //$progra_participantes->oct = $this->cursos[$count]]->m10;
-            //$progra_participantes->nov = $this->cursos[$count]]->m11;
-            //$progra_participantes->dic = $this->cursos[$count]]->m12;
-            //$progra_participantes.save();
+             $indexMeta = $index + 1; //para mostrar el numero de meta no seleccionada
+                if (empty($meta['numLinea'])) {
+                    $errorMessage = "Debe seleccionar una línea estratégica para la meta: $indexMeta";
+                    session()->flash('warning', $errorMessage);
+                    DB::rollBack();
+                    return;
+                }
+                if (empty($meta['codigo'])) {
+                    $errorMessage = "Debe ingresar el Código de meta: $indexMeta";
+                    session()->flash('warning', $errorMessage);
+                    DB::rollBack();
+                    return;
+                }
+                if (empty($meta['descripcion'])) {
+                    $errorMessage = "Debe ingresar la Descripción de la meta: $indexMeta";
+                    session()->flash('warning', $errorMessage);
+                    DB::rollBack();
+                    return;
+                }
+                
             
-            //guardar programacion horas
+            //Guardar meta
+            $MetaOperativa = new MetaOperativa ();
+            $MetaOperativa->id_poa = $poa->id;
+            $MetaOperativa->id_linea = $meta['numLinea'];
+            $MetaOperativa->descripcion = $meta['descripcion'];
+            $MetaOperativa->unidad_medida = $meta['unidadMedida'];
+            $MetaOperativa->cursos= $meta['anual'];
+            $MetaOperativa->participantes= $meta['anual']; 
+            $MetaOperativa->horas= $meta['anual'];
+            $MetaOperativa->presupuesto_meta = 0;
+            $MetaOperativa->codigo_meta = $meta['codigo'];
+            $MetaOperativa->save();
             
-            //$progra_horas = new ProgramacionOperativa;
-            //$progra_horas->id_meta = $meta->id;
-            //$progra_horas->tipo = 2;
-            //$progra_horas->ene = $this->cursos[$count]->m1;
-            //$progra_horas->feb = $this->cursos[$count]]->m2;
-            //$progra_horas->mar = $this->cursos[$count]]->m3;
-            //$progra_horas->abr = $this->cursos[$count]]->m4;
-            //$progra_horas->may = $this->cursos[$count]]->m5;
-            //$progra_horas->jun = $this->cursos[$count]]->m6;
-            //$progra_horas->jul = $this->cursos[$count]]->m7;
-            //$progra_horas->ago = $this->cursos[$count]]->m8;
-            //$progra_horas->sep = $this->cursos[$count]]->m9;
-            //$progra_horas->oct = $this->cursos[$count]]->m10;
-            //$progra_horas->nov = $this->cursos[$count]]->m11;
-            //$progra_horas->dic = $this->cursos[$count]]->m12;
-            //$progra_participantes.save();
+            //Guardar programacion cursos
+
+            $programacion_curso = new ProgramacionOperativa;
+            $programacion_curso ->id_meta = $MetaOperativa->id;
+            $programacion_curso ->tipo = 1; // Tipo 1 para cursos
+            $programacion_curso ->ene = $this->cursos[$count]['m1'];
+            $programacion_curso ->feb = $this->cursos[$count]['m2'];
+            $programacion_curso ->mar = $this->cursos[$count]['m3'];
+            $programacion_curso ->abr = $this->cursos[$count]['m4'];
+            $programacion_curso ->may = $this->cursos[$count]['m5'];
+            $programacion_curso ->jun = $this->cursos[$count]['m6'];
+            $programacion_curso ->jul = $this->cursos[$count]['m7'];
+            $programacion_curso ->ago = $this->cursos[$count]['m8'];
+            $programacion_curso ->sep = $this->cursos[$count]['m9'];
+            $programacion_curso ->oct = $this->cursos[$count]['m10'];
+            $programacion_curso ->nov = $this->cursos[$count]['m11'];
+            $programacion_curso ->dic = $this->cursos[$count]['m12'];
+            $programacion_curso->save();
+
+            //Guardar programacion participantes
+
+            $programacion_participantes= new ProgramacionOperativa;
+            $programacion_participantes->id_meta = $MetaOperativa->id;
+            $programacion_participantes->tipo = 2; // Tipo 2 para participantes
+            $programacion_participantes->ene = $this->participantes[$count]['m1'];
+            $programacion_participantes->feb = $this->participantes[$count]['m2'];
+            $programacion_participantes->mar = $this->participantes[$count]['m3'];
+            $programacion_participantes->abr = $this->participantes[$count]['m4'];
+            $programacion_participantes->may = $this->participantes[$count]['m5'];
+            $programacion_participantes->jun = $this->participantes[$count]['m6'];
+            $programacion_participantes->jul = $this->participantes[$count]['m7'];
+            $programacion_participantes->ago = $this->participantes[$count]['m8'];
+            $programacion_participantes->sep = $this->participantes[$count]['m9'];
+            $programacion_participantes->oct = $this->participantes[$count]['m10'];
+            $programacion_participantes->nov = $this->participantes[$count]['m11'];
+            $programacion_participantes->dic = $this->participantes[$count]['m12'];
+            $programacion_participantes->save();
             
+            //Guardar programacion horas
+            $programacion_horas = new ProgramacionOperativa;
+            $programacion_horas->meta_operativa_id = $MetaOperativa->id;
+            $programacion_horas->tipo = 3; // Tipo 3 para horas
+            $programacion_horas->ene = $this->horas[$count]['m1'];
+            $programacion_horas->feb = $this->horas[$count]['m2'];
+            $programacion_horas->mar = $this->horas[$count]['m3'];
+            $programacion_horas->abr = $this->horas[$count]['m4'];
+            $programacion_horas->may = $this->horas[$count]['m5'];
+            $programacion_horas->jun = $this->horas[$count]['m6'];
+            $programacion_horas->jul = $this->horas[$count]['m7'];
+            $programacion_horas->ago = $this->horas[$count]['m8'];
+            $programacion_horas->sep = $this->horas[$count]['m9'];
+            $programacion_horas->oct = $this->horas[$count]['m10'];
+            $programacion_horas->nov = $this->horas[$count]['m11'];
+            $programacion_horas->dic = $this->horas[$count]['m12'];
+            $programacion_horas->save();
 
-
-            //$count++;
+        $count++;
         }
-        
-    }
+            DB::commit(); //realiza el commit en la BD
+             session()->flash('success', 'POA registrado exitosamente.');
+           } catch (\Exception $e) {
+             DB::rollBack(); //Log::error("Error en RegistrarPoaAdministrativo: " . $e->getMessage());
+             session()->flash('error', 'Ocurrió un error al registrar el POA '); 
+      }
+  }
+       
 
     public function delete($id){
         array_splice($this->listaMetas, $id, 1);
