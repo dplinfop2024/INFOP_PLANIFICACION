@@ -186,19 +186,19 @@
                                                 <tr>
                                                     
                                                     <th scope="row">Cursos</th> 
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m1"></td>
-                                                    <td ><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m2"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m3"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m4"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m5"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m6"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m7"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m8"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m9"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m10"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m11"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m12"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="programacion_curso"disabled></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m1"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td ><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m2"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m3"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m4"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m5"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m6"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m7"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m8"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m9"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m10"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m11"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m12"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="listaTotal_curso.{{$index}}"disabled></td>
                     
                                                 </tr>
                                                 <!--Participantes-->
