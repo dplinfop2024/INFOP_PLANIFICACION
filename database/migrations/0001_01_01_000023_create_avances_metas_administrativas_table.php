@@ -15,8 +15,18 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_meta');
             $table->foreign('id_meta')->references('id')->on('metas_administrativas');
-            $table->integer('mes');
-            $table->integer('programacion');
+            $table->integer('ene');
+            $table->integer('feb');
+            $table->integer('mar');
+            $table->integer('abr');
+            $table->integer('may');
+            $table->integer('jun');
+            $table->integer('jul');
+            $table->integer('ago');
+            $table->integer('sep');
+            $table->integer('oct');
+            $table->integer('nov');
+            $table->integer('dic');
             $table->timestamps();
         });
     }
