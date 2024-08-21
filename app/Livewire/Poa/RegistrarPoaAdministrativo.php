@@ -24,6 +24,7 @@ class RegistrarPoaAdministrativo extends Component
     public $currentYear; // Año actual
     public $componenteSeleccionado;
     public $estado = 'nuevo';
+    public $listaTotalAnual = []; //total para la suma de la programacion
     public $activeTabIndex = 0;
 
     public function mount() {
@@ -40,7 +41,7 @@ class RegistrarPoaAdministrativo extends Component
         'm7' => 0, 'm8' => 0, 'm9' => 0, 'm10' => 0, 'm11' => 0, 'm12' => 0, 'anual' => '0']
     ];
 
-    public $listaTotalAnual = [];
+    
 
     public function agregarMeta(){
         $this->listaMetas[] = [
@@ -62,7 +63,7 @@ class RegistrarPoaAdministrativo extends Component
         }
     }
 
-    public function programacionAnual($index){
+   /* public function programacionAnual($index){ //funcion para sumar la programacion
         $total = 0;
         $total = $this->listaMetas[$index]['m1']+$this->listaMetas[$index]['m2']
         +$this->listaMetas[$index]['m3']+$this->listaMetas[$index]['m4']
@@ -72,8 +73,23 @@ class RegistrarPoaAdministrativo extends Component
         +$this->listaMetas[$index]['m11']+$this->listaMetas[$index]['m12'];
         //dd($total);
         $this->listaTotalAnual[$index]=$total;
-    }
+    }*/
 
+    public function programacionAnual($index) { //funcion para sumar la programacion
+        $total = 0;
+        
+        // Suma los valores de los 12 meses
+        for ($i = 1; $i <= 12; $i++) {
+            $valor = $this->listaMetas[$index]['m' . $i]; //numero de mes
+            $total += is_numeric($valor) ? (float)$valor : 0; //si el valor es null le asigna un 0
+        }
+    
+        // SE ASIGNA EL TOTAL DE LA SUMA DE CADA MES
+        $this->listaTotalAnual[$index] = $total;
+        //AISGNA EL TOTAL AL CAMPO ANUAL  de la listaMetas
+        $this->listaMetas[$index]['anual'] = $total;
+    }
+    
     public function mostrarDescripcionLinea($index)
     {
         $lineaSeleccionada = collect($this->lineasEstrategicas)
@@ -82,13 +98,13 @@ class RegistrarPoaAdministrativo extends Component
     }
 
     public function save() {
-
+       // $this->dispatch('log', $this->listaMetas);
         
         if (!$this->componenteSeleccionado) {
             session()->flash('warning', 'Debe seleccionar un componente antes de registrar.');
             return;
         }
-
+    
         DB::beginTransaction();
         try { 
             $poa = new Poa();
@@ -118,6 +134,12 @@ class RegistrarPoaAdministrativo extends Component
                     DB::rollBack();
                     return;
                 }
+                if (empty($meta['unidadMedida'])) {
+                    $errorMessage = "Debe ingresar la unidad de medida de la meta: $indexMeta";
+                    session()->flash('warning', $errorMessage);
+                    DB::rollBack();
+                    return;
+                }
                 
 
                 $metaAdministrativa = new MetaAdministrativa();
@@ -132,18 +154,18 @@ class RegistrarPoaAdministrativo extends Component
 
                 $programacion = new ProgramacionAdministrativa();
                 $programacion->id_meta = $metaAdministrativa->id; //id de la meta registrada
-                $programacion->ene = $meta['m1'];
-                $programacion->feb = $meta['m2'];
-                $programacion->mar = $meta['m3'];
-                $programacion->abr = $meta['m4'];
-                $programacion->may = $meta['m5'];
-                $programacion->jun = $meta['m6'];
-                $programacion->jul = $meta['m7'];
-                $programacion->ago = $meta['m8'];
-                $programacion->sep = $meta['m9'];
-                $programacion->oct = $meta['m10'];
-                $programacion->nov = $meta['m11'];
-                $programacion->dic = $meta['m12'];
+                $programacion->ene = (int)($meta['m1'] ?? 0);
+                $programacion->feb = (int)($meta['m2'] ?? 0);
+                $programacion->mar = (int)($meta['m3'] ?? 0);
+                $programacion->abr = (int)($meta['m4'] ?? 0);
+                $programacion->may = (int)($meta['m5'] ?? 0);
+                $programacion->jun = (int)($meta['m6'] ?? 0);
+                $programacion->jul = (int)($meta['m7'] ?? 0);
+                $programacion->ago = (int)($meta['m8'] ?? 0);
+                $programacion->sep = (int)($meta['m9'] ?? 0);
+                $programacion->oct = (int)($meta['m10'] ?? 0);
+                $programacion->nov = (int)($meta['m11'] ?? 0);
+                $programacion->dic = (int)($meta['m12'] ?? 0);
                 $programacion->save(); //guarda la programacion
             }
 
@@ -159,7 +181,7 @@ class RegistrarPoaAdministrativo extends Component
     public function delete($id){
         array_splice($this->listaMetas, $id, 1);
         array_splice($this->listaTotalAnual, $id, 1);
-        $this->dispatch('log', "Borrar meta: $id");
+       $this->activeTabIndex = 0; //al eliminar metas redirige a las pestaña de meta 1
     }
 
     public function render()

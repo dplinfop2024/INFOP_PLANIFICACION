@@ -11,7 +11,7 @@
                 transition: transform 0.2s;
     }
     .rz-card1 {
-                background-color: #a6edfc;
+                background-color: #a8e8f5;
                 border: 1px solid #dee2e6;
                 border-radius: 8px;
                 padding: 20px;
@@ -100,8 +100,14 @@
                     @foreach($listaMetas as $index => $meta)
                     <li class="nav-item" role="presentation">
                         <button class="nav-link @if($index == $activeTabIndex) active @endif" id="tab{{$index}}" data-bs-toggle="tab" data-bs-target="#meta{{$index}}" type="button" role="tab" aria-controls="meta{{$index}}" aria-selected="@if($index == $activeTabIndex) true @else false @endif">Meta {{$index+1}}</button>
+                   <!-- Botones -->
+        
                     </li>
                     @endforeach
+                    <div class="ms-2">
+                        <button type="button" class="btn btn-success me-2" wire:click="agregarMeta()">Agregar meta</button>
+                        <button type="button" class="btn btn-warning" wire:click="save()">Registrar</button>
+                    </div>
                 </ul>
 
                 <!-- Contenido de las pestañas -->
@@ -166,25 +172,25 @@
                                         <tr>
                                             <td><textarea class="form-control" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea></td>
                                             <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m1" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12" wire:keydown="programacionAnual({{$index}})"></td>
-                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaTotalAnual.{{$index}}"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m2" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m3" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m4" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m5" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m6" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m7" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m8" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m9" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m10" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m11" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.m12" wire:keydown="programacionAnual({{$index}})" wire:click="programacionAnual({{$index}})"></td>
+                                            <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaTotalAnual.{{$index}}" disabled></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <div class="d-grid pb-3 pt-3 col-2 mx-auto">
-                                <button class="btn bg-danger-subtle" wire:click="delete({{$index}})">Eliminar meta</button>
+                                <button type="button" class="btn btn-danger" wire:click="delete({{$index}})">Eliminar meta</button>
                             </div>
                         </div>
                     </div>
@@ -194,11 +200,7 @@
         </div>
 
 
-        <!-- Botones -->
-        <div class="d-grid gap-3 pt-4 col-2 mx-auto">
-            <button class="btn" style="background-color:#38D6EE" wire:click="agregarMeta()">Agregar meta</button>
-            <button class="btn" style="background-color:#38D6EE" wire:click="save()">Registrar</button>
-        </div>
+        
 
         </div>
 

@@ -11,5 +11,4 @@ class ProgramacionAdministrativa extends Model
     
     protected $table = 'programaciones_administrativas';
 
-
 }
