@@ -54,14 +54,12 @@ class RegistrarPoaOperativo extends Component
         $currentYear = Carbon::now()->year;// Obtiene el año actual
         $nextYear = Carbon::create($currentYear, 1, 1)->addYear()->year;//instancia de Carbon para el año actual y sumar un año
         $this->currentYear = $nextYear;// Asignar el nuevo año 
+        
     }
    
 
     public $listaMetas =[
-        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalCurso'=>0],
-        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalPaticipantes'=>0],
-        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalHoras'=>0]
-    ];
+        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'','anual' => '0' ]];
 
     public function agregarMeta(){
         $this->listaMetas[] = ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>''];
@@ -70,9 +68,9 @@ class RegistrarPoaOperativo extends Component
         array_push($this->participantes, array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0));
         array_push($this->horas, array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0));
         
-        array_push($this->listaTotalcurso, 0);
-        array_push($this->listaTotalparticipantes, 0);
-        array_push($this->listaTotalhoras, 0);
+        array_push($this->listaTotal_curso, 0);
+        array_push($this->listaTotal_participantes, 0);
+        array_push($this->listaTotal_horas, 0);
 
         $this->activeTabIndex = count($this->listaMetas) - 1;
     }
@@ -192,6 +190,14 @@ class RegistrarPoaOperativo extends Component
                     DB::rollBack();
                     return;
                 }
+
+                if (empty($meta['unidadMedida'])) {
+                    $errorMessage = "Debe ingresar la unidad de medida: $indexMeta";
+                    session()->flash('warning', $errorMessage);
+                    DB::rollBack();
+                    return;
+                }
+                
                 
                 //$this->dispatch('log', "datos validos");
                 
@@ -215,18 +221,18 @@ class RegistrarPoaOperativo extends Component
                 $programacion_curso = new ProgramacionOperativa;
                 $programacion_curso ->id_meta = $MetaOperativa->id;
                 $programacion_curso ->tipo = 1; // Tipo 1 para cursos
-                $programacion_curso ->ene = $this->cursos[$count]['m1'];
-                $programacion_curso ->feb = $this->cursos[$count]['m2'];
-                $programacion_curso ->mar = $this->cursos[$count]['m3'];
-                $programacion_curso ->abr = $this->cursos[$count]['m4'];
-                $programacion_curso ->may = $this->cursos[$count]['m5'];
-                $programacion_curso ->jun = $this->cursos[$count]['m6'];
-                $programacion_curso ->jul = $this->cursos[$count]['m7'];
-                $programacion_curso ->ago = $this->cursos[$count]['m8'];
-                $programacion_curso ->sep = $this->cursos[$count]['m9'];
-                $programacion_curso ->oct = $this->cursos[$count]['m10'];
-                $programacion_curso ->nov = $this->cursos[$count]['m11'];
-                $programacion_curso ->dic = $this->cursos[$count]['m12'];
+                $programacion_curso ->ene = (int)($cursos[$count]['m1']?? 0);
+                $programacion_curso ->feb = (int)($cursos[$count]['m2']?? 0);
+                $programacion_curso ->mar = (int)($cursos[$count]['m3']?? 0);
+                $programacion_curso ->abr = (int)($cursos[$count]['m4']?? 0);
+                $programacion_curso ->may = (int)($cursos[$count]['m5']?? 0);
+                $programacion_curso ->jun = (int)($cursos[$count]['m6']?? 0);
+                $programacion_curso ->jul = (int)($cursos[$count]['m7']?? 0);
+                $programacion_curso ->ago = (int)($cursos[$count]['m8']?? 0);
+                $programacion_curso ->sep = (int)($cursos[$count]['m9']?? 0);
+                $programacion_curso ->oct = (int)($cursos[$count]['m10']?? 0);
+                $programacion_curso ->nov = (int)($cursos[$count]['m11']?? 0);
+                $programacion_curso ->dic = (int)($cursos[$count]['m12']?? 0);
                 $programacion_curso->save();
 
                 $this->dispatch('log', $programacion_curso);
@@ -236,18 +242,18 @@ class RegistrarPoaOperativo extends Component
                 $programacion_participantes= new ProgramacionOperativa;
                 $programacion_participantes->id_meta = $MetaOperativa->id;
                 $programacion_participantes->tipo = 2; // Tipo 2 para participantes
-                $programacion_participantes->ene = $this->participantes[$count]['m1'];
-                $programacion_participantes->feb = $this->participantes[$count]['m2'];
-                $programacion_participantes->mar = $this->participantes[$count]['m3'];
-                $programacion_participantes->abr = $this->participantes[$count]['m4'];
-                $programacion_participantes->may = $this->participantes[$count]['m5'];
-                $programacion_participantes->jun = $this->participantes[$count]['m6'];
-                $programacion_participantes->jul = $this->participantes[$count]['m7'];
-                $programacion_participantes->ago = $this->participantes[$count]['m8'];
-                $programacion_participantes->sep = $this->participantes[$count]['m9'];
-                $programacion_participantes->oct = $this->participantes[$count]['m10'];
-                $programacion_participantes->nov = $this->participantes[$count]['m11'];
-                $programacion_participantes->dic = $this->participantes[$count]['m12'];
+                $programacion_participantes->ene =(int)($participantes[$count]['m1']?? 0);
+                $programacion_participantes->feb =(int)($participantes[$count]['m2']?? 0);
+                $programacion_participantes->mar =(int)($participantes[$count]['m3']?? 0);
+                $programacion_participantes->abr =(int)($participantes[$count]['m4']?? 0);
+                $programacion_participantes->may =(int)($participantes[$count]['m5']?? 0);
+                $programacion_participantes->jun =(int)($participantes[$count]['m6']?? 0);
+                $programacion_participantes->jul =(int)($participantes[$count]['m7']?? 0);
+                $programacion_participantes->ago =(int)($participantes[$count]['m8']?? 0);
+                $programacion_participantes->sep =(int)($participantes[$count]['m9']?? 0);
+                $programacion_participantes->oct =(int)($participantes[$count]['m10']?? 0);
+                $programacion_participantes->nov =(int)($participantes[$count]['m11']?? 0);
+                $programacion_participantes->dic =(int)($participantes[$count]['m12']?? 0);
                 $programacion_participantes->save();
                 $this->dispatch('log', $programacion_participantes);
             
@@ -255,18 +261,18 @@ class RegistrarPoaOperativo extends Component
                 $programacion_horas = new ProgramacionOperativa;
                 $programacion_horas->id_meta = $MetaOperativa->id;
                 $programacion_horas->tipo = 3; // Tipo 3 para horas
-                $programacion_horas->ene = $this->horas[$count]['m1'];
-                $programacion_horas->feb = $this->horas[$count]['m2'];
-                $programacion_horas->mar = $this->horas[$count]['m3'];
-                $programacion_horas->abr = $this->horas[$count]['m4'];
-                $programacion_horas->may = $this->horas[$count]['m5'];
-                $programacion_horas->jun = $this->horas[$count]['m6'];
-                $programacion_horas->jul = $this->horas[$count]['m7'];
-                $programacion_horas->ago = $this->horas[$count]['m8'];
-                $programacion_horas->sep = $this->horas[$count]['m9'];
-                $programacion_horas->oct = $this->horas[$count]['m10'];
-                $programacion_horas->nov = $this->horas[$count]['m11'];
-                $programacion_horas->dic = $this->horas[$count]['m12'];
+                $programacion_horas->ene = (int)($horas[$count]['m1']?? 0);
+                $programacion_horas->feb = (int)($horas[$count]['m2']?? 0);
+                $programacion_horas->mar = (int)($horas[$count]['m3']?? 0);
+                $programacion_horas->abr = (int)($horas[$count]['m4']?? 0);
+                $programacion_horas->may = (int)($horas[$count]['m5']?? 0);
+                $programacion_horas->jun = (int)($horas[$count]['m6']?? 0);
+                $programacion_horas->jul = (int)($horas[$count]['m7']?? 0);
+                $programacion_horas->ago = (int)($horas[$count]['m8']?? 0);
+                $programacion_horas->sep = (int)($horas[$count]['m9']?? 0);
+                $programacion_horas->oct = (int)($horas[$count]['m10']?? 0);
+                $programacion_horas->nov = (int)($horas[$count]['m11']?? 0);
+                $programacion_horas->dic = (int)($horas[$count]['m12']?? 0);
                 //$this->dispatch('log', $programacion_horas);
                 $programacion_horas->save();
                 $this->dispatch('log', $programacion_horas);
