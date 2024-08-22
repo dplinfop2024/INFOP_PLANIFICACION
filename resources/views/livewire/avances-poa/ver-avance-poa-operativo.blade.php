@@ -41,7 +41,7 @@
             <br><label><b>Cargo:</b> </label></br>
           </th>
           <th scope="col"> 
-            <label><b>Fecha:</b> </label>
+            <label><b>Fecha:</b>{{date_format($poa->updated_at, "y/m/d")}} </label>
             <br><label><b>Año:</b>{{$poa->anio}}</label> <br></th>
           </tr>
       </thead>
