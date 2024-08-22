@@ -204,37 +204,37 @@
                                                 <!--Participantes-->
                                                 <tr>
                                                     <th scope="row">Participantes</th>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m1"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m2"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m3"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m4"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m5"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m6"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m7"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m8"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m9"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m10"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m11"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m12"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="programacion_participantes"disabled></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m1"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m2"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m3"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m4"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m5"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m6"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m7"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m8"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m9"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m10"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m11"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="participantes.{{$index}}.m12"wire:keydown="progra_participantes({{$index}})" wire:click="progra_participantes({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaTotal_participantes.{{$index}}"disabled></td>
                                                     
                                                 </tr>
                                                 <!--Horas-->
                                                 <tr>
                                                     <th scope="row">Horas</th>  
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m1"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m2"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m3"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m4"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m5"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m6"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m7"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m8"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m9"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m10"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m11"></td>
-                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m12"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="rogramacion_horas"disabled></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m1"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m2"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m3"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m4"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m5"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m6"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m7"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m8"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m9"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m10"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m11"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td><input type="number" min="0" max="50" class="form-control" wire:model="horas.{{$index}}.m12"wire:keydown="progra_horas({{$index}})" wire:click="progra_horas({{$index}})"></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control"wire:model="listaTotal_horas.{{$index}}"disabled></td>
                                                 </tr>
                                             </tbody>
                                         </table>

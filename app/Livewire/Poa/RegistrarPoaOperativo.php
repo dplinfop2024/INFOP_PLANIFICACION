@@ -34,14 +34,14 @@ class RegistrarPoaOperativo extends Component
         array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0)
     ];
     public $participantes = [
-        array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
+        array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0)
     ];
     public $horas = [
-        array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0')
+        array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0)
     ];
     public $listaTotal_curso = [];
-    //public $istaTotal_participantes=[];
-    //public $istaTotal_horas=[];
+    public $listaTotal_participantes=[];
+    public $listaTotal_horas=[];
 
     public $activeTabIndex = 0;
 
@@ -56,32 +56,27 @@ class RegistrarPoaOperativo extends Component
         $this->currentYear = $nextYear;// Asignar el nuevo año 
     }
    
-  //  public function updated()
-    //{
-      //  $this->programacion_curso = array_sum($this->cursos);
-     //   $this->programacion_participantes = array_sum($this->participantes);
-      //  $this->programacion_horas = array_sum($this->horas);
-   // }
+
     public $listaMetas =[
-        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalCurso'=>0]
+        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalCurso'=>0],
+        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalPaticipantes'=>0],
+        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalHoras'=>0]
     ];
 
-    //public $listaTotalcurso=[];
-    //public $listaTotalparticipacione=[];
-    //public $listaTotalhoras=[];
     public function agregarMeta(){
         $this->listaMetas[] = ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>''];
         
         array_push($this->cursos, array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0));
-        //array_push($this->participantes, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
-        //array_push($this->horas, array('m1'=>'0', 'm2'=>'0', 'm3'=>'0', 'm4'=>'0', 'm5'=>'0', 'm6'=>'0', 'm7'=>'0', 'm8'=>'0', 'm9'=>'0', 'm10'=>'0', 'm11'=>'0', 'm12'=>'0'));
+        array_push($this->participantes, array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0));
+        array_push($this->horas, array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0));
         
         array_push($this->listaTotalcurso, 0);
-        //array_push($this->listaTotalHoras, 0);
-        //array_push($this->listaTotalParticipantes, 0);
+        array_push($this->listaTotalparticipantes, 0);
+        array_push($this->listaTotalhoras, 0);
 
         $this->activeTabIndex = count($this->listaMetas) - 1;
     }
+    
     public function progra_curso($index) { //funcion para sumar la programacion
         $total = 0;
         
@@ -96,6 +91,40 @@ class RegistrarPoaOperativo extends Component
         $this->listaTotal_curso[$index] = $total;
         //AISGNA EL TOTAL A la lista meta  de la listaMetas
         $this->listaMetas[$index]['totalCurso'] = $total;
+        
+        
+    }
+    public function progra_participantes($index) { //funcion para sumar la programacion
+        $total = 0;
+        
+        // Suma los valores de los 12 meses
+        for ($i = 1; $i <= 12; $i++) {
+            $valor = $this->participantes[$index]['m' . $i]; //numero de mes
+            $total += is_numeric($valor) ? (float)$valor : 0; //si el valor es null le asigna un 0
+        }
+    
+        // SE ASIGNA EL TOTAL DE LA SUMA DE CADA MES
+        
+        $this->listaTotal_participantes[$index] = $total;
+        //AISGNA EL TOTAL A la lista meta  de la listaMetas
+        $this->listaMetas[$index]['totalParticipantes'] = $total;
+        
+        
+    }
+    public function progra_horas($index) { //funcion para sumar la programacion
+        $total = 0;
+        
+        // Suma los valores de los 12 meses
+        for ($i = 1; $i <= 12; $i++) {
+            $valor = $this->horas[$index]['m' . $i]; //numero de mes
+            $total += is_numeric($valor) ? (float)$valor : 0; //si el valor es null le asigna un 0
+        }
+    
+        // SE ASIGNA EL TOTAL DE LA SUMA DE CADA MES
+        
+        $this->listaTotal_horas[$index] = $total;
+        //AISGNA EL TOTAL A la lista meta  de la listaMetas
+        $this->listaMetas[$index]['totalHoras'] = $total;
         
         
     }
@@ -172,9 +201,9 @@ class RegistrarPoaOperativo extends Component
                 $MetaOperativa->id_linea = $meta['numLinea'];
                 $MetaOperativa->descripcion = $meta['descripcion'];
                 $MetaOperativa->unidad_medida = $meta['unidadMedida'];
-                $MetaOperativa->cursos= $meta['totalCurso'];;
-                $MetaOperativa->participantes= 0; 
-                $MetaOperativa->horas= 0;
+                $MetaOperativa->cursos= $meta['totalCurso'];
+                $MetaOperativa->participantes= $meta['totalParticipantes']; 
+                $MetaOperativa->horas= $meta['totalHoras'];
                 $MetaOperativa->presupuesto_meta = 0;
                 $MetaOperativa->codigo_meta = $meta['codigo'];
                 $MetaOperativa->save();
