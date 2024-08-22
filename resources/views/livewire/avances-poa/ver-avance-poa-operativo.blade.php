@@ -41,7 +41,7 @@
             <br><label><b>Cargo:</b> </label></br>
           </th>
           <th scope="col"> 
-            <label><b>Fecha:</b> </label>
+            <label><b>Fecha:</b>{{date_format($poa->updated_at, "y/m/d")}} </label>
             <br><label><b>Año:</b>{{$poa->anio}}</label> <br></th>
           </tr>
       </thead>
@@ -92,7 +92,7 @@
                 <td>{{$metaoperativa->cursos}}</td>
                 <td></td>
                 <td></td>
-                <td>{{$sumaTrimestral}}</td>
+                <td>{{$sumaTrimestralCursos}}</td>
                 <td></td>
                 <td></td>
                 <td>4</td>
@@ -108,7 +108,7 @@
                 <td>{{$metaoperativa->participantes}}</td>
                 <td></td>
                 <td></td>
-                <td>{{$sumaTrimestral}}</td>
+                <td>{{$sumaTrimestralParticipantes}}</td>
                 <td></td>
                 <td></td>
                 <td>98</td>
@@ -124,7 +124,7 @@
                 <td>{{$metaoperativa->horas}}</td>
                 <td></td>
                 <td></td>
-                <td>{{$sumaTrimestral}}</td>
+                <td>{{$sumaTrimestralHoras}}</td>
                 <td></td>
                 <td></td>
                 <td>80</td>

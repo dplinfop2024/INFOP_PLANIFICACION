@@ -33,5 +33,7 @@ class Poa extends Model
         $usuario = User::find($this->id_usuario);
         return $usuario->get_tipo_unidad();
     }
-    
+
+
+
 }

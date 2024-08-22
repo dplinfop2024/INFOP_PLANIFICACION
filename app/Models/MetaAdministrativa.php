@@ -36,4 +36,9 @@ class MetaAdministrativa extends Model
         $programacion = ProgramacionAdministrativa::where('id_meta', $this->id)->get();
         return $programacion ;
     }
+    public function get_trimestre_reporte_poa(){
+        $reporte = ReportePoa::find($this->id_poa);
+        return $reporte->trimestre;
+    }
+    
 }
