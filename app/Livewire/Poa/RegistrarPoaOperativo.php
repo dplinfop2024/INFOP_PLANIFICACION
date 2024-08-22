@@ -63,7 +63,7 @@ class RegistrarPoaOperativo extends Component
       //  $this->programacion_horas = array_sum($this->horas);
    // }
     public $listaMetas =[
-        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'']
+        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'', 'totalCurso'=>0]
     ];
 
     //public $listaTotalcurso=[];
@@ -92,9 +92,12 @@ class RegistrarPoaOperativo extends Component
         }
     
         // SE ASIGNA EL TOTAL DE LA SUMA DE CADA MES
+        
         $this->listaTotal_curso[$index] = $total;
-        //AISGNA EL TOTAL AL CAMPO ANUAL  de la listaMetas
-       // $this->listaMetas[$index]['anual'] = $total;
+        //AISGNA EL TOTAL A la lista meta  de la listaMetas
+        $this->listaMetas[$index]['totalCurso'] = $total;
+        
+        
     }
     public function actualizarLineasEstrategicas() { //funcion para listar las lineas estrategicas segun el componente seleccionado
         if ($this->componenteSeleccionado) {
@@ -169,7 +172,7 @@ class RegistrarPoaOperativo extends Component
                 $MetaOperativa->id_linea = $meta['numLinea'];
                 $MetaOperativa->descripcion = $meta['descripcion'];
                 $MetaOperativa->unidad_medida = $meta['unidadMedida'];
-                $MetaOperativa->cursos= 0;
+                $MetaOperativa->cursos= $meta['totalCurso'];;
                 $MetaOperativa->participantes= 0; 
                 $MetaOperativa->horas= 0;
                 $MetaOperativa->presupuesto_meta = 0;

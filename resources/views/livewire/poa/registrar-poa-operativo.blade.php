@@ -198,7 +198,7 @@
                                                     <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m10"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m11"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
                                                     <td><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m12"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
-                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaMetas.{{$index}}.anual" wire:model="listaTotal_curso.{{$index}}"disabled></td>
+                                                    <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="listaTotal_curso.{{$index}}"disabled></td>
                     
                                                 </tr>
                                                 <!--Participantes-->
