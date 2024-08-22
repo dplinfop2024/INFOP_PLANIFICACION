@@ -66,11 +66,11 @@ class VerPoaOperativo extends Component
         $this->metas = MetaOperativa::where('id_poa', $this->poa->id)->orderBy('codigo_meta')->get();
 
 
-        $this->cargar_programacion_cursos();
+      //  $this->cargar_programacion_cursos();
 
-        $this->cargar_programacion_horas();
+     //   $this->cargar_programacion_horas();
         
-        $this->cargar_programacion_participantes();
+      //  $this->cargar_programacion_participantes();
         
         //$this->dispatch('log', $this->poa);
         //$this->dispatch('log', $this->user);

@@ -11,7 +11,12 @@
 
         <button class="btn btn-primary" type="button" href="{{route('poa.editar.administrativo')}}" wire:navigate>Editar POA Administrativo</button>
 
-        <button class="btn btn-primary" type="button" href="" wire:navigate>Ver Avances POA</button>
+        <button class="btn btn-primary" type="button" href="{{route('poa.avances.ver.operativo')}}" wire:navigate>Ver Avances POA</button>
+
+        {{-- Registrar avances POA Administrativo no se encuentra entre las funciones originales de UNIDAD. 
+        Temporalmente aqui, para realizar el codigo.                       --}}
+        <button class="btn btn-primary" type="button" href="{{route('poa.avances.registrar.administrativo')}}" wire:navigate>Registrar Avances POA Administrativo</button>
+    
 
         <button class="btn btn-primary" type="button" href="{{route('poa.avances.editar.operativo')}}" wire:navigate>Editar Avances POA Operativo</button>
     
