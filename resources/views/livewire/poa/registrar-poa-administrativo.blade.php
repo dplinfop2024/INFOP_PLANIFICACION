@@ -18,6 +18,14 @@
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 transition: transform 0.2s;
     }
+    .rz-card2 {
+                background-color: #ffffff;
+                border:  #ffffff;
+                border-radius: 0px;
+                padding: 0px;
+                box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+                transition: transform 0.2s;
+    }
 
 
     </style>  
@@ -78,7 +86,7 @@
                         <select class="form-select" wire:model="componenteSeleccionado"  wire:change="actualizarLineasEstrategicas">
                             <option value="">Seleccione un componente</option>
                             @foreach($componentes as $componente)
-                                <option value="{{ $componente->id }}">{{ $componente->id }}. {{ $componente->nombre }}</option>
+                                <option value="{{ $componente->id }}">{{ $componente->numero }}. {{ $componente->nombre }}</option>
                             @endforeach
                         </select>
 
@@ -92,9 +100,23 @@
             <h2>Metas</h2>
         </div>
         <div class="row">
-
+            <div class="container-fluid d-flex justify-content-center">
+        
+                <div class="rz-card2 card" style="width: 85%;">
+                    <div style="text-align: right;">
+                        <button type="button" class="btn btn-success" wire:click="agregarMeta()">Agregar meta</button>
+                        <button type="button" class="btn btn-warning"  wire:click="save()">Registrar</button>
+                        
+                    </div>
+                
+                </div>
+            </div>
+       
+            
         <div class="container-fluid d-flex justify-content-center">
+        
             <div class="rz-card1 card" style="width: 85%;">
+               
                 <!-- Navegación por pestañas -->
                 <ul class="nav nav-tabs" id="metaTabs" role="tablist">
                     @foreach($listaMetas as $index => $meta)
@@ -104,10 +126,7 @@
         
                     </li>
                     @endforeach
-                    <div class="ms-2">
-                        <button type="button" class="btn btn-success me-2" wire:click="agregarMeta()">Agregar meta</button>
-                        <button type="button" class="btn btn-warning" wire:click="save()">Registrar</button>
-                    </div>
+                   
                 </ul>
 
                 <!-- Contenido de las pestañas -->
@@ -188,15 +207,19 @@
                                     </tbody>
                                 </table>
                             </div>
-
+                           
                             <div class="d-grid pb-3 pt-3 col-2 mx-auto">
+                    
                                 <button type="button" class="btn btn-danger" wire:click="delete({{$index}})">Eliminar meta</button>
                             </div>
                         </div>
                     </div>
                     @endforeach
+                           
                 </div>
+                
             </div>
+            
         </div>
 
 

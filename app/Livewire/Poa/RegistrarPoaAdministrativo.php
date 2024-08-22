@@ -28,7 +28,9 @@ class RegistrarPoaAdministrativo extends Component
     public $activeTabIndex = 0;
 
     public function mount() {
-        $this->componentes = Componente::all();
+        //$this->componentes = Componente::all();
+        $this->componentes = Componente::orderBy('numero', 'asc')->get();
+
         $this->currentYear = Carbon::now()->year;
         $nextYear = Carbon::create($this->currentYear, 1, 1)->addYear()->year;
         $this->currentYear = $nextYear;
@@ -57,23 +59,12 @@ class RegistrarPoaAdministrativo extends Component
 
     public function actualizarLineasEstrategicas() { 
         if ($this->componenteSeleccionado) {
-            $this->lineasEstrategicas = LineaEstrategica::where('id_componente', $this->componenteSeleccionado)->get();
+            $this->lineasEstrategicas = LineaEstrategica::where('id_componente', $this->componenteSeleccionado)->orderby('numero', 'asc')->get();
+
         } else {
             $this->lineasEstrategicas = [];
         }
     }
-
-   /* public function programacionAnual($index){ //funcion para sumar la programacion
-        $total = 0;
-        $total = $this->listaMetas[$index]['m1']+$this->listaMetas[$index]['m2']
-        +$this->listaMetas[$index]['m3']+$this->listaMetas[$index]['m4']
-        +$this->listaMetas[$index]['m5']+$this->listaMetas[$index]['m6']
-        +$this->listaMetas[$index]['m7']+$this->listaMetas[$index]['m8']
-        +$this->listaMetas[$index]['m9']+$this->listaMetas[$index]['m10']
-        +$this->listaMetas[$index]['m11']+$this->listaMetas[$index]['m12'];
-        //dd($total);
-        $this->listaTotalAnual[$index]=$total;
-    }*/
 
     public function programacionAnual($index) { //funcion para sumar la programacion
         $total = 0;
