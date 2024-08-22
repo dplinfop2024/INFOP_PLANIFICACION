@@ -92,7 +92,7 @@
                 <td>{{$metaoperativa->cursos}}</td>
                 <td></td>
                 <td></td>
-                <td>{{$sumaTrimestral}}</td>
+                <td>{{$sumaTrimestralCursos}}</td>
                 <td></td>
                 <td></td>
                 <td>4</td>
@@ -108,7 +108,7 @@
                 <td>{{$metaoperativa->participantes}}</td>
                 <td></td>
                 <td></td>
-                <td>{{$sumaTrimestral}}</td>
+                <td>{{$sumaTrimestralParticipantes}}</td>
                 <td></td>
                 <td></td>
                 <td>98</td>
@@ -124,7 +124,7 @@
                 <td>{{$metaoperativa->horas}}</td>
                 <td></td>
                 <td></td>
-                <td>{{$sumaTrimestral}}</td>
+                <td>{{$sumaTrimestralHoras}}</td>
                 <td></td>
                 <td></td>
                 <td>80</td>

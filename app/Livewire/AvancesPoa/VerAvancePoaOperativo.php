@@ -25,8 +25,12 @@ class VerAvancePoaOperativo extends Component
 
     public $metaoperativa;
 
-    public $sumaTrimestral;
-//public $sumaTrimestralpar;
+
+    public $sumaTrimestralCursos;
+    public $sumaTrimestralParticipantes; //suma de participantes por trimestre
+    public $sumaTrimestralHoras;
+   
+
     
    
 
@@ -39,36 +43,42 @@ class VerAvancePoaOperativo extends Component
 
 
         $this->calcularSumaTrimestral();
-        //$this->calcularSumaTrimestralpar();
+        
     }
 
     public function calcularSumaTrimestral()
     {
-        // Buscar el registro con el id_meta de la metaoperativa
-        $registro = ProgramacionOperativa::where('id_meta', $this->metaoperativa->id)->first();
+        // Obtener la suma de participantes para el primer trimestre
+        $programacionOperativaParticipantes = ProgramacionOperativa::where('id', 2)->first();
+        $programacionOperativaHoras = ProgramacionOperativa::where('id', 3)->first();
+        $programacionOperativaCursos = ProgramacionOperativa::where('id', 1)
+                                         ->where('id_meta', 1)
+                                         ->first();
 
-        if ($registro) {
-            // Calcular la suma de los primeros tres meses
-            $this->sumaTrimestral = $registro->ene + $registro->feb + $registro->mar;
+        if ($programacionOperativaParticipantes) {
+            $this->sumaTrimestralParticipantes = $programacionOperativaParticipantes->ene 
+                                                + $programacionOperativaParticipantes->feb 
+                                                + $programacionOperativaParticipantes->mar;
         } else {
-            $this->sumaTrimestral = null; // Manejar el caso cuando no se encuentra el registro
+            $this->sumaTrimestralParticipantes = null; // Manejar el caso cuando no se encuentra el registro
+        }
+
+        if ($programacionOperativaHoras) {
+            $this->sumaTrimestralHoras = $programacionOperativaHoras->ene 
+                                        + $programacionOperativaHoras->feb 
+                                        + $programacionOperativaHoras->mar;
+        } else {
+            $this->sumaTrimestralHoras = null; // Manejar el caso cuando no se encuentra el registro
+        }
+
+        if ($programacionOperativaCursos) {
+            $this->sumaTrimestralCursos = $programacionOperativaCursos->ene 
+                                          + $programacionOperativaCursos->feb 
+                                          + $programacionOperativaCursos->mar;
+        } else {
+            $this->sumaTrimestralCursos = null; // Manejar el caso cuando no se encuentra el registro
         }
     }
-
-
-    /*funcio calcular la suma trimestral de participantes
-    public function calcularSumaTrimestralpar()
-    {
-        // Buscar el registro con el id_meta de la metaoperativa
-        $registro = ProgramacionOperativa::where('id_meta', $this->metaoperativa->id)->Second();
-
-        if ($registro) {
-            // Calcular la suma de los primeros tres meses
-            $this->sumaTrimestralpar = $registro->ene + $registro->feb + $registro->mar;
-        } else {
-            $this->sumaTrimestralpar = null; // Manejar el caso cuando no se encuentra el registro
-        }
-    }*/
 
     public function render()
     {
