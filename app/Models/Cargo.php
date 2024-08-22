@@ -9,6 +9,8 @@ class Cargo extends Model
 {
     use HasFactory;
 
+    protected $table ='cargos'; 
+
     public function get_cargo(){
         $cargo = Cargo::find($this->id_cargo);
         return $cargo->nombre;

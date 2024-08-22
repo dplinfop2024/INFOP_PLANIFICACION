@@ -32,17 +32,17 @@
         <tr class= "small-font">
           <th scope="col">
             <div class="table-title ">
-                  <label><b>Nombre Unidad:</b> </label> 
-                  <br><label><b>Actividad:</b>  </label></br>
+                  <label><b>Nombre Unidad:</b> {{$user->nombre_unidad}} </label> 
+                  <br><label><b>No. Actividad:<b></b> {{$user->id_unidad}} </label></br>
             </div>
           </th>
           <th scope="col">
-            <label><b>Nombre Responsable:</b> </label> 
+            <label><b>Nombre Responsable:</b> {{$user->nombre_responsable}} </label> 
             <br><label><b>Cargo:</b> </label></br>
           </th>
           <th scope="col"> 
-            <label><b>Fecha:</b>  </label>
-            <br><label><b>Año:</b></label> <br></th>
+            <label><b>Fecha:</b>{{date_format($poa->updated_at, "y/m/d")}} </label>
+            <br><label><b>Año:</b>{{$poa->anio}}</label> <br></th>
           </tr>
       </thead>
     </table>
@@ -84,18 +84,15 @@
         <tbody class="text-center">
             <!-- Primera fila de datos -->
             <tr>
-                <th rowspan="3"scope="row">1.1.1</th>
+                <th rowspan="3"scope="row">{{$metaoperativa->codigo_meta}}</th>
                 <td class="text-justify" rowspan="3">
-                    Capacitados 612 participantes hombres y mujeres,
-                     a través de 51 Acciones Formativas
-                     de complementación y un total de 1,570 horas de instrucción, 
-                     en las diferentes técnicas de cocina y turismo.   
+                    {{$metaoperativa->descripcion}}
                 </td>
                 <td>Cursos</td>
-                <td>51</td>
+                <td>{{$metaoperativa->cursos}}</td>
                 <td></td>
                 <td></td>
-                <td>10</td>
+                <td>{{$sumaTrimestralCursos}}</td>
                 <td></td>
                 <td></td>
                 <td>4</td>
@@ -108,10 +105,10 @@
             <tr text-center ="text-center">
                 <td>Participantes</td>
                 <td></td>
-                <td>612</td>
+                <td>{{$metaoperativa->participantes}}</td>
                 <td></td>
                 <td></td>
-                <td>120</td>
+                <td>{{$sumaTrimestralParticipantes}}</td>
                 <td></td>
                 <td></td>
                 <td>98</td>
@@ -124,10 +121,10 @@
                 <td>Horas</td>
                 <td></td>
                 <td></td>
-                <td>1,570</td>
+                <td>{{$metaoperativa->horas}}</td>
                 <td></td>
                 <td></td>
-                <td>320</td>
+                <td>{{$sumaTrimestralHoras}}</td>
                 <td></td>
                 <td></td>
                 <td>80</td>
@@ -137,7 +134,7 @@
             <tr >
                 <th rowspan="3"scope="row">1.1.2</th>
                 <td class="text-justify" rowspan="3">
-                    Capacitados 36 participantes hombres y mujeres, 
+                    forma manual.Capacitados 36 participantes hombres y mujeres, 
                     a través de 12 asistencia tecnica y un total de 344 horas de instrucción, 
                     en las diferentes técnicas de cocina y turismo.
                 </td>
