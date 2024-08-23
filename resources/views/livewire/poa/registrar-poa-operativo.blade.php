@@ -157,7 +157,6 @@
                                     </div>
                                     <br>
                                     <!-- Programación de meta -->
-                                    <!--Cursos-->
                                     <div class="table-responsive">
                                         <table class="table-info table-sm">
                                             <thead>
@@ -190,8 +189,8 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="table-group-divider">
+                                                
                                                 <tr>
-                                                    
                                                     <th scope="row">Cursos</th> 
                                                     <td style="border-left: 2px solid black;"><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m1"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
                                                     <td ><input type="number" min="0" max="50" class="form-control" wire:model="cursos.{{$index}}.m2"wire:keydown="progra_curso({{$index}})" wire:click="progra_curso({{$index}})"></td>
