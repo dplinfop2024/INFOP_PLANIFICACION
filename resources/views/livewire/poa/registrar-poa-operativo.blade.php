@@ -147,9 +147,12 @@
                                             <b>Descripción Meta</b>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  wire:model="listaMetas.{{$index}}.descripcion"></textarea>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <b>Unidad De Medida</b>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" wire:model="listaMetas.{{$index}}.unidadMedida"></textarea>
+                                            <br>
+                                            <b>Presupuesto De Meta</b>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" wire:model="listaMetas.{{$index}}.presupuestoMeta"></textarea>
                                         </div>
                                     </div>
                                     <br>

@@ -59,10 +59,10 @@ class RegistrarPoaOperativo extends Component
    
 
     public $listaMetas =[
-        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'','anual' => '0' ]];
+        ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'','presupuestoMeta'=>'','anual' => '' ]];
 
     public function agregarMeta(){
-        $this->listaMetas[] = ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>''];
+        $this->listaMetas[] = ['linea'=>'', 'numLinea'=>'', 'codigo'=> '', 'descripcion'=>'', 'unidadMedida'=>'','presupuestoMeta'=>''];
         
         array_push($this->cursos, array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0));
         array_push($this->participantes, array('m1'=>0, 'm2'=>0, 'm3'=>0, 'm4'=>0, 'm5'=>0, 'm6'=>0, 'm7'=>0, 'm8'=>0, 'm9'=>0, 'm10'=>0, 'm11'=>0, 'm12'=>0));
@@ -197,7 +197,12 @@ class RegistrarPoaOperativo extends Component
                     DB::rollBack();
                     return;
                 }
-                
+                if (empty($meta['presupuestoMeta'])) {
+                    $errorMessage = "Debe ingresar el  presupuesto de la meta: $indexMeta";
+                    session()->flash('warning', $errorMessage);
+                    DB::rollBack();
+                    return;
+                }
                 
                 //$this->dispatch('log', "datos validos");
                 
@@ -210,7 +215,7 @@ class RegistrarPoaOperativo extends Component
                 $MetaOperativa->cursos= $meta['totalCurso'];
                 $MetaOperativa->participantes= $meta['totalParticipantes']; 
                 $MetaOperativa->horas= $meta['totalHoras'];
-                $MetaOperativa->presupuesto_meta = 0;
+                $MetaOperativa->presupuesto_meta = $meta['presupuestoMeta'];
                 $MetaOperativa->codigo_meta = $meta['codigo'];
                 $MetaOperativa->save();
 
